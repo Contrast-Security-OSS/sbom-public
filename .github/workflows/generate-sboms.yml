@@ -1,0 +1,105 @@
+name: Generate SBOMs
+
+on:
+  # Run daily at 2 AM UTC
+  schedule:
+    - cron: '0 2 * * *'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+# Permissions for GitHub Pages deployment
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238
+        with:
+          node-version: '18'
+
+      - name: Setup yq
+        uses: mikefarah/yq@4839dbbf80445070a31c7a9c1055da527db2d5ee
+        with:
+          version: 'v4.35.1'
+
+      - name: Setup Syft
+        uses: anchore/sbom-action/download-syft@ab5d7b5f48981941c4c5d6bf33aeb98fe3bae38c
+        with:
+          syft-version: 'v1.0.0'
+
+      - name: Verify installations
+        run: |
+          echo "yq version: $(yq --version)"
+          echo "Syft version: $(syft version)"
+
+      - name: Fetch artifacts from Artifactory
+        env:
+          ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
+          ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+        run: |
+          chmod +x scripts/fetch-artifacts.sh
+          ./scripts/fetch-artifacts.sh
+
+      - name: Generate SBOMs
+        run: |
+          chmod +x scripts/generate-sboms.sh
+          ./scripts/generate-sboms.sh
+
+      - name: Build static site
+        run: |
+          chmod +x scripts/build-site.js
+          node scripts/build-site.js
+
+      - name: Deploy to GitHub Pages
+        run: |
+          # Configure git
+          git config --global user.name 'Contrast Labs'
+          git config --global user.email 'contrast-labs@contrastsecurity.com'
+
+          # Add and commit docs directory
+          git add docs/
+
+          # Check if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to deploy"
+          else
+            git commit -m "Update SBOMs - $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            git push
+            echo "Changes deployed successfully"
+          fi
+
+      - name: Upload artifact summary
+        run: |
+          echo "## SBOM Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f sboms/index.json ]; then
+            PRODUCT_COUNT=$(jq '.products | length' sboms/index.json)
+            VERSION_COUNT=$(jq '[.products[].versions | length] | add' sboms/index.json)
+
+            echo "**Products:** $PRODUCT_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "**Total Versions:** $VERSION_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Products" >> $GITHUB_STEP_SUMMARY
+            jq -r '.products[] | "- **\(.name)**: \(.versions | length) versions"' sboms/index.json >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Clean up temporary files
+        if: always()
+        run: |
+          rm -rf temp/
+          rm -rf sboms/
