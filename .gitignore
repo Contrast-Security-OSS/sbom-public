@@ -2,6 +2,11 @@
 temp/
 sboms/
 
+# Docs directory - generated content (except .nojekyll and README)
+docs/*
+!docs/.nojekyll
+!docs/README.md
+
 # Node modules (if any)
 node_modules/
 
