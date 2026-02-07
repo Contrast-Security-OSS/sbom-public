@@ -129,54 +129,67 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
     VERSIONS=$(echo "$RESPONSE" | jq -r '.children[]? | select(.folder == true) | .uri' | tr -d '/')
 
     if [[ -z "$VERSIONS" ]]; then
-        echo "  Warning: No versions found, checking for direct artifacts..."
-        # Try to get artifacts directly from this path
-        ARTIFACTS=$(echo "$RESPONSE" | jq -r '.children[]? | select(.folder == false) | .uri' | tr -d '/')
+        echo "  Warning: No versions found, searching recursively for artifacts..."
 
-        if [[ -z "$ARTIFACTS" ]]; then
+        # Use AQL to recursively search for artifacts
+        AQL_QUERY='{
+            "repo": "'$REPO'",
+            "path": {"$match": "'$PATH_PREFIX'/*"},
+            "name": {"$match": "'$PATTERN'"}
+        }'
+
+        AQL_RESPONSE=$(curl -s -X POST \
+            -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" \
+            -H "Content-Type: text/plain" \
+            -d "items.find($AQL_QUERY)" \
+            "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
+
+        ARTIFACT_COUNT=$(echo "$AQL_RESPONSE" | jq '.results | length')
+
+        if [[ "$ARTIFACT_COUNT" == "0" ]]; then
             echo "  No artifacts found for $PRODUCT_NAME"
             continue
         fi
+
+        echo "  Found $ARTIFACT_COUNT artifact(s)"
 
         # Process artifacts without version subdirectories
         VERSION="latest"
         VERSION_DIR="$PRODUCT_DIR/$VERSION"
         mkdir -p "$VERSION_DIR"
 
-        while IFS= read -r ARTIFACT; do
-            # Check if artifact matches pattern
-            if [[ ! "$ARTIFACT" == $PATTERN ]]; then
-                continue
-            fi
+        for ((k=0; k<ARTIFACT_COUNT; k++)); do
+            ARTIFACT_PATH=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].path")
+            ARTIFACT_NAME=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].name")
 
             # Check exclude patterns
             EXCLUDED=false
             for EXCLUDE in "${EXCLUDE_PATTERNS[@]}"; do
-                if [[ "$ARTIFACT" == $EXCLUDE ]]; then
+                if [[ "$ARTIFACT_NAME" == $EXCLUDE ]]; then
                     EXCLUDED=true
                     break
                 fi
             done
 
             if [[ "$EXCLUDED" == true ]]; then
-                echo "  Skipping excluded: $ARTIFACT"
+                echo "  Skipping excluded: $ARTIFACT_NAME"
                 continue
             fi
 
             # Download artifact
-            DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$PATH_PREFIX/$ARTIFACT"
-            echo "  Downloading: $ARTIFACT"
-            curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT"
+            DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
+            echo "  Downloading: $ARTIFACT_NAME"
+            curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
 
             # Add to manifest
             TEMP_MANIFEST=$(mktemp)
             jq --arg name "$PRODUCT_NAME" \
                --arg version "$VERSION" \
-               --arg artifact "$VERSION_DIR/$ARTIFACT" \
+               --arg artifact "$VERSION_DIR/$ARTIFACT_NAME" \
                '.products += [{"name": $name, "version": $version, "artifact": $artifact}]' \
                "$MANIFEST_FILE" > "$TEMP_MANIFEST"
             mv "$TEMP_MANIFEST" "$MANIFEST_FILE"
-        done <<< "$ARTIFACTS"
+        done
     else
         # Process each version
         echo "  Found versions: $(echo "$VERSIONS" | tr '\n' ' ')"
@@ -187,55 +200,64 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
             VERSION_DIR="$PRODUCT_DIR/$VERSION"
             mkdir -p "$VERSION_DIR"
 
-            # Query artifacts in version directory
-            VERSION_API_URL="$ARTIFACTORY_URL/api/storage/$REPO/$PATH_PREFIX/$VERSION"
-            VERSION_RESPONSE=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$VERSION_API_URL" || echo '{}')
+            # Use Artifactory's AQL to recursively find artifacts
+            # This handles nested folder structures
+            AQL_QUERY='{
+                "repo": "'$REPO'",
+                "path": {"$match": "'$PATH_PREFIX/$VERSION'/*"},
+                "name": {"$match": "'$PATTERN'"}
+            }'
 
-            ARTIFACTS=$(echo "$VERSION_RESPONSE" | jq -r '.children[]? | select(.folder == false) | .uri' | tr -d '/')
+            echo "  Searching recursively in version $VERSION..."
+            AQL_RESPONSE=$(curl -s -X POST \
+                -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" \
+                -H "Content-Type: text/plain" \
+                -d "items.find($AQL_QUERY)" \
+                "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
 
-            if [[ -z "$ARTIFACTS" ]]; then
+            # Extract file paths from AQL results
+            ARTIFACT_COUNT=$(echo "$AQL_RESPONSE" | jq '.results | length')
+
+            if [[ "$ARTIFACT_COUNT" == "0" ]]; then
                 echo "  No artifacts found in version $VERSION"
                 continue
             fi
 
-            # Process each artifact
-            while IFS= read -r ARTIFACT; do
-                [[ -z "$ARTIFACT" ]] && continue
+            echo "  Found $ARTIFACT_COUNT artifact(s)"
 
-                # Check if artifact matches pattern
-                if [[ ! "$ARTIFACT" == $PATTERN ]]; then
-                    continue
-                fi
+            # Process each artifact from AQL results
+            for ((k=0; k<ARTIFACT_COUNT; k++)); do
+                ARTIFACT_PATH=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].path")
+                ARTIFACT_NAME=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].name")
 
                 # Check exclude patterns
                 EXCLUDED=false
                 for EXCLUDE in "${EXCLUDE_PATTERNS[@]}"; do
-                    if [[ "$ARTIFACT" == $EXCLUDE ]]; then
+                    if [[ "$ARTIFACT_NAME" == $EXCLUDE ]]; then
                         EXCLUDED=true
                         break
                     fi
                 done
 
                 if [[ "$EXCLUDED" == true ]]; then
-                    echo "  Skipping excluded: $ARTIFACT"
+                    echo "  Skipping excluded: $ARTIFACT_NAME"
                     continue
                 fi
 
                 # Download artifact
-                DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$PATH_PREFIX/$VERSION/$ARTIFACT"
-                echo "  Downloading: $VERSION/$ARTIFACT"
-                curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT"
+                DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
+                echo "  Downloading: $ARTIFACT_NAME"
+                curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
 
                 # Add to manifest
                 TEMP_MANIFEST=$(mktemp)
                 jq --arg name "$PRODUCT_NAME" \
                    --arg version "$VERSION" \
-                   --arg artifact "$VERSION_DIR/$ARTIFACT" \
+                   --arg artifact "$VERSION_DIR/$ARTIFACT_NAME" \
                    '.products += [{"name": $name, "version": $version, "artifact": $artifact}]' \
                    "$MANIFEST_FILE" > "$TEMP_MANIFEST"
                 mv "$TEMP_MANIFEST" "$MANIFEST_FILE"
-
-            done <<< "$ARTIFACTS"
+            done
 
         done <<< "$VERSIONS"
     fi
