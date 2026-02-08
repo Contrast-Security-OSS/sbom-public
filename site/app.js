@@ -54,7 +54,7 @@ function animateStats(data) {
         } else if (diffDays === 1) {
             dateText = '1 day ago';
         } else if (diffDays < 7) {
-            dateText = `${diffDays} days ago';
+            dateText = `${diffDays} days ago`;
         } else {
             dateText = date.toLocaleDateString();
         }
