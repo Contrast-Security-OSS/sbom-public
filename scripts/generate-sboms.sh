@@ -27,8 +27,7 @@ fi
 SYFT_VERSION=$(syft version | head -n 1 || echo "unknown")
 echo "Using Syft: $SYFT_VERSION"
 
-# Clean and create SBOM directory
-rm -rf "$SBOM_DIR"
+# Ensure SBOM directory exists (but don't delete it)
 mkdir -p "$SBOM_DIR"
 
 echo "Starting SBOM generation..."
@@ -49,6 +48,9 @@ while IFS= read -r PRODUCT_NAME; do
     # Create product slug
     PRODUCT_SLUG=$(echo "$PRODUCT_NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
     PRODUCT_SBOM_DIR="$SBOM_DIR/$PRODUCT_SLUG"
+
+    # Clean only this product's directory (preserve other products)
+    rm -rf "$PRODUCT_SBOM_DIR"
     mkdir -p "$PRODUCT_SBOM_DIR"
 
     # Get versions for this product
