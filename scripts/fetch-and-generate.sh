@@ -332,9 +332,12 @@ fetch_artifactory() {
 
     echo "  Artifactory: $artifactory_path" >&2
 
-    # Construct AQL query
+    # Construct AQL query - match files in the path or any subdirectory
     local aql_query='items.find({
-        "path": {"$match": "'$artifactory_path'/*"},
+        "$or": [
+            {"path": {"$eq": "'$artifactory_path'"}},
+            {"path": {"$match": "'$artifactory_path'/*"}}
+        ],
         "name": {"$match": "'$pattern'"}
     }).sort({"$desc": ["modified"]}).limit('$max_versions')'
 
