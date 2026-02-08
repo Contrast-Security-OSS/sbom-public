@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-08T21:50:34Z",
+  "generated": "2026-02-08T21:56:04Z",
   "products": [
     {
       "name": "Contrast CLI Linux",
@@ -56,61 +56,61 @@
       "versions": [
         {
           "version": "6.25.1",
-          "generatedAt": "2026-02-08T21:49:42Z",
+          "generatedAt": "2026-02-08T21:55:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.25.0",
-          "generatedAt": "2026-02-08T21:49:46Z",
+          "generatedAt": "2026-02-08T21:55:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.24.0",
-          "generatedAt": "2026-02-08T21:49:49Z",
+          "generatedAt": "2026-02-08T21:55:18Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.23.0",
-          "generatedAt": "2026-02-08T21:49:53Z",
+          "generatedAt": "2026-02-08T21:55:21Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.22.1",
-          "generatedAt": "2026-02-08T21:49:56Z",
+          "generatedAt": "2026-02-08T21:55:24Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.22.0",
-          "generatedAt": "2026-02-08T21:49:59Z",
+          "generatedAt": "2026-02-08T21:55:27Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.21.0",
-          "generatedAt": "2026-02-08T21:50:03Z",
+          "generatedAt": "2026-02-08T21:55:30Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.20.1",
-          "generatedAt": "2026-02-08T21:50:06Z",
+          "generatedAt": "2026-02-08T21:55:33Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.19.0",
-          "generatedAt": "2026-02-08T21:50:09Z",
+          "generatedAt": "2026-02-08T21:55:36Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.18.1",
-          "generatedAt": "2026-02-08T21:50:13Z",
+          "generatedAt": "2026-02-08T21:55:40Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
