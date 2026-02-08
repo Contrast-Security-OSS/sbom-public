@@ -6,8 +6,10 @@ products:
     max_versions: 5
 
   - name: "Java Agent"
-    direct_download_url: "https://download.java.contrastsecurity.com/latest"
-    artifact_pattern: "contrast-agent-*.jar"
+    maven_central: true
+    maven_group_id: "com.contrastsecurity"
+    maven_artifact_id: "contrast-agent"
+    max_versions: 10
 
   - name: "Flex Agent"
     artifactory_repo: "flex-agent-release"
