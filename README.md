@@ -11,7 +11,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 ## Features
 
 - 🔄 **Automated SBOM Generation**: Workflow-triggered generation with manual dispatch option
-- 📦 **Multi-Source Support**: Fetches artifacts from S3, Maven Central, and Artifactory
+- 📦 **Multi-Source Support**: Fetches artifacts from S3, Maven Central, npm, and Artifactory
 - 🔐 **Anonymous Access**: Works with public repositories without credentials
 - 📋 **Dual Format**: SPDX and CycloneDX for maximum compatibility
 - 🔍 **Searchable Interface**: Modern web UI with filtering and sorting
@@ -20,7 +20,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
-**7 of 12 products active** • **73 versions** • **146 SBOM files** (SPDX + CycloneDX)
+**8 of 12 products active** • **83 versions** • **166 SBOM files** (SPDX + CycloneDX)
 
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
@@ -31,9 +31,9 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 | **Contrast CLI Linux** | 10 | Artifactory (public) | ✅ Active |
 | **Contrast CLI Mac** | 10 | Artifactory (public) | ✅ Active |
 | **Contrast CLI Windows** | 10 | Artifactory (public) | ✅ Active |
+| **Node Agent** | 10 | npm | ✅ Active |
 | .NET Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 | .NET Agent IIS Installer | - | Artifactory (private) | ⚠️ Requires credentials |
-| Node Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 | Python Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 | Ruby Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 
@@ -53,6 +53,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 │   Sources   │
 │  - S3       │
 │  - Maven    │
+│  - npm      │
 │  - Artifactory│
 └──────┬──────┘
        │
@@ -133,10 +134,16 @@ Products are configured in `config/products.yml`:
 ```yaml
 products:
   # Maven Central example
-  - name: "Product Name"
+  - name: "Java Agent"
     source: "maven"
-    maven_group_id: "com.example"
-    maven_artifact_id: "product"
+    maven_group_id: "com.contrastsecurity"
+    maven_artifact_id: "contrast-agent"
+    max_versions: 10
+
+  # npm registry example
+  - name: "Node Agent"
+    source: "npm"
+    npm_package: "@contrast/agent"
     max_versions: 10
 
   # Artifactory with flat structure (version/file)
@@ -267,6 +274,7 @@ Currently, several products require Artifactory credentials. To enable them:
 The system is designed to work with public repositories:
 - **S3**: Uses public HTTP endpoints (no AWS credentials)
 - **Maven Central**: Public API
+- **npm**: Public registry API
 - **Artifactory**: Public repos use REST API anonymously
 
 ### Private Repositories
