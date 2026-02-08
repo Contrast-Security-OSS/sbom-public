@@ -55,9 +55,8 @@ products:
     max_versions: 10
 
   - name: "Python Agent"
-    source: "artifactory"
-    artifactory_path: "python-agent-release"
-    artifact_pattern: "contrast-python-agent*"
+    source: "pypi"
+    pypi_package: "contrast-agent"
     max_versions: 10
 
   - name: "Ruby Agent"
