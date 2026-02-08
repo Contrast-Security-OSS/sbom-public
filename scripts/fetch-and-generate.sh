@@ -313,22 +313,17 @@ fetch_artifactory() {
 
     # Check environment variables
     if [[ -z "${ARTIFACTORY_URL:-}" ]]; then
-        echo -e "${RED}ERROR: ARTIFACTORY_URL must be set${NC}"
+        echo -e "${RED}ERROR: ARTIFACTORY_URL must be set${NC}" >&2
         exit 2
     fi
 
     if [[ -z "${ARTIFACTORY_TOKEN:-}" ]] && [[ -z "${ARTIFACTORY_USER:-}" || -z "${ARTIFACTORY_PASSWORD:-}" ]]; then
-        echo -e "${RED}ERROR: Either ARTIFACTORY_TOKEN or both ARTIFACTORY_USER and ARTIFACTORY_PASSWORD must be set${NC}"
+        echo -e "${RED}ERROR: Either ARTIFACTORY_TOKEN or both ARTIFACTORY_USER and ARTIFACTORY_PASSWORD must be set${NC}" >&2
         exit 2
     fi
 
-    # Set up authentication
-    local curl_auth
-    if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
-        curl_auth="-H \"X-JFrog-Art-Api: $ARTIFACTORY_TOKEN\""
-    else
-        curl_auth="-u \"$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD\""
-    fi
+    # Debug: Log URL (without credentials)
+    echo "  Artifactory URL: ${ARTIFACTORY_URL}/api/search/aql" >&2
 
     echo "  Artifactory: $artifactory_path" >&2
 
@@ -341,11 +336,21 @@ fetch_artifactory() {
         "name": {"$match": "'$pattern'"}
     }).sort({"$desc": ["modified"]}).limit('$max_versions')'
 
-    # Execute AQL
-    local response=$(eval curl -s -X POST $curl_auth \
-        -H \"Content-Type: text/plain\" \
-        -d \"$aql_query\" \
-        \"$ARTIFACTORY_URL/api/search/aql\" 2>/dev/null || echo '{"results":[]}')
+    # Execute AQL with proper authentication
+    local response
+    if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
+        response=$(curl -s -X POST \
+            -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" \
+            -H "Content-Type: text/plain" \
+            -d "$aql_query" \
+            "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
+    else
+        response=$(curl -s -X POST \
+            -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" \
+            -H "Content-Type: text/plain" \
+            -d "$aql_query" \
+            "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
+    fi
 
     # Debug: Check if response is valid JSON
     if ! echo "$response" | jq empty 2>/dev/null; then
@@ -389,7 +394,19 @@ fetch_artifactory() {
         local download_url="$ARTIFACTORY_URL/$repo/$path/$artifact_name"
         local download_path="$TEMP_DIR/$slug-$version-$artifact_name"
 
-        if eval curl -f -s $curl_auth \"$download_url\" -o \"$download_path\" 2>/dev/null; then
+        # Download with proper authentication
+        local download_success=false
+        if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
+            if curl -f -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$download_url" -o "$download_path" 2>/dev/null; then
+                download_success=true
+            fi
+        else
+            if curl -f -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$download_url" -o "$download_path" 2>/dev/null; then
+                download_success=true
+            fi
+        fi
+
+        if [[ "$download_success" == "true" ]]; then
             echo "$download_path|$version"
         else
             echo -e "${YELLOW}      Failed to download $artifact_name${NC}" >&2
