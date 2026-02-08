@@ -10,7 +10,6 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TEMP_DIR="$REPO_ROOT/temp"
 MANIFEST_FILE="$TEMP_DIR/manifest.json"
 SBOM_DIR="$REPO_ROOT/sboms"
-INDEX_FILE="$SBOM_DIR/index.json"
 
 # Check if manifest exists
 if [[ ! -f "$MANIFEST_FILE" ]]; then
@@ -34,15 +33,6 @@ mkdir -p "$SBOM_DIR"
 
 echo "Starting SBOM generation..."
 
-# Initialize index
-cat > "$INDEX_FILE" <<EOF
-{
-  "generated": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-  "generator": "Syft",
-  "products": []
-}
-EOF
-
 # Get total artifacts
 TOTAL_ARTIFACTS=$(jq '.products | length' "$MANIFEST_FILE")
 echo "Processing $TOTAL_ARTIFACTS artifacts..."
@@ -63,9 +53,6 @@ while IFS= read -r PRODUCT_NAME; do
 
     # Get versions for this product
     VERSIONS=$(jq -r --arg name "$PRODUCT_NAME" '.products[] | select(.name == $name) | .version' "$MANIFEST_FILE" | sort -V -r)
-
-    # Prepare product entry for index
-    PRODUCT_INDEX_ENTRY='{"name": "'"$PRODUCT_NAME"'", "versions": []}'
 
     while IFS= read -r VERSION; do
         [[ -z "$VERSION" ]] && continue
@@ -112,48 +99,10 @@ while IFS= read -r PRODUCT_NAME; do
 
         done <<< "$ARTIFACTS"
 
-        # Get artifact info for metadata
-        ARTIFACT_INFO=$(jq -r --arg name "$PRODUCT_NAME" --arg version "$VERSION" \
-            '.products[] | select(.name == $name and .version == $version) | .artifact' \
-            "$MANIFEST_FILE" | head -n 1)
-
-        # Try to extract release date from artifact file stats
-        RELEASE_DATE=$(date -u +"%Y-%m-%d" || echo "unknown")
-        if [[ -f "$ARTIFACT_INFO" ]]; then
-            if [[ "$OSTYPE" == "darwin"* ]]; then
-                RELEASE_DATE=$(stat -f "%Sm" -t "%Y-%m-%d" "$ARTIFACT_INFO" 2>/dev/null || echo "unknown")
-            else
-                RELEASE_DATE=$(stat -c "%y" "$ARTIFACT_INFO" 2>/dev/null | cut -d' ' -f1 || echo "unknown")
-            fi
-        fi
-
-        # Add version to product index entry
-        PRODUCT_INDEX_ENTRY=$(echo "$PRODUCT_INDEX_ENTRY" | jq \
-            --arg version "$VERSION" \
-            --arg date "$RELEASE_DATE" \
-            --arg spdx "sboms/$PRODUCT_SLUG/$VERSION/sbom.spdx.json" \
-            --arg cyclonedx "sboms/$PRODUCT_SLUG/$VERSION/sbom.cyclonedx.json" \
-            '.versions += [{
-                "version": $version,
-                "releaseDate": $date,
-                "sboms": {
-                    "spdx": $spdx,
-                    "cyclonedx": $cyclonedx
-                }
-            }]')
-
     done <<< "$VERSIONS"
-
-    # Add product to index
-    TEMP_INDEX=$(mktemp)
-    jq --argjson product "$PRODUCT_INDEX_ENTRY" '.products += [$product]' "$INDEX_FILE" > "$TEMP_INDEX"
-    mv "$TEMP_INDEX" "$INDEX_FILE"
 
 done <<< "$PRODUCTS"
 
 echo ""
 echo "SBOM generation complete!"
-echo "Index file: $INDEX_FILE"
-echo "Total products: $(jq '.products | length' "$INDEX_FILE")"
-echo ""
-jq -r '.products[] | "  \(.name): \(.versions | length) versions"' "$INDEX_FILE"
+echo "Run build-index.sh to generate the index.json file"
