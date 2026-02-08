@@ -41,6 +41,84 @@ Automatically generate and publish Software Bill of Materials (SBOMs) for Contra
 
 ---
 
+## Current Status & Recent Improvements
+
+### Working Products (as of Feb 2026)
+
+| Product | Versions | Source | Notes |
+|---------|----------|--------|-------|
+| **EOP** | 13 | S3 (anonymous) | Manually committed, protected from overwrite |
+| **Java Agent** | 10 | Maven Central | Fully automated |
+| **Flex Agent** | 10 | Artifactory (anonymous) | Public repository |
+| .NET Agent | 0 | Artifactory (private) | Requires credentials |
+| Node Agent | 0 | Artifactory (private) | Requires credentials |
+| Python Agent | 0 | Artifactory (private) | Requires credentials |
+| Ruby Agent | 0 | Artifactory (private) | Requires credentials |
+| Go Agent | 0 | Artifactory (private) | Requires credentials |
+| CLI (all platforms) | 0 | Artifactory (private) | Requires credentials |
+
+### Recent Improvements (Feb 2026)
+
+#### 1. Anonymous Access for Public Repositories
+
+**S3 (EOP)**:
+- Removed AWS credential requirements
+- Uses public HTTP endpoint with XML API
+- Supports `version_list` fallback if bucket listing disabled
+- No security risk of credential exposure
+
+**Artifactory (Flex Agent)**:
+- Switched from AQL queries to REST API
+- Supports anonymous access for public repositories
+- Auto-detects and uses credentials only if provided
+- Constructs URLs from version directories
+
+#### 2. SBOM Protection Mechanism
+
+Manually-committed SBOMs are now protected from workflow overwrite:
+
+```bash
+# Script checks for existing SBOMs before fetching
+local existing_sboms=$(find "$SBOM_DIR/$slug" -mindepth 2 -name "sbom.*.json" | wc -l)
+if [[ "$existing_sboms" -gt 0 ]]; then
+    echo "⚠ Found existing SBOMs - SKIPPING fetch to preserve manual SBOMs"
+    return
+fi
+```
+
+This ensures EOP SBOMs (and any others manually committed) won't be overwritten by automated workflows.
+
+#### 3. Frontend Fixes
+
+**Data Structure Alignment**:
+- Fixed mismatch between backend (`generatedAt`) and frontend (`releaseDate`)
+- Construct SBOM URLs from slug/version/format instead of expecting pre-computed paths
+- Check `formats` array to conditionally show download buttons
+
+**Cache Busting**:
+- Added version parameter to `app.js` (`app.js?v=2`)
+- Prevents GitHub Pages CDN from serving stale versions
+
+#### 4. Stderr Redirect for Fetch Functions
+
+All informational messages now go to stderr:
+
+```bash
+echo "  Found $count artifacts" >&2  # Don't capture this
+echo "$download_path|$version"       # DO capture this
+```
+
+This prevents log messages from being captured as artifact data, which was causing empty SBOM generation attempts.
+
+#### 5. Build Script Improvements
+
+**build-index.sh**:
+- Handles empty version arrays without failing
+- Uses `-sc` flag for compact JSON output
+- Proper empty array handling: `for item in "${array[@]+"${array[@]}"}"`
+
+---
+
 ## Architecture
 
 ### High-Level Design
@@ -495,10 +573,19 @@ const spdxPath = `sboms/${product.slug}/${version.version}/sbom.spdx.json`;
 - ✅ Config validation before processing
 - ✅ No redundant data copies (smaller attack surface)
 - ✅ Simpler scripts (easier to audit)
-- ✅ **S3 anonymous access** - No AWS credentials needed for public buckets
-  - Eliminates risk of credential exposure in CI/CD
-  - Works with temporary AWS keys (no secret storage needed)
-  - Falls back to version_list if bucket listing disabled
+- ✅ **Anonymous access for public repositories**
+  - **S3**: No AWS credentials needed for public buckets
+    - Eliminates risk of credential exposure in CI/CD
+    - Works with public HTTP endpoints
+    - Falls back to version_list if bucket listing disabled
+  - **Artifactory**: REST API supports anonymous access
+    - Public repositories (like flex-agent-release) work without credentials
+    - Credentials auto-detected and used only if provided
+    - Reduces attack surface for credential theft
+- ✅ **SBOM protection mechanism**
+  - Manually-committed SBOMs are protected from overwrite
+  - Script checks for existing SBOMs before fetching
+  - Prevents accidental data loss
 
 ---
 
