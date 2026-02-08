@@ -319,128 +319,107 @@ fetch_artifactory() {
 
     # Authentication is optional for public repositories
     if [[ -n "${ARTIFACTORY_TOKEN:-}" ]] || [[ -n "${ARTIFACTORY_USER:-}" ]]; then
-        echo "  Artifactory: $artifactory_path (authenticated)" >&2
+        echo "  Artifactory (REST API, authenticated): $artifactory_path" >&2
     else
-        echo "  Artifactory: $artifactory_path (anonymous)" >&2
+        echo "  Artifactory (REST API, anonymous): $artifactory_path" >&2
     fi
 
     echo "  Pattern: $pattern" >&2
 
-    # Construct AQL query
+    # Use REST API to list repository contents
     # artifactory_path can be:
-    # - Just repo name: "flex-agent-release" (search all paths in repo)
-    # - Repo with path: "flex-agent-release/subdir" (search specific path in repo)
-    local repo_name="${artifactory_path%%/*}"  # Get first part before /
-    local sub_path="${artifactory_path#*/}"     # Get everything after first /
+    # - Just repo name: "flex-agent-release" (list root)
+    # - Repo with path: "cli/linux" (list that subpath)
 
-    local aql_query
-    if [[ "$repo_name" == "$sub_path" ]]; then
-        # No subpath, search entire repo
-        aql_query='items.find({
-            "repo": {"$eq": "'$repo_name'"},
-            "name": {"$match": "'$pattern'"}
-        }).sort({"$desc": ["modified"]}).limit('$max_versions')'
-        echo "  AQL: Searching repo='$repo_name', name='$pattern'" >&2
-    else
-        # Has subpath, search within that path in the repo
-        aql_query='items.find({
-            "repo": {"$eq": "'$repo_name'"},
-            "$or": [
-                {"path": {"$eq": "'$sub_path'"}},
-                {"path": {"$match": "'$sub_path'/*"}}
-            ],
-            "name": {"$match": "'$pattern'"}
-        }).sort({"$desc": ["modified"]}).limit('$max_versions')'
-        echo "  AQL: Searching repo='$repo_name', path='$sub_path' or '$sub_path/*', name='$pattern'" >&2
-    fi
+    local storage_url="$ARTIFACTORY_URL/api/storage/$artifactory_path"
 
-    # Execute AQL with optional authentication
-    local response
+    # Get directory listing with optional auth
+    local listing
     if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
-        response=$(curl -s -X POST \
-            -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" \
-            -H "Content-Type: text/plain" \
-            -d "$aql_query" \
-            "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
+        listing=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$storage_url" 2>/dev/null || echo '{}')
     elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
-        response=$(curl -s -X POST \
-            -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" \
-            -H "Content-Type: text/plain" \
-            -d "$aql_query" \
-            "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
+        listing=$(curl -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$storage_url" 2>/dev/null || echo '{}')
     else
-        # Anonymous access
-        response=$(curl -s -X POST \
-            -H "Content-Type: text/plain" \
-            -d "$aql_query" \
-            "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
+        listing=$(curl -s "$storage_url" 2>/dev/null || echo '{}')
     fi
 
-    # Debug: Check if response is valid JSON
-    if ! echo "$response" | jq empty 2>/dev/null; then
-        echo -e "${RED}  ERROR: Invalid JSON response from Artifactory${NC}" >&2
-        echo "  Response: ${response:0:500}" >&2
+    if ! echo "$listing" | jq -e '.children' > /dev/null 2>&1; then
+        echo -e "${YELLOW}  Could not list repository (may not exist or no access)${NC}" >&2
         return
     fi
 
-    local result_count=$(echo "$response" | jq '.results | length' 2>/dev/null)
+    # Get version folders, sort by version number (descending), limit to max_versions
+    local version_folders=$(echo "$listing" | jq -r '.children[] | select(.folder == true) | .uri' | \
+        sed 's|^/||' | \
+        grep -E '^[0-9]+\.[0-9]+' | \
+        sort -V -r | \
+        head -n "$max_versions")
 
-    if [[ -z "$result_count" || "$result_count" == "null" ]]; then
-        echo -e "${YELLOW}  No results field in Artifactory response${NC}" >&2
-        echo "  Response keys: $(echo "$response" | jq 'keys' 2>/dev/null)" >&2
-        echo "  Response sample: ${response:0:500}" >&2
+    if [[ -z "$version_folders" ]]; then
+        echo -e "${YELLOW}  No version folders found${NC}" >&2
         return
     fi
 
-    if [[ "$result_count" == "0" ]]; then
-        echo -e "${YELLOW}  No artifacts found${NC}" >&2
-        return
-    fi
+    local count=$(echo "$version_folders" | wc -l | tr -d ' ')
+    echo "  Found $count version(s)" >&2
 
-    echo "  Found $result_count artifact(s)" >&2
+    # For each version folder, list files and download matches
+    while IFS= read -r version; do
+        [[ -z "$version" ]] && continue
 
-    # Download each artifact
-    for ((k=0; k<result_count; k++)); do
-        local repo=$(echo "$response" | jq -r ".results[$k].repo")
-        local path=$(echo "$response" | jq -r ".results[$k].path")
-        local artifact_name=$(echo "$response" | jq -r ".results[$k].name")
+        local version_url="$ARTIFACTORY_URL/api/storage/$artifactory_path/$version"
 
-        # Extract version
-        local version="latest"
-        if [[ "$path" =~ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
-            version="${BASH_REMATCH[1]}"
-        elif [[ "$artifact_name" =~ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
-            version="${BASH_REMATCH[1]}"
-        fi
-
-        echo "    Version: $version - $artifact_name" >&2
-
-        local download_url="$ARTIFACTORY_URL/$repo/$path/$artifact_name"
-        local download_path="$TEMP_DIR/$slug-$version-$artifact_name"
-
-        # Download with optional authentication
-        local download_success=false
+        # Get files in version directory
+        local files
         if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
-            if curl -f -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$download_url" -o "$download_path" 2>/dev/null; then
-                download_success=true
-            fi
+            files=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$version_url" 2>/dev/null || echo '{}')
         elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
-            if curl -f -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$download_url" -o "$download_path" 2>/dev/null; then
-                download_success=true
-            fi
+            files=$(curl -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$version_url" 2>/dev/null || echo '{}')
         else
-            # Anonymous download
-            if curl -f -s "$download_url" -o "$download_path" 2>/dev/null; then
-                download_success=true
-            fi
+            files=$(curl -s "$version_url" 2>/dev/null || echo '{}')
         fi
 
-        if [[ "$download_success" == "true" ]]; then
-            echo "$download_path|$version"
-        else
-            echo -e "${YELLOW}      Failed to download $artifact_name${NC}" >&2
+        # Find files matching pattern (convert shell glob to grep pattern)
+        local grep_pattern=$(echo "$pattern" | sed 's/\*/.*/')
+        local matched_files=$(echo "$files" | jq -r '.children[]? | select(.folder == false) | .uri' | sed 's|^/||' | grep -E "^$grep_pattern$" || true)
+
+        if [[ -z "$matched_files" ]]; then
+            continue
         fi
-    done
+
+        # Download each matching file
+        while IFS= read -r filename; do
+            [[ -z "$filename" ]] && continue
+
+            echo "    Version: $version - $filename" >&2
+
+            local download_url="$ARTIFACTORY_URL/$artifactory_path/$version/$filename"
+            local download_path="$TEMP_DIR/$slug-$version-$filename"
+
+            # Download with optional authentication
+            local download_success=false
+            if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
+                if curl -f -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$download_url" -o "$download_path" 2>/dev/null; then
+                    download_success=true
+                fi
+            elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
+                if curl -f -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$download_url" -o "$download_path" 2>/dev/null; then
+                    download_success=true
+                fi
+            else
+                # Anonymous download
+                if curl -f -s "$download_url" -o "$download_path" 2>/dev/null; then
+                    download_success=true
+                fi
+            fi
+
+            if [[ "$download_success" == "true" ]]; then
+                echo "$download_path|$version"
+            else
+                echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
+            fi
+        done <<< "$matched_files"
+    done <<< "$version_folders"
 }
 
 # ============================================================================
