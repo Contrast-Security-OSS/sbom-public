@@ -1,8 +1,22 @@
 products:
   - name: "EOP"
     source: "s3"
-    artifact_pattern: "Contrast-*.war"
-    max_versions: 10
+    max_versions: 50
+    artifact_pattern: "contrast-eop-(.*)\\.tar\\.gz"
+    version_list:  
+      - "3.12.10"
+      - "3.12.9"
+      - "3.12.8"
+      - "3.12.7"
+      - "3.12.6"
+      - "3.12.5"
+      - "3.12.4"
+      - "3.12.4-PATCH"
+      - "3.12.3"
+      - "3.12.2"
+      - "3.12.1"
+      - "3.12.0"
+      - "3.11.11"
 
   - name: "Java Agent"
     source: "maven"
