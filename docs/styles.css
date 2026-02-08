@@ -6,21 +6,24 @@
 }
 
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --secondary-color: #64748b;
-    --background: #f8fafc;
+    /* Contrast Security Brand Colors */
+    --primary-color: #38B885;        /* Emerald Green */
+    --primary-hover: #2d9a6e;        /* Darker Emerald Green */
+    --secondary-color: #005A70;      /* Teal Blue */
+    --tertiary-color: #083C5A;       /* Dark Cyan */
+    --accent-orange: #DD6E1E;        /* Burnt Orange */
+    --accent-yellow: #FFDA36;        /* Golden Yellow */
+    --background: #ffffff;
     --surface: #ffffff;
-    --border: #e2e8f0;
-    --text: #1e293b;
+    --surface-dark: #1C2343;         /* Deep Navy */
+    --border: #e5e7eb;
+    --text: #181818;                 /* Charcoal Black */
     --text-light: #64748b;
-    --success: #10b981;
-    --warning: #f59e0b;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow: rgba(0, 0, 0, 0.08);
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: var(--text);
     background: var(--background);
@@ -34,21 +37,24 @@ body {
 
 /* Header */
 header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 2rem 0;
-    box-shadow: 0 1px 3px var(--shadow);
+    background: var(--surface-dark);
+    border-bottom: 3px solid var(--primary-color);
+    padding: 2.5rem 0;
+    box-shadow: 0 2px 8px var(--shadow);
 }
 
 header h1 {
-    font-size: 2rem;
-    color: var(--primary-color);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #ffffff;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 1.1rem;
+    font-weight: 400;
 }
 
 /* Main content */
@@ -57,11 +63,12 @@ main {
 }
 
 .info-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: #f8fafb;
+    border-left: 4px solid var(--primary-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 2rem;
+    box-shadow: 0 1px 3px var(--shadow);
 }
 
 .info-box p {
@@ -102,7 +109,7 @@ main {
 .search-box input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(56, 184, 133, 0.15);
 }
 
 .filter-controls {
@@ -241,7 +248,7 @@ button, .button {
 }
 
 .btn-secondary:hover {
-    background: #475569;
+    background: var(--tertiary-color);
 }
 
 .btn-outline {
