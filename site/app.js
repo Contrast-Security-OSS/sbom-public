@@ -3,6 +3,10 @@
 let allProducts = [];
 let filteredProducts = [];
 let expandedProducts = new Set();
+let dateFilterActive = false;
+let dateFrom = null;
+let dateTo = null;
+let sortOrder = 'desc'; // 'asc' or 'desc'
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
@@ -85,16 +89,38 @@ function animateCounter(id, start, end, duration) {
 function setupEventListeners() {
     const searchInput = document.getElementById('search-input');
     const sortSelect = document.getElementById('sort-select');
+    const sortOrderToggle = document.getElementById('sort-order-toggle');
+    const dateFilterToggle = document.getElementById('date-filter-toggle');
     const viewToggle = document.getElementById('view-toggle');
+    const applyDateFilter = document.getElementById('apply-date-filter');
+    const clearDates = document.getElementById('clear-dates');
+    const removeDateFilter = document.getElementById('remove-date-filter');
 
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     sortSelect.addEventListener('change', handleSort);
+    sortOrderToggle.addEventListener('click', toggleSortOrder);
+    dateFilterToggle.addEventListener('click', toggleDateFilterPanel);
     viewToggle.addEventListener('click', toggleView);
+    applyDateFilter.addEventListener('click', applyDateFiltering);
+    clearDates.addEventListener('click', clearDateFilters);
+    removeDateFilter.addEventListener('click', clearDateFilters);
+
+    // Quick filter buttons
+    document.querySelectorAll('.quick-filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const days = parseInt(e.target.dataset.days);
+            applyQuickFilter(days);
+        });
+    });
 
     // Modal keyboard shortcuts
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModal();
+            const panel = document.getElementById('date-filter-panel');
+            if (panel.style.display === 'block') {
+                toggleDateFilterPanel();
+            }
         }
     });
 }
@@ -114,25 +140,7 @@ function debounce(func, wait) {
 
 // Handle search
 function handleSearch(event) {
-    const query = event.target.value.toLowerCase().trim();
-
-    if (!query) {
-        filteredProducts = [...allProducts];
-    } else {
-        filteredProducts = allProducts.filter(product => {
-            // Search in product name
-            if (product.name.toLowerCase().includes(query)) {
-                return true;
-            }
-
-            // Search in versions
-            return product.versions.some(version =>
-                version.version.toLowerCase().includes(query)
-            );
-        });
-    }
-
-    renderProducts();
+    applyFilters();
 }
 
 // Handle sort
@@ -141,21 +149,39 @@ function handleSort(event) {
 
     switch (sortBy) {
         case 'name':
-            filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            filteredProducts.sort((a, b) => {
+                const result = a.name.localeCompare(b.name);
+                return sortOrder === 'asc' ? result : -result;
+            });
             break;
         case 'date':
             filteredProducts.sort((a, b) => {
                 const dateA = a.versions[0]?.releaseDate || '0000-00-00';
                 const dateB = b.versions[0]?.releaseDate || '0000-00-00';
-                return dateB.localeCompare(dateA);
+                const result = dateB.localeCompare(dateA);
+                return sortOrder === 'desc' ? result : -result;
             });
             break;
         case 'versions':
-            filteredProducts.sort((a, b) => b.versions.length - a.versions.length);
+            filteredProducts.sort((a, b) => {
+                const result = b.versions.length - a.versions.length;
+                return sortOrder === 'desc' ? result : -result;
+            });
             break;
     }
 
     renderProducts();
+}
+
+// Toggle sort order
+function toggleSortOrder() {
+    sortOrder = sortOrder === 'desc' ? 'asc' : 'desc';
+    const btn = document.getElementById('sort-order-toggle');
+    btn.classList.toggle('descending', sortOrder === 'desc');
+
+    // Re-apply current sort
+    const sortSelect = document.getElementById('sort-select');
+    handleSort({ target: sortSelect });
 }
 
 // Toggle view (grid/list)
@@ -169,6 +195,105 @@ function toggleView() {
     } else {
         grid.style.gridTemplateColumns = '';
     }
+}
+
+// Toggle date filter panel
+function toggleDateFilterPanel() {
+    const panel = document.getElementById('date-filter-panel');
+    const btn = document.getElementById('date-filter-toggle');
+
+    if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        btn.classList.add('active');
+    } else {
+        panel.style.display = 'none';
+        btn.classList.remove('active');
+    }
+}
+
+// Apply quick filter
+function applyQuickFilter(days) {
+    const today = new Date();
+    const fromDate = new Date();
+    fromDate.setDate(today.getDate() - days);
+
+    document.getElementById('date-from').value = fromDate.toISOString().split('T')[0];
+    document.getElementById('date-to').value = today.toISOString().split('T')[0];
+
+    applyDateFiltering();
+}
+
+// Apply date filtering
+function applyDateFiltering() {
+    const fromInput = document.getElementById('date-from').value;
+    const toInput = document.getElementById('date-to').value;
+
+    if (!fromInput && !toInput) {
+        showToast('Please select at least one date');
+        return;
+    }
+
+    dateFrom = fromInput ? new Date(fromInput) : null;
+    dateTo = toInput ? new Date(toInput) : null;
+    dateFilterActive = true;
+
+    // Update active filter display
+    const activeFilter = document.getElementById('active-date-filter');
+    const fromText = document.getElementById('filter-from-text');
+    const toText = document.getElementById('filter-to-text');
+
+    fromText.textContent = dateFrom ? formatDate(dateFrom.toISOString().split('T')[0]) : 'beginning';
+    toText.textContent = dateTo ? formatDate(dateTo.toISOString().split('T')[0]) : 'now';
+    activeFilter.style.display = 'flex';
+
+    // Apply filter
+    applyFilters();
+    showToast('Date filter applied');
+}
+
+// Clear date filters
+function clearDateFilters() {
+    dateFrom = null;
+    dateTo = null;
+    dateFilterActive = false;
+
+    document.getElementById('date-from').value = '';
+    document.getElementById('date-to').value = '';
+    document.getElementById('active-date-filter').style.display = 'none';
+
+    applyFilters();
+    showToast('Date filter cleared');
+}
+
+// Apply all filters (search + date)
+function applyFilters() {
+    const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+
+    filteredProducts = allProducts.filter(product => {
+        // Apply search filter
+        let matchesSearch = true;
+        if (searchQuery) {
+            matchesSearch = product.name.toLowerCase().includes(searchQuery) ||
+                product.versions.some(v => v.version.toLowerCase().includes(searchQuery));
+        }
+
+        // Apply date filter
+        let matchesDate = true;
+        if (dateFilterActive) {
+            matchesDate = product.versions.some(version => {
+                const versionDate = new Date(version.releaseDate);
+                if (dateFrom && versionDate < dateFrom) return false;
+                if (dateTo && versionDate > dateTo) return false;
+                return true;
+            });
+        }
+
+        return matchesSearch && matchesDate;
+    });
+
+    // Re-apply current sort
+    const sortSelect = document.getElementById('sort-select');
+    handleSort({ target: sortSelect });
 }
 
 // Render products
