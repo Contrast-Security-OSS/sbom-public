@@ -106,7 +106,7 @@ EOF
         formats=()
         [[ -f "$spdx_file" ]] && formats+=("spdx")
         [[ -f "$cyclonedx_file" ]] && formats+=("cyclonedx")
-        formats_json=$(printf '%s\n' "${formats[@]}" | jq -R . | jq -s .)
+        formats_json=$(printf '%s\n' "${formats[@]}" | jq -R . | jq -sc .)
 
         versions+=("$version_name|$generated_at|$formats_json")
     done
