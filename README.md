@@ -20,13 +20,13 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
-**9 of 12 products active** • **93 versions** • **186 SBOM files** (SPDX + CycloneDX)
+**9 of 12 products active** • **94 versions** • **188 SBOM files** (SPDX + CycloneDX)
 
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
-| **EOP** | 13 | S3 | ✅ Active |
+| **EOP** | 13 | Manual (S3) | ✅ Active |
 | **Java Agent** | 10 | Maven Central | ✅ Active |
-| **Flex Agent** | 10 | Artifactory (public) | ✅ Active |
+| **Flex Agent** | 11 | Manual | ✅ Active |
 | **Go Agent (Linux AMD64)** | 10 | Artifactory (public) | ✅ Active |
 | **Contrast CLI Linux** | 10 | Artifactory (public) | ✅ Active |
 | **Contrast CLI Mac** | 10 | Artifactory (public) | ✅ Active |
@@ -294,10 +294,11 @@ For private Artifactory repositories:
 
 ### SBOM Protection
 
-Manually-committed SBOMs (like EOP) are protected from overwrite:
-- Script checks for existing SBOMs before fetching
-- Prints warning and skips if found
-- To regenerate: manually delete and re-run workflow
+Manually-committed SBOMs are protected from overwrite:
+- **EOP**: Manually committed from S3, protected by existence check in script
+- **Flex Agent**: Manually committed, removed from products.yml to prevent fetching
+- Products marked as manual are skipped during workflow execution
+- To update manual SBOMs: Replace files directly and rebuild index
 
 ## Troubleshooting
 
