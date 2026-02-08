@@ -50,7 +50,7 @@ header {
 }
 
 .logo {
-    height: 50px;
+    height: 13px;
     width: auto;
 }
 
@@ -377,7 +377,7 @@ footer p {
 /* Responsive design */
 @media (max-width: 768px) {
     .logo {
-        height: 40px;
+        height: 10px;
     }
 
     .subtitle {
