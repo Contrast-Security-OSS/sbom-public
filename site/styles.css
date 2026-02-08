@@ -377,7 +377,7 @@ footer p {
 /* Responsive design */
 @media (max-width: 768px) {
     .logo {
-        height: 10px;
+        height: 30px;
     }
 
     .subtitle {
