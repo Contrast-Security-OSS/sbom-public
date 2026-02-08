@@ -25,13 +25,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_ENG_DEVELOPMENT }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ENG_DEVELOPMENT }}
-          aws-region: us-east-1
-
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -42,8 +35,7 @@ jobs:
 
       - name: Fetch artifacts and generate SBOMs
         env:
-          # S3 configuration
-          S3_BUCKET_URL: ${{ secrets.S3_BUCKET_URL }}
+          # S3 configuration (anonymous public access, no credentials needed)
           S3_PUBLIC_URL: ${{ secrets.S3_PUBLIC_URL }}
           # Artifactory configuration
           ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}

@@ -121,6 +121,7 @@ products:
 
     # For source: "s3"
     artifact_pattern: string        # REQUIRED: Pattern like "Contrast-*.war"
+    version_list: array             # OPTIONAL: List of known filenames (fallback if bucket listing disabled)
 
     # For source: "maven"
     maven_group_id: string          # REQUIRED: e.g. "com.contrastsecurity"
@@ -494,6 +495,10 @@ const spdxPath = `sboms/${product.slug}/${version.version}/sbom.spdx.json`;
 - ✅ Config validation before processing
 - ✅ No redundant data copies (smaller attack surface)
 - ✅ Simpler scripts (easier to audit)
+- ✅ **S3 anonymous access** - No AWS credentials needed for public buckets
+  - Eliminates risk of credential exposure in CI/CD
+  - Works with temporary AWS keys (no secret storage needed)
+  - Falls back to version_list if bucket listing disabled
 
 ---
 

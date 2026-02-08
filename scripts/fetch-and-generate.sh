@@ -147,24 +147,50 @@ fetch_s3() {
     local pattern=$(echo "$product_json" | jq -r '.artifact_pattern')
     local max_versions=$(echo "$product_json" | jq -r '.max_versions')
 
-    # Check environment variables
-    if [[ -z "${S3_BUCKET_URL:-}" || -z "${S3_PUBLIC_URL:-}" ]]; then
-        echo -e "${RED}ERROR: S3_BUCKET_URL and S3_PUBLIC_URL must be set${NC}"
+    # Check environment variables - only need public URL now
+    if [[ -z "${S3_PUBLIC_URL:-}" ]]; then
+        echo -e "${RED}ERROR: S3_PUBLIC_URL must be set${NC}"
         exit 2
     fi
 
-    if ! command -v aws &> /dev/null; then
-        echo -e "${RED}ERROR: AWS CLI not installed${NC}"
-        exit 2
+    # Extract bucket and prefix from S3_PUBLIC_URL
+    # Example: https://bucket.s3.region.amazonaws.com/path/ -> bucket, path/
+    local bucket_url="$S3_PUBLIC_URL"
+
+    echo "  Listing S3 (anonymous): $bucket_url"
+
+    # Try to list bucket using anonymous S3 XML API
+    # This works if the bucket allows public ListBucket
+    local listing=$(curl -s "$bucket_url" || echo "")
+
+    # If XML listing is available, parse it
+    if [[ "$listing" =~ \<Key\> ]]; then
+        echo "  Using S3 XML API listing..."
+        # Extract <Key> elements from XML and filter by pattern
+        local grep_pattern=$(echo "$pattern" | sed 's/\*/.*/')
+        local files=$(echo "$listing" | grep -oP '<Key>\K[^<]+' | grep -E "$grep_pattern" | sed 's|.*/||' | sort -r | head -n "$max_versions")
+    else
+        echo -e "${YELLOW}  Cannot list bucket anonymously. Trying known version pattern...${NC}"
+        # Fallback: Try common version numbers if listing fails
+        # This requires the user to have a version_list in products.yml
+        local version_list=$(echo "$product_json" | jq -r '.version_list[]?' 2>/dev/null)
+        if [[ -n "$version_list" ]]; then
+            echo "  Using version_list from config..."
+            local files=""
+            while IFS= read -r known_file; do
+                [[ -z "$known_file" ]] && continue
+                # Test if file exists with HEAD request
+                if curl -sI -f "${bucket_url}${known_file}" > /dev/null 2>&1; then
+                    files+="$known_file"$'\n'
+                fi
+            done <<< "$version_list"
+            files=$(echo "$files" | head -n "$max_versions")
+        else
+            echo -e "${RED}ERROR: Cannot list S3 bucket anonymously and no version_list provided${NC}"
+            echo "  Add 'version_list' to products.yml with known filenames, or enable public listing on S3 bucket"
+            return
+        fi
     fi
-
-    echo "  Listing S3: $S3_BUCKET_URL"
-
-    # Convert wildcard to regex
-    local grep_pattern=$(echo "$pattern" | sed 's/\*/.*/')
-
-    # List and filter files
-    local files=$(aws s3 ls "$S3_BUCKET_URL" 2>/dev/null | grep -E "$grep_pattern" | awk '{print $4}' | sort -r | head -n "$max_versions")
 
     if [[ -z "$files" ]]; then
         echo -e "${YELLOW}  No files found matching pattern: $pattern${NC}"
