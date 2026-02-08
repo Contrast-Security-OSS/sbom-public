@@ -171,23 +171,42 @@ fetch_s3() {
         local files=$(echo "$listing" | grep -oP '<Key>\K[^<]+' | grep -E "$grep_pattern" | sed 's|.*/||' | sort -r | head -n "$max_versions")
     else
         echo -e "${YELLOW}  Cannot list bucket anonymously. Trying known version pattern...${NC}"
-        # Fallback: Try common version numbers if listing fails
+        # Fallback: Try constructing filenames from version_list
         # This requires the user to have a version_list in products.yml
         local version_list=$(echo "$product_json" | jq -r '.version_list[]?' 2>/dev/null)
         if [[ -n "$version_list" ]]; then
             echo "  Using version_list from config..."
+
+            # Try to list all files to do soft matching
+            local all_files=$(curl -s "$bucket_url" | grep -oP '<Key>\K[^<]+' | sed 's|.*/||' || echo "")
+
             local files=""
-            while IFS= read -r known_file; do
-                [[ -z "$known_file" ]] && continue
-                # Test if file exists with HEAD request
-                if curl -sI -f "${bucket_url}${known_file}" > /dev/null 2>&1; then
-                    files+="$known_file"$'\n'
+            while IFS= read -r version_num; do
+                [[ -z "$version_num" ]] && continue
+
+                # Try to find a file that contains this version number
+                if [[ -n "$all_files" ]]; then
+                    # Soft match: find files containing the version number
+                    local matched_file=$(echo "$all_files" | grep -E "[-_]${version_num}[-_\.]" | head -1)
+                    if [[ -n "$matched_file" ]]; then
+                        files+="$matched_file"$'\n'
+                        continue
+                    fi
+                fi
+
+                # If no listing available or no match, try constructing filename from pattern
+                # Replace (.*) in pattern with the version number
+                local constructed_file=$(echo "$pattern" | sed -E "s/\\\\\\./-/g; s/\(\.\*\)/${version_num}/g; s/\\\\\./\./g")
+
+                # Test if constructed file exists with HEAD request
+                if curl -sI -f "${bucket_url}${constructed_file}" > /dev/null 2>&1; then
+                    files+="$constructed_file"$'\n'
                 fi
             done <<< "$version_list"
             files=$(echo "$files" | head -n "$max_versions")
         else
             echo -e "${RED}ERROR: Cannot list S3 bucket anonymously and no version_list provided${NC}"
-            echo "  Add 'version_list' to products.yml with known filenames, or enable public listing on S3 bucket"
+            echo "  Add 'version_list' to products.yml with known version numbers, or enable public listing on S3 bucket"
             return
         fi
     fi
