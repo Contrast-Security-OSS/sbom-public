@@ -1,0 +1,57 @@
+name: Rebuild SBOM Index
+
+on:
+  # Allow manual trigger
+  workflow_dispatch:
+
+# Permissions for committing changes
+permissions:
+  contents: write
+
+jobs:
+  rebuild-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238
+        with:
+          node-version: '18'
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Rebuild SBOM index
+        run: |
+          chmod +x scripts/build-index.sh
+          ./scripts/build-index.sh
+
+      - name: Build static site
+        run: |
+          chmod +x scripts/build-site.js
+          node scripts/build-site.js
+
+      - name: Commit and push changes
+        run: |
+          # Configure git
+          git config --global user.name 'Contrast Labs'
+          git config --global user.email 'contrast-labs@contrastsecurity.com'
+
+          # Add changes
+          git add sboms/index.json docs/
+
+          # Check if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Rebuild SBOM index - $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            git push
+            echo "Index rebuilt and deployed successfully"
+          fi
