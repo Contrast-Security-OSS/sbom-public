@@ -11,7 +11,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 ## Features
 
 - 🔄 **Automated SBOM Generation**: Workflow-triggered generation with manual dispatch option
-- 📦 **Multi-Source Support**: Fetches artifacts from S3, Maven Central, npm, PyPI, and Artifactory
+- 📦 **Multi-Source Support**: Fetches artifacts from S3, Maven Central, npm, PyPI, NuGet, and Artifactory
 - 🔐 **Anonymous Access**: Works with public repositories without credentials
 - 📋 **Dual Format**: SPDX and CycloneDX for maximum compatibility
 - 🔍 **Searchable Interface**: Modern web UI with filtering and sorting
@@ -20,7 +20,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
-**9 of 11 products** • **94 versions** • **188 SBOM files** (SPDX + CycloneDX)
+**10 of 11 products** • **104 versions** • **208 SBOM files** (SPDX + CycloneDX)
 
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
@@ -33,7 +33,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 | **Contrast CLI Windows** | 10 | Artifactory (public) | ✅ Active |
 | **Node Agent** | 10 | npm | ✅ Active |
 | **Python Agent** | 10 | PyPI | ✅ Active |
-| .NET Agent | - | Artifactory (private) | ⚠️ Requires credentials |
+| **.NET Agent** | 10 | NuGet | ✅ Active |
 | .NET Agent IIS Installer | - | Artifactory (private) | ⚠️ Requires credentials |
 
 ## Architecture
@@ -54,6 +54,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 │  - Maven    │
 │  - npm      │
 │  - PyPI     │
+│  - NuGet    │
 │  - Artifactory│
 └──────┬──────┘
        │
@@ -150,6 +151,12 @@ products:
   - name: "Python Agent"
     source: "pypi"
     pypi_package: "contrast-agent"
+    max_versions: 10
+
+  # NuGet registry example
+  - name: ".NET Agent"
+    source: "nuget"
+    nuget_package: "Contrast.SensorsNetCore"
     max_versions: 10
 
   # Artifactory with flat structure (version/file)
@@ -282,6 +289,7 @@ The system is designed to work with public repositories:
 - **Maven Central**: Public API
 - **npm**: Public registry API
 - **PyPI**: Public registry API
+- **NuGet**: Public registry API v3
 - **Artifactory**: Public repos use REST API anonymously
 
 ### Private Repositories
