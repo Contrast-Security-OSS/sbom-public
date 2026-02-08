@@ -46,8 +46,8 @@ jobs:
 
       - name: Fetch Java Agent artifacts from Maven Central
         run: |
-          chmod +x scripts/fetch-artifacts.sh
-          CONFIG_FILE=config/products-java-agent.yml ARTIFACTORY_URL="none" ARTIFACTORY_USER="none" ARTIFACTORY_PASSWORD="none" ./scripts/fetch-artifacts.sh
+          chmod +x scripts/fetch-artifacts-maven.sh
+          CONFIG_FILE=config/products-java-agent.yml ./scripts/fetch-artifacts-maven.sh
 
       - name: Generate Java Agent SBOMs
         run: |

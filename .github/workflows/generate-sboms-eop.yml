@@ -53,8 +53,8 @@ jobs:
 
       - name: Fetch EOP artifacts from S3
         run: |
-          chmod +x scripts/fetch-artifacts.sh
-          CONFIG_FILE=config/products-eop.yml ARTIFACTORY_URL="none" ARTIFACTORY_USER="none" ARTIFACTORY_PASSWORD="none" ./scripts/fetch-artifacts.sh
+          chmod +x scripts/fetch-artifacts-eop.sh
+          CONFIG_FILE=config/products-eop.yml ./scripts/fetch-artifacts-eop.sh
 
       - name: Generate EOP SBOMs
         run: |

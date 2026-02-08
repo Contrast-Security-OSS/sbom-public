@@ -94,8 +94,8 @@ jobs:
           ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
         run: |
-          chmod +x scripts/fetch-artifacts.sh
-          CONFIG_FILE=config/products-agents.yml ./scripts/fetch-artifacts.sh
+          chmod +x scripts/fetch-artifacts-artifactory.sh
+          CONFIG_FILE=config/products-agents.yml ./scripts/fetch-artifacts-artifactory.sh
 
       - name: Generate agent SBOMs
         run: |
