@@ -34,7 +34,7 @@ fs.mkdirSync(DOCS_DIR, { recursive: true });
 
 // Copy static assets
 console.log('Copying static assets...');
-const staticFiles = ['index.html', 'styles.css', 'app.js'];
+const staticFiles = ['index.html', 'styles.css', 'app.js', 'logo.svg'];
 
 staticFiles.forEach(file => {
     const src = path.join(SITE_DIR, file);
