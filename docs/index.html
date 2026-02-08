@@ -3,89 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrast Security - SBOMs</title>
+    <title>Contrast Security - SBOM Repository</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Hero Section -->
+    <header class="hero">
         <div class="container">
-            <div class="header-content">
+            <div class="hero-content">
                 <img src="logo.svg" alt="Contrast Security" class="logo">
-                <p class="subtitle">Software Bill of Materials (SBOM)</p>
+                <h1 class="hero-title">Software Bill of Materials</h1>
+                <p class="hero-subtitle">
+                    Transparency and security you can trust. Explore comprehensive SBOMs for all Contrast Security products.
+                </p>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="stat-products">0</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="stat-versions">0</div>
+                        <div class="stat-label">Versions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="stat-updated">—</div>
+                        <div class="stat-label">Last Updated</div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <div class="info-box">
-            <p>
-                This site provides machine-readable Software Bill of Materials (SBOMs) for all Contrast Security products.
-                SBOMs are available in both <strong>SPDX</strong> and <strong>CycloneDX</strong> formats. Don't see what you're
-                looking for? <a href="https://www.contrastsecurity.com/contact-us">Contact Us</a>
-            </p>
-            <p class="last-updated">
-                Last updated: <span id="last-updated">Loading...</span>
-            </p>
-        </div>
-
-        <div class="controls">
-            <div class="search-box">
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search products or versions..."
-                    aria-label="Search products or versions"
-                />
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Info Banner -->
+            <div class="info-banner">
+                <div class="info-icon">🔍</div>
+                <div class="info-text">
+                    <strong>Industry-Standard Formats:</strong> All SBOMs available in SPDX and CycloneDX formats.
+                    Need something specific? <a href="https://www.contrastsecurity.com/contact-us">Contact us</a>
+                </div>
             </div>
-            <div class="filter-controls">
-                <label for="sort-select">Sort by:</label>
-                <select id="sort-select" aria-label="Sort products">
-                    <option value="name">Product Name</option>
-                    <option value="version">Latest Version</option>
-                    <option value="date">Release Date</option>
-                </select>
+
+            <!-- Search and Filter Controls -->
+            <div class="controls-section">
+                <div class="search-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search products or versions..."
+                        class="search-input"
+                    />
+                </div>
+                <div class="filter-group">
+                    <label for="sort-select" class="filter-label">Sort:</label>
+                    <select id="sort-select" class="filter-select">
+                        <option value="name">Product Name</option>
+                        <option value="date">Latest First</option>
+                        <option value="versions">Most Versions</option>
+                    </select>
+                </div>
+                <button id="view-toggle" class="view-toggle" title="Toggle view">
+                    <svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                </button>
             </div>
-        </div>
 
-        <div id="product-list" class="product-list">
-            <div class="loading">Loading products...</div>
-        </div>
+            <!-- Product Grid -->
+            <div id="product-grid" class="product-grid">
+                <div class="loading-state">
+                    <div class="loader"></div>
+                    <p>Loading products...</p>
+                </div>
+            </div>
 
-        <div id="no-results" class="no-results" style="display: none;">
-            <p>No products found matching your search.</p>
+            <!-- No Results -->
+            <div id="no-results" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔎</div>
+                <h3>No products found</h3>
+                <p>Try adjusting your search terms</p>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>
-                &copy; 2026 Contrast Security.
-                Generated automatically from Artifactory using
-                <a href="https://github.com/anchore/syft" target="_blank" rel="noopener">Syft</a>.
-            </p>
-            <p class="footer-links">
-                <a href="https://www.contrastsecurity.com" target="_blank" rel="noopener">About Contrast</a> |
-                <a href="https://github.com/Contrast-Security-OSS" target="_blank" rel="noopener">GitHub</a> |
-                <a href="https://docs.contrastsecurity.com" target="_blank" rel="noopener">Docs</a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Modal for viewing SBOM contents -->
+    <!-- SBOM Viewer Modal -->
     <div id="sbom-modal" class="modal" style="display: none;">
-        <div class="modal-content">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-container">
             <div class="modal-header">
                 <h2 id="modal-title">SBOM Viewer</h2>
-                <button class="close-button" onclick="closeModal()" aria-label="Close modal">&times;</button>
+                <button class="modal-close" onclick="closeModal()" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
             </div>
             <div class="modal-body">
                 <pre id="sbom-content"><code></code></pre>
             </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Close</button>
+            </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Automated SBOM generation powered by <a href="https://github.com/anchore/syft" target="_blank">Syft</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.contrastsecurity.com" target="_blank">Contrast Security</a></li>
+                        <li><a href="https://github.com/Contrast-Security-OSS" target="_blank">GitHub</a></li>
+                        <li><a href="https://docs.contrastsecurity.com" target="_blank">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Formats</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://spdx.dev/" target="_blank">SPDX Specification</a></li>
+                        <li><a href="https://cyclonedx.org/" target="_blank">CycloneDX Specification</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Contrast Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
 </body>
