@@ -1,4 +1,4 @@
-name: Generate SBOMs
+name: Generate SBOMs 
 
 on:
   # Run daily at 2 AM UTC
