@@ -72,7 +72,7 @@ validate_product() {
     fi
 
     # Check source type
-    if [[ ! "$source" =~ ^(s3|maven|artifactory|npm|pypi)$ ]]; then
+    if [[ ! "$source" =~ ^(s3|maven|artifactory|npm|pypi|nuget)$ ]]; then
         echo -e "${RED}ERROR: Product '$name' has invalid source type: $source${NC}"
         exit 1
     fi
@@ -136,6 +136,13 @@ validate_product() {
             local package_name=$(yq eval ".products[$index].pypi_package" "$CONFIG_FILE")
             if [[ "$package_name" == "null" || -z "$package_name" ]]; then
                 echo -e "${RED}ERROR: pypi product '$name' missing 'pypi_package'${NC}"
+                exit 1
+            fi
+            ;;
+        nuget)
+            local package_name=$(yq eval ".products[$index].nuget_package" "$CONFIG_FILE")
+            if [[ "$package_name" == "null" || -z "$package_name" ]]; then
+                echo -e "${RED}ERROR: nuget product '$name' missing 'nuget_package'${NC}"
                 exit 1
             fi
             ;;
@@ -432,6 +439,59 @@ fetch_pypi() {
     done <<< "$versions"
 }
 
+fetch_nuget() {
+    local product_json="$1"
+    local slug="$2"
+
+    local name=$(echo "$product_json" | jq -r '.name')
+    local package_name=$(echo "$product_json" | jq -r '.nuget_package')
+    local max_versions=$(echo "$product_json" | jq -r '.max_versions')
+
+    echo "  NuGet registry: $package_name" >&2
+
+    # Convert package name to lowercase for NuGet API
+    local package_id_lower=$(echo "$package_name" | tr '[:upper:]' '[:lower:]')
+
+    # Fetch package versions from NuGet API
+    local index_url="https://api.nuget.org/v3-flatcontainer/${package_id_lower}/index.json"
+    local metadata=$(curl -s "$index_url")
+
+    if [[ -z "$metadata" ]] || ! echo "$metadata" | jq -e '.versions' > /dev/null 2>&1; then
+        echo -e "${YELLOW}  Failed to fetch metadata from NuGet${NC}" >&2
+        return
+    fi
+
+    # Extract version numbers, sort, and limit
+    local versions=$(echo "$metadata" | jq -r '.versions[]' | sort -V -r | head -n "$max_versions")
+
+    if [[ -z "$versions" ]]; then
+        echo -e "${YELLOW}  No versions found${NC}" >&2
+        return
+    fi
+
+    local count=$(echo "$versions" | wc -l | tr -d ' ')
+    echo "  Found $count version(s)" >&2
+
+    # Download each version
+    while IFS= read -r version; do
+        [[ -z "$version" ]] && continue
+
+        # Construct NuGet package URL
+        # Format: https://api.nuget.org/v3-flatcontainer/{id-lower}/{version}/{id-lower}.{version}.nupkg
+        local package_url="https://api.nuget.org/v3-flatcontainer/${package_id_lower}/${version}/${package_id_lower}.${version}.nupkg"
+        local filename="${package_name}.${version}.nupkg"
+        local download_path="$TEMP_DIR/$slug-$version-$filename"
+
+        echo "    Version: $version - $filename" >&2
+
+        if curl -f -s "$package_url" -o "$download_path"; then
+            echo "$download_path|$version"
+        else
+            echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
+        fi
+    done <<< "$versions"
+}
+
 fetch_artifactory() {
     local product_json="$1"
     local slug="$2"
@@ -691,6 +751,9 @@ main() {
                 ;;
             pypi)
                 artifacts=$(fetch_pypi "$product_json" "$slug")
+                ;;
+            nuget)
+                artifacts=$(fetch_nuget "$product_json" "$slug")
                 ;;
             artifactory)
                 artifacts=$(fetch_artifactory "$product_json" "$slug")

@@ -33,9 +33,8 @@ products:
   #   max_versions: 10
 
   - name: ".NET Agent"
-    source: "artifactory"
-    artifactory_path: "dotnet-agent-release"
-    artifact_pattern: "ContrastSetup.zip"
+    source: "nuget"
+    nuget_package: "Contrast.SensorsNetCore"
     max_versions: 10
 
   - name: ".NET Agent IIS Installer"
