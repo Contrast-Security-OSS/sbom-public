@@ -2,122 +2,172 @@
 
 set -euo pipefail
 
-# Build index.json from SBOMs in the sboms directory
-# This script scans the sboms/ directory structure and generates index.json
+# Build index.json from docs/sboms/ directory structure
+# Reads metadata.json for canonical product names
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-SBOM_DIR="$REPO_ROOT/sboms"
+SBOM_DIR="$REPO_ROOT/docs/sboms"
 INDEX_FILE="$SBOM_DIR/index.json"
 
-echo "Building index from SBOMs directory..."
+# Colors
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+echo "Building SBOM index..."
 
 # Check if sboms directory exists
 if [[ ! -d "$SBOM_DIR" ]]; then
-    echo "Error: sboms/ directory not found at $SBOM_DIR"
-    echo "Run generate-sboms.sh first"
+    echo -e "${RED}ERROR: $SBOM_DIR not found${NC}"
     exit 1
 fi
 
 # Initialize index
-cat > "$INDEX_FILE" <<INDEXEOF
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+TEMP_INDEX=$(mktemp)
+
+# Start JSON
+cat > "$TEMP_INDEX" <<EOF
 {
-  "generated": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-  "generator": "Syft",
-  "products": []
-}
-INDEXEOF
+  "generated": "$TIMESTAMP",
+  "products": [
+EOF
 
-# Find all product directories (exclude index.json)
-PRODUCT_DIRS=$(find "$SBOM_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
+FIRST_PRODUCT=true
 
-if [[ -z "$PRODUCT_DIRS" ]]; then
-    echo "No product directories found in $SBOM_DIR"
-    exit 0
-fi
+# Scan each product directory
+for product_dir in "$SBOM_DIR"/*/; do
+    [[ ! -d "$product_dir" ]] && continue
 
-while IFS= read -r PRODUCT_DIR; do
-    [[ -z "$PRODUCT_DIR" ]] && continue
+    product_slug=$(basename "$product_dir")
 
-    PRODUCT_SLUG=$(basename "$PRODUCT_DIR")
-    
-    # Convert slug back to product name (capitalize first letter of each word)
-    PRODUCT_NAME=$(echo "$PRODUCT_SLUG" | tr '-' ' ' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))}1')
-    
-    echo ""
-    echo "Product: $PRODUCT_NAME ($PRODUCT_SLUG)"
+    # Skip if this is the index.json itself or other files
+    [[ "$product_slug" == "index.json" ]] && continue
 
-    # Find all version directories
-    VERSION_DIRS=$(find "$PRODUCT_DIR" -mindepth 1 -maxdepth 1 -type d | sort -V -r)
-
-    if [[ -z "$VERSION_DIRS" ]]; then
-        echo "  No versions found"
+    # Read metadata.json
+    metadata_file="$product_dir/metadata.json"
+    if [[ ! -f "$metadata_file" ]]; then
+        echo -e "${YELLOW}WARNING: No metadata.json for $product_slug, skipping${NC}"
         continue
     fi
 
-    # Prepare product entry for index
-    PRODUCT_INDEX_ENTRY='{"name": "'"$PRODUCT_NAME"'", "versions": []}'
+    product_name=$(jq -r '.name' "$metadata_file")
+    product_source=$(jq -r '.source' "$metadata_file")
 
-    while IFS= read -r VERSION_DIR; do
-        [[ -z "$VERSION_DIR" ]] && continue
+    echo "  Processing: $product_name ($product_slug)"
 
-        VERSION=$(basename "$VERSION_DIR")
-        
-        # Check if both SBOM files exist
-        SPDX_FILE="$VERSION_DIR/sbom.spdx.json"
-        CYCLONEDX_FILE="$VERSION_DIR/sbom.cyclonedx.json"
+    # Add comma if not first product
+    if [[ "$FIRST_PRODUCT" == "false" ]]; then
+        echo "," >> "$TEMP_INDEX"
+    fi
+    FIRST_PRODUCT=false
 
-        if [[ ! -f "$SPDX_FILE" ]] || [[ ! -f "$CYCLONEDX_FILE" ]]; then
-            echo "  Warning: Skipping version $VERSION - missing SBOM files"
+    # Start product object
+    cat >> "$TEMP_INDEX" <<EOF
+    {
+      "name": "$product_name",
+      "slug": "$product_slug",
+      "source": "$product_source",
+      "versions": [
+EOF
+
+    FIRST_VERSION=true
+    version_count=0
+
+    # Collect and sort versions
+    declare -a versions=()
+    for version_dir in "$product_dir"/*/; do
+        [[ ! -d "$version_dir" ]] && continue
+
+        version_name=$(basename "$version_dir")
+
+        # Check if SBOMs exist
+        spdx_file="$version_dir/sbom.spdx.json"
+        cyclonedx_file="$version_dir/sbom.cyclonedx.json"
+
+        if [[ ! -f "$spdx_file" && ! -f "$cyclonedx_file" ]]; then
             continue
         fi
 
-        echo "  Version: $VERSION"
-
-        # Try to extract release date from file stats
-        RELEASE_DATE=$(date -u +"%Y-%m-%d" || echo "unknown")
-        if [[ -f "$SPDX_FILE" ]]; then
+        # Get timestamp from file (best effort)
+        if [[ -f "$spdx_file" ]]; then
             if [[ "$OSTYPE" == "darwin"* ]]; then
-                RELEASE_DATE=$(stat -f "%Sm" -t "%Y-%m-%d" "$SPDX_FILE" 2>/dev/null || echo "unknown")
+                generated_at=$(stat -f "%Sm" -t "%Y-%m-%dT%H:%M:%SZ" "$spdx_file")
             else
-                RELEASE_DATE=$(stat -c "%y" "$SPDX_FILE" 2>/dev/null | cut -d' ' -f1 || echo "unknown")
+                generated_at=$(date -u -r "$spdx_file" +"%Y-%m-%dT%H:%M:%SZ")
             fi
+        else
+            generated_at="$TIMESTAMP"
         fi
 
-        # Add version to product index entry
-        PRODUCT_INDEX_ENTRY=$(echo "$PRODUCT_INDEX_ENTRY" | jq \
-            --arg version "$VERSION" \
-            --arg date "$RELEASE_DATE" \
-            --arg spdx "sboms/$PRODUCT_SLUG/$VERSION/sbom.spdx.json" \
-            --arg cyclonedx "sboms/$PRODUCT_SLUG/$VERSION/sbom.cyclonedx.json" \
-            '.versions += [{
-                "version": $version,
-                "releaseDate": $date,
-                "sboms": {
-                    "spdx": $spdx,
-                    "cyclonedx": $cyclonedx
-                }
-            }]')
+        # Determine which formats are available
+        formats=()
+        [[ -f "$spdx_file" ]] && formats+=("spdx")
+        [[ -f "$cyclonedx_file" ]] && formats+=("cyclonedx")
+        formats_json=$(printf '%s\n' "${formats[@]}" | jq -R . | jq -s .)
 
-    done <<< "$VERSION_DIRS"
+        versions+=("$version_name|$generated_at|$formats_json")
+    done
 
-    # Only add product if it has versions
-    VERSION_COUNT=$(echo "$PRODUCT_INDEX_ENTRY" | jq '.versions | length')
-    if [[ "$VERSION_COUNT" -gt 0 ]]; then
-        # Add product to index
-        TEMP_INDEX=$(mktemp)
-        jq --argjson product "$PRODUCT_INDEX_ENTRY" '.products += [$product]' "$INDEX_FILE" > "$TEMP_INDEX"
-        mv "$TEMP_INDEX" "$INDEX_FILE"
-        echo "  Added $VERSION_COUNT version(s)"
-    else
-        echo "  Skipped (no valid versions)"
-    fi
+    # Sort versions (reverse semver-like sort, newest first)
+    IFS=$'\n' sorted_versions=($(printf '%s\n' "${versions[@]}" | sort -t. -k1,1nr -k2,2nr -k3,3nr))
 
-done <<< "$PRODUCT_DIRS"
+    # Output each version
+    for version_data in "${sorted_versions[@]}"; do
+        IFS='|' read -r version_name generated_at formats_json <<< "$version_data"
+
+        version_count=$((version_count + 1))
+
+        # Add comma if not first version
+        if [[ "$FIRST_VERSION" == "false" ]]; then
+            echo "," >> "$TEMP_INDEX"
+        fi
+        FIRST_VERSION=false
+
+        # Output version object
+        cat >> "$TEMP_INDEX" <<EOF
+        {
+          "version": "$version_name",
+          "generatedAt": "$generated_at",
+          "formats": $formats_json
+        }
+EOF
+    done
+
+    # Close versions array and product object
+    cat >> "$TEMP_INDEX" <<EOF
+      ]
+    }
+EOF
+
+    echo "    Added $version_count versions"
+done
+
+# Close products array and root object
+cat >> "$TEMP_INDEX" <<EOF
+  ]
+}
+EOF
+
+# Validate JSON
+if ! jq empty "$TEMP_INDEX" 2>/dev/null; then
+    echo -e "${RED}ERROR: Generated invalid JSON${NC}"
+    cat "$TEMP_INDEX"
+    rm "$TEMP_INDEX"
+    exit 1
+fi
+
+# Move to final location
+mv "$TEMP_INDEX" "$INDEX_FILE"
+
+# Print summary
+product_count=$(jq '.products | length' "$INDEX_FILE")
+total_versions=$(jq '[.products[].versions | length] | add' "$INDEX_FILE")
 
 echo ""
-echo "Index build complete!"
-echo "Index file: $INDEX_FILE"
-echo "Total products: $(jq '.products | length' "$INDEX_FILE")"
-echo ""
-jq -r '.products[] | "  \(.name): \(.versions | length) versions"' "$INDEX_FILE"
+echo -e "${GREEN}✓ Index built successfully${NC}"
+echo "  Products: $product_count"
+echo "  Total versions: $total_versions"
+echo "  Output: $INDEX_FILE"

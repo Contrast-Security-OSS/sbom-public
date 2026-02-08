@@ -40,7 +40,7 @@ jobs:
           chmod +x /tmp/yq
           sudo mv /tmp/yq /usr/local/bin/yq
 
-      - name: Fetch artifacts from all sources
+      - name: Fetch artifacts and generate SBOMs
         env:
           # S3 configuration
           S3_BUCKET_URL: ${{ secrets.S3_BUCKET_URL }}
@@ -50,13 +50,8 @@ jobs:
           ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
         run: |
-          chmod +x scripts/fetch-artifacts.sh
-          ./scripts/fetch-artifacts.sh
-
-      - name: Generate SBOMs
-        run: |
-          chmod +x scripts/generate-sboms.sh
-          ./scripts/generate-sboms.sh
+          chmod +x scripts/fetch-and-generate.sh
+          ./scripts/fetch-and-generate.sh
 
       - name: Build index
         run: |
@@ -73,7 +68,7 @@ jobs:
           git config --global user.name 'Contrast Labs'
           git config --global user.email 'contrast-labs@contrastsecurity.com'
 
-          git add sboms/ docs/
+          git add docs/
 
           if git diff --staged --quiet; then
             echo "No changes to deploy"
