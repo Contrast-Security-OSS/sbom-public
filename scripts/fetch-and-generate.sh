@@ -326,6 +326,7 @@ fetch_artifactory() {
     echo "  Artifactory URL: ${ARTIFACTORY_URL}/api/search/aql" >&2
 
     echo "  Artifactory: $artifactory_path" >&2
+    echo "  Pattern: $pattern" >&2
 
     # Construct AQL query
     # artifactory_path can be:
@@ -341,6 +342,7 @@ fetch_artifactory() {
             "repo": {"$eq": "'$repo_name'"},
             "name": {"$match": "'$pattern'"}
         }).sort({"$desc": ["modified"]}).limit('$max_versions')'
+        echo "  AQL: Searching repo='$repo_name', name='$pattern'" >&2
     else
         # Has subpath, search within that path in the repo
         aql_query='items.find({
@@ -351,6 +353,7 @@ fetch_artifactory() {
             ],
             "name": {"$match": "'$pattern'"}
         }).sort({"$desc": ["modified"]}).limit('$max_versions')'
+        echo "  AQL: Searching repo='$repo_name', path='$sub_path' or '$sub_path/*', name='$pattern'" >&2
     fi
 
     # Execute AQL with proper authentication
