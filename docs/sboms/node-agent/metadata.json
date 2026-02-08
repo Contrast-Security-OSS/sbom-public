@@ -1,6 +1,6 @@
 {
   "name": "Node Agent",
   "slug": "node-agent",
-  "source": "artifactory",
-  "generatedAt": "2026-02-08T23:10:30Z"
+  "source": "npm",
+  "generatedAt": "2026-02-08T23:20:51Z"
 }
