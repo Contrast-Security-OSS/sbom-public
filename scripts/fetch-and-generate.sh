@@ -350,7 +350,7 @@ fetch_artifactory() {
     # Debug: Check if response is valid JSON
     if ! echo "$response" | jq empty 2>/dev/null; then
         echo -e "${RED}  ERROR: Invalid JSON response from Artifactory${NC}" >&2
-        echo "  Response: ${response:0:200}" >&2
+        echo "  Response: ${response:0:500}" >&2
         return
     fi
 
@@ -358,6 +358,8 @@ fetch_artifactory() {
 
     if [[ -z "$result_count" || "$result_count" == "null" ]]; then
         echo -e "${YELLOW}  No results field in Artifactory response${NC}" >&2
+        echo "  Response keys: $(echo "$response" | jq 'keys' 2>/dev/null)" >&2
+        echo "  Response sample: ${response:0:500}" >&2
         return
     fi
 
