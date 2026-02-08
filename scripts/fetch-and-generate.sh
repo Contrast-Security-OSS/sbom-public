@@ -310,6 +310,7 @@ fetch_artifactory() {
     local artifactory_path=$(echo "$product_json" | jq -r '.artifactory_path')
     local pattern=$(echo "$product_json" | jq -r '.artifact_pattern')
     local max_versions=$(echo "$product_json" | jq -r '.max_versions')
+    local platform_subdir=$(echo "$product_json" | jq -r '.platform_subdir // empty')
 
     # Check environment variables
     if [[ -z "${ARTIFACTORY_URL:-}" ]]; then
@@ -324,6 +325,9 @@ fetch_artifactory() {
         echo "  Artifactory (REST API, anonymous): $artifactory_path" >&2
     fi
 
+    if [[ -n "$platform_subdir" ]]; then
+        echo "  Platform subdirectory: $platform_subdir" >&2
+    fi
     echo "  Pattern: $pattern" >&2
 
     # Use REST API to list repository contents
@@ -369,9 +373,17 @@ fetch_artifactory() {
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
 
-        local version_url="$ARTIFACTORY_URL/api/storage/$artifactory_path/$version"
+        # Construct path based on whether platform_subdir exists
+        local version_path
+        if [[ -n "$platform_subdir" ]]; then
+            version_path="$artifactory_path/$version/$platform_subdir"
+        else
+            version_path="$artifactory_path/$version"
+        fi
 
-        # Get files in version directory
+        local version_url="$ARTIFACTORY_URL/api/storage/$version_path"
+
+        # Get files in version directory (or version/platform directory)
         local files
         if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
             files=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$version_url" 2>/dev/null || echo '{}')
@@ -395,7 +407,7 @@ fetch_artifactory() {
 
             echo "    Version: $version - $filename" >&2
 
-            local download_url="$ARTIFACTORY_URL/$artifactory_path/$version/$filename"
+            local download_url="$ARTIFACTORY_URL/$version_path/$filename"
             local download_path="$TEMP_DIR/$slug-$version-$filename"
 
             # Download with optional authentication

@@ -44,7 +44,8 @@ products:
 
   - name: "Go Agent (Linux AMD64)"
     source: "artifactory"
-    artifactory_path: "go-agent-release/linux-amd64"
+    artifactory_path: "go-agent-release"
+    platform_subdir: "linux-amd64"
     artifact_pattern: "contrast-go*"
     max_versions: 10
 
@@ -68,18 +69,21 @@ products:
 
   - name: "Contrast CLI Linux"
     source: "artifactory"
-    artifactory_path: "cli/linux"
+    artifactory_path: "cli"
+    platform_subdir: "linux"
     artifact_pattern: "contrast*"
     max_versions: 10
 
   - name: "Contrast CLI Windows"
     source: "artifactory"
-    artifactory_path: "cli/windows"
+    artifactory_path: "cli"
+    platform_subdir: "windows"
     artifact_pattern: "contrast*"
     max_versions: 10
 
   - name: "Contrast CLI Mac"
     source: "artifactory"
-    artifactory_path: "cli/mac"
+    artifactory_path: "cli"
+    platform_subdir: "mac"
     artifact_pattern: "contrast*"
     max_versions: 10
