@@ -147,6 +147,15 @@ fetch_s3() {
     local pattern=$(echo "$product_json" | jq -r '.artifact_pattern')
     local max_versions=$(echo "$product_json" | jq -r '.max_versions')
 
+    # PROTECTION: Check if SBOMs already exist for this product
+    # This prevents overwriting manually-committed SBOMs
+    local existing_sboms=$(find "$SBOM_DIR/$slug" -mindepth 2 -name "sbom.*.json" 2>/dev/null | wc -l | tr -d ' ')
+    if [[ "$existing_sboms" -gt 0 ]]; then
+        echo -e "${YELLOW}  ⚠ Found $existing_sboms existing SBOM(s) - SKIPPING fetch to preserve manual SBOMs${NC}"
+        echo "  To regenerate, delete $SBOM_DIR/$slug/* first"
+        return
+    fi
+
     # Check environment variables - only need public URL now
     if [[ -z "${S3_PUBLIC_URL:-}" ]]; then
         echo -e "${RED}ERROR: S3_PUBLIC_URL must be set${NC}"

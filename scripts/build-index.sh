@@ -112,10 +112,14 @@ EOF
     done
 
     # Sort versions (reverse semver-like sort, newest first)
-    IFS=$'\n' sorted_versions=($(printf '%s\n' "${versions[@]}" | sort -t. -k1,1nr -k2,2nr -k3,3nr))
+    if [[ ${#versions[@]} -gt 0 ]]; then
+        IFS=$'\n' sorted_versions=($(printf '%s\n' "${versions[@]}" | sort -t. -k1,1nr -k2,2nr -k3,3nr))
+    else
+        sorted_versions=()
+    fi
 
     # Output each version
-    for version_data in "${sorted_versions[@]}"; do
+    for version_data in "${sorted_versions[@]+"${sorted_versions[@]}"}"; do
         IFS='|' read -r version_name generated_at formats_json <<< "$version_data"
 
         version_count=$((version_count + 1))
