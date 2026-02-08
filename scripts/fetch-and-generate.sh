@@ -327,14 +327,31 @@ fetch_artifactory() {
 
     echo "  Artifactory: $artifactory_path" >&2
 
-    # Construct AQL query - match files in the path or any subdirectory
-    local aql_query='items.find({
-        "$or": [
-            {"path": {"$eq": "'$artifactory_path'"}},
-            {"path": {"$match": "'$artifactory_path'/*"}}
-        ],
-        "name": {"$match": "'$pattern'"}
-    }).sort({"$desc": ["modified"]}).limit('$max_versions')'
+    # Construct AQL query
+    # artifactory_path can be:
+    # - Just repo name: "flex-agent-release" (search all paths in repo)
+    # - Repo with path: "flex-agent-release/subdir" (search specific path in repo)
+    local repo_name="${artifactory_path%%/*}"  # Get first part before /
+    local sub_path="${artifactory_path#*/}"     # Get everything after first /
+
+    local aql_query
+    if [[ "$repo_name" == "$sub_path" ]]; then
+        # No subpath, search entire repo
+        aql_query='items.find({
+            "repo": {"$eq": "'$repo_name'"},
+            "name": {"$match": "'$pattern'"}
+        }).sort({"$desc": ["modified"]}).limit('$max_versions')'
+    else
+        # Has subpath, search within that path in the repo
+        aql_query='items.find({
+            "repo": {"$eq": "'$repo_name'"},
+            "$or": [
+                {"path": {"$eq": "'$sub_path'"}},
+                {"path": {"$match": "'$sub_path'/*"}}
+            ],
+            "name": {"$match": "'$pattern'"}
+        }).sort({"$desc": ["modified"]}).limit('$max_versions')'
+    fi
 
     # Execute AQL with proper authentication
     local response
