@@ -1,0 +1,89 @@
+name: Generate SBOMs
+
+on:
+  # Allow manual trigger
+  workflow_dispatch:
+  # Can also be triggered on schedule
+  # schedule:
+  #   - cron: '0 3 * * 1' # Weekly on Monday at 3 AM UTC
+
+permissions:
+  contents: write
+
+jobs:
+  generate-sboms:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238
+        with:
+          node-version: '18'
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_ENG_DEVELOPMENT }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ENG_DEVELOPMENT }}
+          aws-region: us-east-1
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+          wget -q https://github.com/mikefarah/yq/releases/download/v4.35.1/yq_linux_amd64 -O /tmp/yq
+          chmod +x /tmp/yq
+          sudo mv /tmp/yq /usr/local/bin/yq
+
+      - name: Fetch artifacts from all sources
+        env:
+          # S3 configuration
+          S3_BUCKET_URL: ${{ secrets.S3_BUCKET_URL }}
+          S3_PUBLIC_URL: ${{ secrets.S3_PUBLIC_URL }}
+          # Artifactory configuration
+          ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
+          ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+        run: |
+          chmod +x scripts/fetch-artifacts.sh
+          ./scripts/fetch-artifacts.sh
+
+      - name: Generate SBOMs
+        run: |
+          chmod +x scripts/generate-sboms.sh
+          ./scripts/generate-sboms.sh
+
+      - name: Build index
+        run: |
+          chmod +x scripts/build-index.sh
+          ./scripts/build-index.sh
+
+      - name: Build static site
+        run: |
+          chmod +x scripts/build-site.js
+          node scripts/build-site.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'Contrast Labs'
+          git config --global user.email 'contrast-labs@contrastsecurity.com'
+
+          git add sboms/ docs/
+
+          if git diff --staged --quiet; then
+            echo "No changes to deploy"
+          else
+            git commit -m "Update SBOMs - $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            git push
+            echo "SBOMs deployed successfully"
+          fi
+
+      - name: Clean up
+        if: always()
+        run: |
+          rm -rf temp/

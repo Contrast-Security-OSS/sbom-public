@@ -2,13 +2,20 @@
 
 set -euo pipefail
 
-# Fetch artifacts from Artifactory
+# Fetch artifacts from Artifactory for a single product
+# Expects CURRENT_PRODUCT_INDEX environment variable
+# Expects ARTIFACTORY_URL and either ARTIFACTORY_TOKEN or (ARTIFACTORY_USER + ARTIFACTORY_PASSWORD)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 CONFIG_FILE="${CONFIG_FILE:-$REPO_ROOT/config/products.yml}"
 TEMP_DIR="$REPO_ROOT/temp"
 MANIFEST_FILE="$TEMP_DIR/manifest.json"
+
+if [[ -z "${CURRENT_PRODUCT_INDEX:-}" ]]; then
+    echo "Error: CURRENT_PRODUCT_INDEX not set"
+    exit 1
+fi
 
 # Check required environment variables
 if [[ -z "${ARTIFACTORY_URL:-}" ]]; then
@@ -32,216 +39,82 @@ else
     CURL_AUTH_VALUE="$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD"
 fi
 
-# Install yq if not present (for YAML parsing)
-if ! command -v yq &> /dev/null; then
-    echo "Installing yq..."
-    YQ_VERSION="v4.35.1"
-    YQ_BINARY="yq_linux_amd64"
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        YQ_BINARY="yq_darwin_amd64"
-    fi
-    wget -q "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/${YQ_BINARY}" -O /tmp/yq
-    chmod +x /tmp/yq
-    sudo mv /tmp/yq /usr/local/bin/yq
+i=$CURRENT_PRODUCT_INDEX
+PRODUCT_NAME=$(yq eval ".products[$i].name" "$CONFIG_FILE")
+ARTIFACTORY_PATH=$(yq eval ".products[$i].artifactory_path" "$CONFIG_FILE")
+PATTERN=$(yq eval ".products[$i].artifact_pattern" "$CONFIG_FILE")
+MAX_VERSIONS=$(yq eval ".products[$i].max_versions" "$CONFIG_FILE")
+
+echo "  Artifactory path: $ARTIFACTORY_PATH"
+echo "  Pattern: $PATTERN"
+
+# Create product directory
+PRODUCT_SLUG=$(echo "$PRODUCT_NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+PRODUCT_DIR="$TEMP_DIR/$PRODUCT_SLUG"
+mkdir -p "$PRODUCT_DIR"
+
+# Query Artifactory for versions using AQL
+# Search recursively for artifacts matching the pattern
+AQL_QUERY='items.find({
+    "path": {"$match": "'$ARTIFACTORY_PATH'/*"},
+    "name": {"$match": "'$PATTERN'"}
+}).sort({"$desc": ["modified"]}).limit('$MAX_VERSIONS')'
+
+echo "  Searching Artifactory..."
+
+AQL_RESPONSE=$(curl -s -X POST \
+    $CURL_AUTH "$CURL_AUTH_VALUE" \
+    -H "Content-Type: text/plain" \
+    -d "$AQL_QUERY" \
+    "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
+
+ARTIFACT_COUNT=$(echo "$AQL_RESPONSE" | jq '.results | length')
+
+if [[ "$ARTIFACT_COUNT" == "0" ]]; then
+    echo "  No artifacts found"
+    exit 0
 fi
 
-# Clean and create temp directory
-rm -rf "$TEMP_DIR"
-mkdir -p "$TEMP_DIR"
+echo "  Found $ARTIFACT_COUNT artifact(s)"
 
-echo "Starting artifact fetch from Artifactory..."
-echo "Config file: $CONFIG_FILE"
-echo "Artifactory URL: $ARTIFACTORY_URL"
+# Process each artifact from AQL results
+for ((k=0; k<ARTIFACT_COUNT; k++)); do
+    REPO=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].repo")
+    ARTIFACT_PATH=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].path")
+    ARTIFACT_NAME=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].name")
 
-# Initialize manifest
-echo '{"products": []}' > "$MANIFEST_FILE"
+    # Try to extract version from path or filename
+    # Look for version patterns like: 1.2.3, v1.2.3, etc.
+    VERSION="latest"
 
-# Get number of products
-PRODUCT_COUNT=$(yq eval '.products | length' "$CONFIG_FILE")
-echo "Found $PRODUCT_COUNT products in configuration"
-
-# Process each product
-for ((i=0; i<PRODUCT_COUNT; i++)); do
-    PRODUCT_NAME=$(yq eval ".products[$i].name" "$CONFIG_FILE")
-    REPO=$(yq eval ".products[$i].artifactory_repo" "$CONFIG_FILE")
-    PATH_PREFIX=$(yq eval ".products[$i].artifactory_path" "$CONFIG_FILE")
-    PATTERN=$(yq eval ".products[$i].artifact_pattern" "$CONFIG_FILE")
-
-    # Skip if not an Artifactory product
-    if [[ "$REPO" == "null" || -z "$REPO" ]]; then
-        echo ""
-        echo "Processing: $PRODUCT_NAME"
-        echo "  Skipping: Not an Artifactory product"
-        continue
+    # Try to extract from path first (e.g., "flex-agent-release/1.11.0/...")
+    if [[ "$ARTIFACT_PATH" =~ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+        VERSION="${BASH_REMATCH[1]}"
+    # Try to extract from filename
+    elif [[ "$ARTIFACT_NAME" =~ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+        VERSION="${BASH_REMATCH[1]}"
     fi
 
-    echo ""
-    echo "Processing: $PRODUCT_NAME"
-    echo "  Repository: $REPO"
-    echo "  Path: $PATH_PREFIX"
-    echo "  Pattern: $PATTERN"
+    echo "  Version: $VERSION"
+    VERSION_DIR="$PRODUCT_DIR/$VERSION"
+    mkdir -p "$VERSION_DIR"
 
-    # Create product directory
-    PRODUCT_SLUG=$(echo "$PRODUCT_NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
-    PRODUCT_DIR="$TEMP_DIR/$PRODUCT_SLUG"
-    mkdir -p "$PRODUCT_DIR"
+    # Download artifact
+    DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
+    echo "    Downloading: $ARTIFACT_NAME"
 
-    # Get exclude patterns if any
-    EXCLUDE_PATTERNS=()
-    EXCLUDE_COUNT=$(yq eval ".products[$i].exclude_patterns | length" "$CONFIG_FILE")
-    if [[ "$EXCLUDE_COUNT" != "0" && "$EXCLUDE_COUNT" != "null" ]]; then
-        for ((j=0; j<EXCLUDE_COUNT; j++)); do
-            EXCLUDE_PATTERN=$(yq eval ".products[$i].exclude_patterns[$j]" "$CONFIG_FILE")
-            EXCLUDE_PATTERNS+=("$EXCLUDE_PATTERN")
-            echo "  Exclude: $EXCLUDE_PATTERN"
-        done
-    fi
+    if curl -f -s $CURL_AUTH "$CURL_AUTH_VALUE" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"; then
+        echo "    Successfully downloaded"
 
-    # Query Artifactory for versions
-    API_URL="$ARTIFACTORY_URL/api/storage/$REPO/$PATH_PREFIX"
-    echo "  Querying: $API_URL"
-
-    RESPONSE=$(curl -s $CURL_AUTH "$CURL_AUTH_VALUE" "$API_URL" || echo '{}')
-
-    # Parse version directories
-    VERSIONS=$(echo "$RESPONSE" | jq -r '.children[]? | select(.folder == true) | .uri' | tr -d '/')
-
-    if [[ -z "$VERSIONS" ]]; then
-        echo "  Warning: No versions found, searching recursively for artifacts..."
-
-        # Use AQL to recursively search for artifacts
-        AQL_QUERY='{
-            "repo": "'$REPO'",
-            "path": {"$match": "'$PATH_PREFIX'/*"},
-            "name": {"$match": "'$PATTERN'"}
-        }'
-
-        AQL_RESPONSE=$(curl -s -X POST \
-            $CURL_AUTH "$CURL_AUTH_VALUE" \
-            -H "Content-Type: text/plain" \
-            -d "items.find($AQL_QUERY)" \
-            "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
-
-        ARTIFACT_COUNT=$(echo "$AQL_RESPONSE" | jq '.results | length')
-
-        if [[ "$ARTIFACT_COUNT" == "0" ]]; then
-            echo "  No artifacts found for $PRODUCT_NAME"
-            continue
-        fi
-
-        echo "  Found $ARTIFACT_COUNT artifact(s)"
-
-        # Process artifacts without version subdirectories
-        VERSION="latest"
-        VERSION_DIR="$PRODUCT_DIR/$VERSION"
-        mkdir -p "$VERSION_DIR"
-
-        for ((k=0; k<ARTIFACT_COUNT; k++)); do
-            ARTIFACT_PATH=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].path")
-            ARTIFACT_NAME=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].name")
-
-            # Check exclude patterns
-            EXCLUDED=false
-            for EXCLUDE in "${EXCLUDE_PATTERNS[@]}"; do
-                if [[ "$ARTIFACT_NAME" == $EXCLUDE ]]; then
-                    EXCLUDED=true
-                    break
-                fi
-            done
-
-            if [[ "$EXCLUDED" == true ]]; then
-                echo "  Skipping excluded: $ARTIFACT_NAME"
-                continue
-            fi
-
-            # Download artifact
-            DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
-            echo "  Downloading: $ARTIFACT_NAME"
-            curl -s $CURL_AUTH "$CURL_AUTH_VALUE" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
-
-            # Add to manifest
-            TEMP_MANIFEST=$(mktemp)
-            jq --arg name "$PRODUCT_NAME" \
-               --arg version "$VERSION" \
-               --arg artifact "$VERSION_DIR/$ARTIFACT_NAME" \
-               '.products += [{"name": $name, "version": $version, "artifact": $artifact}]' \
-               "$MANIFEST_FILE" > "$TEMP_MANIFEST"
-            mv "$TEMP_MANIFEST" "$MANIFEST_FILE"
-        done
+        # Add to manifest
+        TEMP_MANIFEST=$(mktemp)
+        jq --arg name "$PRODUCT_NAME" \
+           --arg version "$VERSION" \
+           --arg artifact "$VERSION_DIR/$ARTIFACT_NAME" \
+           '.products += [{"name": $name, "version": $version, "artifact": $artifact}]' \
+           "$MANIFEST_FILE" > "$TEMP_MANIFEST"
+        mv "$TEMP_MANIFEST" "$MANIFEST_FILE"
     else
-        # Process each version
-        echo "  Found versions: $(echo "$VERSIONS" | tr '\n' ' ')"
-
-        while IFS= read -r VERSION; do
-            [[ -z "$VERSION" ]] && continue
-
-            VERSION_DIR="$PRODUCT_DIR/$VERSION"
-            mkdir -p "$VERSION_DIR"
-
-            # Use Artifactory's AQL to recursively find artifacts
-            # This handles nested folder structures
-            AQL_QUERY='{
-                "repo": "'$REPO'",
-                "path": {"$match": "'$PATH_PREFIX/$VERSION'/*"},
-                "name": {"$match": "'$PATTERN'"}
-            }'
-
-            echo "  Searching recursively in version $VERSION..."
-            AQL_RESPONSE=$(curl -s -X POST \
-                $CURL_AUTH "$CURL_AUTH_VALUE" \
-                -H "Content-Type: text/plain" \
-                -d "items.find($AQL_QUERY)" \
-                "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
-
-            # Extract file paths from AQL results
-            ARTIFACT_COUNT=$(echo "$AQL_RESPONSE" | jq '.results | length')
-
-            if [[ "$ARTIFACT_COUNT" == "0" ]]; then
-                echo "  No artifacts found in version $VERSION"
-                continue
-            fi
-
-            echo "  Found $ARTIFACT_COUNT artifact(s)"
-
-            # Process each artifact from AQL results
-            for ((k=0; k<ARTIFACT_COUNT; k++)); do
-                ARTIFACT_PATH=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].path")
-                ARTIFACT_NAME=$(echo "$AQL_RESPONSE" | jq -r ".results[$k].name")
-
-                # Check exclude patterns
-                EXCLUDED=false
-                for EXCLUDE in "${EXCLUDE_PATTERNS[@]}"; do
-                    if [[ "$ARTIFACT_NAME" == $EXCLUDE ]]; then
-                        EXCLUDED=true
-                        break
-                    fi
-                done
-
-                if [[ "$EXCLUDED" == true ]]; then
-                    echo "  Skipping excluded: $ARTIFACT_NAME"
-                    continue
-                fi
-
-                # Download artifact
-                DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
-                echo "  Downloading: $ARTIFACT_NAME"
-                curl -s $CURL_AUTH "$CURL_AUTH_VALUE" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
-
-                # Add to manifest
-                TEMP_MANIFEST=$(mktemp)
-                jq --arg name "$PRODUCT_NAME" \
-                   --arg version "$VERSION" \
-                   --arg artifact "$VERSION_DIR/$ARTIFACT_NAME" \
-                   '.products += [{"name": $name, "version": $version, "artifact": $artifact}]' \
-                   "$MANIFEST_FILE" > "$TEMP_MANIFEST"
-                mv "$TEMP_MANIFEST" "$MANIFEST_FILE"
-            done
-
-        done <<< "$VERSIONS"
+        echo "    Error: Failed to download $ARTIFACT_NAME"
     fi
 done
-
-echo ""
-echo "Artifactory artifact fetch complete!"
-echo "Manifest: $MANIFEST_FILE"
-echo "Total artifacts: $(jq '.products | length' "$MANIFEST_FILE")"
