@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrast Security - Public SBOMs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Contrast Security</h1>
+            <p class="subtitle">Public Software Bill of Materials (SBOM) Repository</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="info-box">
+            <p>
+                This site provides machine-readable Software Bill of Materials (SBOMs) for all Contrast Security products.
+                SBOMs are available in both <strong>SPDX</strong> and <strong>CycloneDX</strong> formats.
+            </p>
+            <p class="last-updated">
+                Last updated: <span id="last-updated">Loading...</span>
+            </p>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search products or versions..."
+                    aria-label="Search products or versions"
+                />
+            </div>
+            <div class="filter-controls">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" aria-label="Sort products">
+                    <option value="name">Product Name</option>
+                    <option value="version">Latest Version</option>
+                    <option value="date">Release Date</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="product-list" class="product-list">
+            <div class="loading">Loading products...</div>
+        </div>
+
+        <div id="no-results" class="no-results" style="display: none;">
+            <p>No products found matching your search.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2026 Contrast Security.
+                Generated automatically from Artifactory using
+                <a href="https://github.com/anchore/syft" target="_blank" rel="noopener">Syft</a>.
+            </p>
+            <p class="footer-links">
+                <a href="https://www.contrastsecurity.com" target="_blank" rel="noopener">Website</a> |
+                <a href="https://github.com/Contrast-Security-OSS" target="_blank" rel="noopener">GitHub</a> |
+                <a href="https://docs.contrastsecurity.com" target="_blank" rel="noopener">Documentation</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal for viewing SBOM contents -->
+    <div id="sbom-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">SBOM Viewer</h2>
+                <button class="close-button" onclick="closeModal()" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <pre id="sbom-content"><code></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
