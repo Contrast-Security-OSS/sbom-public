@@ -166,7 +166,7 @@ fetch_s3() {
     # Example: https://bucket.s3.region.amazonaws.com/path/ -> bucket, path/
     local bucket_url="$S3_PUBLIC_URL"
 
-    echo "  Listing S3 (anonymous): $bucket_url"
+    echo "  Listing S3 (anonymous): $bucket_url" >&2
 
     # Try to list bucket using anonymous S3 XML API
     # This works if the bucket allows public ListBucket
@@ -174,7 +174,7 @@ fetch_s3() {
 
     # If XML listing is available, parse it
     if [[ "$listing" =~ \<Key\> ]]; then
-        echo "  Using S3 XML API listing..."
+        echo "  Using S3 XML API listing..." >&2
         # Extract <Key> elements from XML and filter by pattern
         local grep_pattern=$(echo "$pattern" | sed 's/\*/.*/')
         local files=$(echo "$listing" | grep -oP '<Key>\K[^<]+' | grep -E "$grep_pattern" | sed 's|.*/||' | sort -r | head -n "$max_versions")
@@ -184,7 +184,7 @@ fetch_s3() {
         # This requires the user to have a version_list in products.yml
         local version_list=$(echo "$product_json" | jq -r '.version_list[]?' 2>/dev/null)
         if [[ -n "$version_list" ]]; then
-            echo "  Using version_list from config..."
+            echo "  Using version_list from config..." >&2
 
             # Try to list all files to do soft matching
             local all_files=$(curl -s "$bucket_url" | grep -oP '<Key>\K[^<]+' | sed 's|.*/||' || echo "")
@@ -221,12 +221,12 @@ fetch_s3() {
     fi
 
     if [[ -z "$files" ]]; then
-        echo -e "${YELLOW}  No files found matching pattern: $pattern${NC}"
+        echo -e "${YELLOW}  No files found matching pattern: $pattern${NC}" >&2
         return
     fi
 
     local count=$(echo "$files" | wc -l | tr -d ' ')
-    echo "  Found $count file(s)"
+    echo "  Found $count file(s)" >&2
 
     # Download and process each file
     while IFS= read -r filename; do
@@ -238,7 +238,7 @@ fetch_s3() {
             version=$(echo "$filename" | sed 's/\.[^.]*$//' | sed 's/.*-//')
         fi
 
-        echo "    Version: $version - $filename"
+        echo "    Version: $version - $filename" >&2
 
         # Download
         local download_path="$TEMP_DIR/$slug-$version-$(basename "$filename")"
@@ -259,7 +259,7 @@ fetch_maven() {
     local artifact_id=$(echo "$product_json" | jq -r '.maven_artifact_id')
     local max_versions=$(echo "$product_json" | jq -r '.max_versions')
 
-    echo "  Maven Central: $group_id:$artifact_id"
+    echo "  Maven Central: $group_id:$artifact_id" >&2
 
     # Construct Maven URL
     local group_path=$(echo "$group_id" | tr '.' '/')
@@ -269,7 +269,7 @@ fetch_maven() {
     # Fetch metadata
     local metadata=$(curl -s "$metadata_url")
     if [[ -z "$metadata" ]]; then
-        echo -e "${YELLOW}  Failed to fetch metadata from Maven Central${NC}"
+        echo -e "${YELLOW}  Failed to fetch metadata from Maven Central${NC}" >&2
         return
     fi
 
@@ -277,12 +277,12 @@ fetch_maven() {
     local versions=$(echo "$metadata" | grep -o '<version>[^<]*</version>' | sed 's/<version>//g' | sed 's/<\/version>//g' | sort -V -r | head -n "$max_versions")
 
     if [[ -z "$versions" ]]; then
-        echo -e "${YELLOW}  No versions found${NC}"
+        echo -e "${YELLOW}  No versions found${NC}" >&2
         return
     fi
 
     local count=$(echo "$versions" | wc -l | tr -d ' ')
-    echo "  Found $count version(s)"
+    echo "  Found $count version(s)" >&2
 
     # Download each version
     while IFS= read -r version; do
@@ -292,7 +292,7 @@ fetch_maven() {
         local download_url="${maven_base}/${version}/${filename}"
         local download_path="$TEMP_DIR/$slug-$version-${filename}"
 
-        echo "    Version: $version - $filename"
+        echo "    Version: $version - $filename" >&2
 
         if curl -f -s "$download_url" -o "$download_path"; then
             echo "$download_path|$version"
@@ -330,7 +330,7 @@ fetch_artifactory() {
         curl_auth="-u \"$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD\""
     fi
 
-    echo "  Artifactory: $artifactory_path"
+    echo "  Artifactory: $artifactory_path" >&2
 
     # Construct AQL query
     local aql_query='items.find({
@@ -347,11 +347,11 @@ fetch_artifactory() {
     local result_count=$(echo "$response" | jq '.results | length')
 
     if [[ "$result_count" == "0" ]]; then
-        echo -e "${YELLOW}  No artifacts found${NC}"
+        echo -e "${YELLOW}  No artifacts found${NC}" >&2
         return
     fi
 
-    echo "  Found $result_count artifact(s)"
+    echo "  Found $result_count artifact(s)" >&2
 
     # Download each artifact
     for ((k=0; k<result_count; k++)); do
@@ -367,7 +367,7 @@ fetch_artifactory() {
             version="${BASH_REMATCH[1]}"
         fi
 
-        echo "    Version: $version - $artifact_name"
+        echo "    Version: $version - $artifact_name" >&2
 
         local download_url="$ARTIFACTORY_URL/$repo/$path/$artifact_name"
         local download_path="$TEMP_DIR/$slug-$version-$artifact_name"
