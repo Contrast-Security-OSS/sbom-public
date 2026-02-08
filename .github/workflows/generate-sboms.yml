@@ -37,7 +37,7 @@ jobs:
         env:
           # S3 configuration (anonymous public access, no credentials needed)
           S3_PUBLIC_URL: ${{ secrets.S3_PUBLIC_URL }}
-          # Artifactory configuration
+          # Artifactory configuration (credentials optional for public repos)
           ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
           ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}

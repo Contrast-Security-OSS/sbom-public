@@ -317,15 +317,13 @@ fetch_artifactory() {
         exit 2
     fi
 
-    if [[ -z "${ARTIFACTORY_TOKEN:-}" ]] && [[ -z "${ARTIFACTORY_USER:-}" || -z "${ARTIFACTORY_PASSWORD:-}" ]]; then
-        echo -e "${RED}ERROR: Either ARTIFACTORY_TOKEN or both ARTIFACTORY_USER and ARTIFACTORY_PASSWORD must be set${NC}" >&2
-        exit 2
+    # Authentication is optional for public repositories
+    if [[ -n "${ARTIFACTORY_TOKEN:-}" ]] || [[ -n "${ARTIFACTORY_USER:-}" ]]; then
+        echo "  Artifactory: $artifactory_path (authenticated)" >&2
+    else
+        echo "  Artifactory: $artifactory_path (anonymous)" >&2
     fi
 
-    # Debug: Log URL (without credentials)
-    echo "  Artifactory URL: ${ARTIFACTORY_URL}/api/search/aql" >&2
-
-    echo "  Artifactory: $artifactory_path" >&2
     echo "  Pattern: $pattern" >&2
 
     # Construct AQL query
@@ -356,7 +354,7 @@ fetch_artifactory() {
         echo "  AQL: Searching repo='$repo_name', path='$sub_path' or '$sub_path/*', name='$pattern'" >&2
     fi
 
-    # Execute AQL with proper authentication
+    # Execute AQL with optional authentication
     local response
     if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
         response=$(curl -s -X POST \
@@ -364,9 +362,15 @@ fetch_artifactory() {
             -H "Content-Type: text/plain" \
             -d "$aql_query" \
             "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
-    else
+    elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
         response=$(curl -s -X POST \
             -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" \
+            -H "Content-Type: text/plain" \
+            -d "$aql_query" \
+            "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
+    else
+        # Anonymous access
+        response=$(curl -s -X POST \
             -H "Content-Type: text/plain" \
             -d "$aql_query" \
             "$ARTIFACTORY_URL/api/search/aql" 2>/dev/null || echo '{"results":[]}')
@@ -414,14 +418,19 @@ fetch_artifactory() {
         local download_url="$ARTIFACTORY_URL/$repo/$path/$artifact_name"
         local download_path="$TEMP_DIR/$slug-$version-$artifact_name"
 
-        # Download with proper authentication
+        # Download with optional authentication
         local download_success=false
         if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
             if curl -f -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$download_url" -o "$download_path" 2>/dev/null; then
                 download_success=true
             fi
-        else
+        elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
             if curl -f -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$download_url" -o "$download_path" 2>/dev/null; then
+                download_success=true
+            fi
+        else
+            # Anonymous download
+            if curl -f -s "$download_url" -o "$download_path" 2>/dev/null; then
                 download_success=true
             fi
         fi
