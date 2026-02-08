@@ -38,9 +38,8 @@ products:
     max_versions: 10
 
   - name: ".NET Agent IIS Installer"
-    source: "artifactory"
-    artifactory_path: "dotnet-core-installer-release"
-    artifact_pattern: "contrast-dotnet-core-agent-for-iis-installer*"
+    source: "nuget"
+    nuget_package: "Contrast.FrameworkIIS.Installer"
     max_versions: 10
 
   - name: "Go Agent (Linux AMD64)"
