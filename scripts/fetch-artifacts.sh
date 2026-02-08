@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Fetch artifacts from Artifactory based on products.yml configuration
-# Requires: ARTIFACTORY_URL and ARTIFACTORY_TOKEN environment variables
+# Requires: ARTIFACTORY_URL and either ARTIFACTORY_TOKEN or (ARTIFACTORY_USER + ARTIFACTORY_PASSWORD)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -17,9 +17,20 @@ if [[ -z "${ARTIFACTORY_URL:-}" ]]; then
     exit 1
 fi
 
-if [[ -z "${ARTIFACTORY_TOKEN:-}" ]]; then
-    echo "Error: ARTIFACTORY_TOKEN environment variable not set"
+# Check if we have either token or user/password authentication
+if [[ -z "${ARTIFACTORY_TOKEN:-}" ]] && [[ -z "${ARTIFACTORY_USER:-}" || -z "${ARTIFACTORY_PASSWORD:-}" ]]; then
+    echo "Error: Either ARTIFACTORY_TOKEN or both ARTIFACTORY_USER and ARTIFACTORY_PASSWORD must be set"
     exit 1
+fi
+
+# Set up authentication header or credentials
+if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
+    AUTH_HEADER="X-JFrog-Art-Api: $ARTIFACTORY_TOKEN"
+    CURL_AUTH="-H"
+    CURL_AUTH_VALUE="$AUTH_HEADER"
+else
+    CURL_AUTH="-u"
+    CURL_AUTH_VALUE="$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD"
 fi
 
 # Install yq if not present (for YAML parsing)
@@ -198,7 +209,7 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
     API_URL="$ARTIFACTORY_URL/api/storage/$REPO/$PATH_PREFIX"
     echo "  Querying: $API_URL"
 
-    RESPONSE=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$API_URL" || echo '{}')
+    RESPONSE=$(curl -s $CURL_AUTH "$CURL_AUTH_VALUE" "$API_URL" || echo '{}')
 
     # Parse version directories
     VERSIONS=$(echo "$RESPONSE" | jq -r '.children[]? | select(.folder == true) | .uri' | tr -d '/')
@@ -214,7 +225,7 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
         }'
 
         AQL_RESPONSE=$(curl -s -X POST \
-            -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" \
+            $CURL_AUTH "$CURL_AUTH_VALUE" \
             -H "Content-Type: text/plain" \
             -d "items.find($AQL_QUERY)" \
             "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
@@ -254,7 +265,7 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
             # Download artifact
             DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
             echo "  Downloading: $ARTIFACT_NAME"
-            curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
+            curl -s $CURL_AUTH "$CURL_AUTH_VALUE" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
 
             # Add to manifest
             TEMP_MANIFEST=$(mktemp)
@@ -285,7 +296,7 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
 
             echo "  Searching recursively in version $VERSION..."
             AQL_RESPONSE=$(curl -s -X POST \
-                -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" \
+                $CURL_AUTH "$CURL_AUTH_VALUE" \
                 -H "Content-Type: text/plain" \
                 -d "items.find($AQL_QUERY)" \
                 "$ARTIFACTORY_URL/api/search/aql" || echo '{"results":[]}')
@@ -322,7 +333,7 @@ for ((i=0; i<PRODUCT_COUNT; i++)); do
                 # Download artifact
                 DOWNLOAD_URL="$ARTIFACTORY_URL/$REPO/$ARTIFACT_PATH/$ARTIFACT_NAME"
                 echo "  Downloading: $ARTIFACT_NAME"
-                curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
+                curl -s $CURL_AUTH "$CURL_AUTH_VALUE" "$DOWNLOAD_URL" -o "$VERSION_DIR/$ARTIFACT_NAME"
 
                 # Add to manifest
                 TEMP_MANIFEST=$(mktemp)
