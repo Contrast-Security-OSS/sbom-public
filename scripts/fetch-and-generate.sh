@@ -332,6 +332,7 @@ fetch_artifactory() {
     # - Repo with path: "cli/linux" (list that subpath)
 
     local storage_url="$ARTIFACTORY_URL/api/storage/$artifactory_path"
+    echo "  Storage URL: $storage_url" >&2
 
     # Get directory listing with optional auth
     local listing
@@ -345,6 +346,7 @@ fetch_artifactory() {
 
     if ! echo "$listing" | jq -e '.children' > /dev/null 2>&1; then
         echo -e "${YELLOW}  Could not list repository (may not exist or no access)${NC}" >&2
+        echo "  Response: ${listing:0:300}" >&2
         return
     fi
 
