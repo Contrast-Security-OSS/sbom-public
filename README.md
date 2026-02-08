@@ -11,7 +11,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 ## Features
 
 - 🔄 **Automated SBOM Generation**: Workflow-triggered generation with manual dispatch option
-- 📦 **Multi-Source Support**: Fetches artifacts from S3, Maven Central, npm, and Artifactory
+- 📦 **Multi-Source Support**: Fetches artifacts from S3, Maven Central, npm, PyPI, and Artifactory
 - 🔐 **Anonymous Access**: Works with public repositories without credentials
 - 📋 **Dual Format**: SPDX and CycloneDX for maximum compatibility
 - 🔍 **Searchable Interface**: Modern web UI with filtering and sorting
@@ -20,7 +20,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
-**8 of 12 products active** • **83 versions** • **166 SBOM files** (SPDX + CycloneDX)
+**9 of 12 products active** • **93 versions** • **186 SBOM files** (SPDX + CycloneDX)
 
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
@@ -32,9 +32,9 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 | **Contrast CLI Mac** | 10 | Artifactory (public) | ✅ Active |
 | **Contrast CLI Windows** | 10 | Artifactory (public) | ✅ Active |
 | **Node Agent** | 10 | npm | ✅ Active |
+| **Python Agent** | 10 | PyPI | ✅ Active |
 | .NET Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 | .NET Agent IIS Installer | - | Artifactory (private) | ⚠️ Requires credentials |
-| Python Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 | Ruby Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 
 ## Architecture
@@ -54,6 +54,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 │  - S3       │
 │  - Maven    │
 │  - npm      │
+│  - PyPI     │
 │  - Artifactory│
 └──────┬──────┘
        │
@@ -144,6 +145,12 @@ products:
   - name: "Node Agent"
     source: "npm"
     npm_package: "@contrast/agent"
+    max_versions: 10
+
+  # PyPI registry example
+  - name: "Python Agent"
+    source: "pypi"
+    pypi_package: "contrast-agent"
     max_versions: 10
 
   # Artifactory with flat structure (version/file)
@@ -275,6 +282,7 @@ The system is designed to work with public repositories:
 - **S3**: Uses public HTTP endpoints (no AWS credentials)
 - **Maven Central**: Public API
 - **npm**: Public registry API
+- **PyPI**: Public registry API
 - **Artifactory**: Public repos use REST API anonymously
 
 ### Private Repositories
