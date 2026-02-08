@@ -25,6 +25,39 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Install dependencies
+        run: |
+          # Install jq for JSON processing
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+          # Install yq for YAML processing
+          wget -q https://github.com/mikefarah/yq/releases/download/v4.35.1/yq_linux_amd64 -O /tmp/yq
+          chmod +x /tmp/yq
+          sudo mv /tmp/yq /usr/local/bin/yq
+
+          # AWS CLI is pre-installed on ubuntu-latest
+
+      - name: Fetch artifacts
+        env:
+          ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
+          ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+        run: |
+          chmod +x scripts/fetch-artifacts.sh
+          ./scripts/fetch-artifacts.sh
+
+      - name: Generate SBOMs
+        run: |
+          chmod +x scripts/generate-sboms.sh
+          ./scripts/generate-sboms.sh
+
       - name: Build static site
         run: |
           chmod +x scripts/build-site.js

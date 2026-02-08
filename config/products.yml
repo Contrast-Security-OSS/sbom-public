@@ -1,4 +1,10 @@
 products:
+  - name: "EOP"
+    s3_bucket_url: "s3://hub-downloads-production/war/"
+    s3_public_url: "https://hub-downloads-production.s3.us-east-1.amazonaws.com/war/"
+    artifact_pattern: "Contrast-*.war"
+    max_versions: 5
+
   - name: "Java Agent"
     direct_download_url: "https://download.java.contrastsecurity.com/latest"
     artifact_pattern: "contrast-agent-*.jar"
