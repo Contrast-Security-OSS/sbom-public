@@ -1,6 +1,5 @@
 # Temporary directories (generated during CI)
 temp/
-sboms/
 
 # Node modules (if any)
 node_modules/

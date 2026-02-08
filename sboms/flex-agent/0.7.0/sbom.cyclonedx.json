@@ -1,0 +1,4518 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:9eb9b552-0c56-4b89-9371-f3b7fb093839",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-02-07T22:00:39-05:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "author": "anchore",
+          "name": "syft",
+          "version": "1.41.2"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1bfad09a3e2de09d",
+      "type": "file",
+      "name": "contrast-flex-agent.tar.gz",
+      "version": "sha256:8a5b1be2f03b3c9a67c2064a85783a02ba39b5f35f70dfdb1ca4590c29a91a4b"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b38e933cd1a5f0e6",
+      "type": "application",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:Contrast_.NET_Agent:Contrast_.NET_Agent:4.4.3.0:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x64/native/ContrastCoreNativeModule.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "635f3617780f4980",
+      "type": "application",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:Contrast_.NET_Agent:Contrast_.NET_Agent:4.4.3.0:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x64/native/ContrastNativeHttpModule.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a0612178ce042b8e",
+      "type": "application",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:Contrast_.NET_Agent:Contrast_.NET_Agent:4.4.3.0:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x64/native/ContrastProfiler.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "df73d2154b29ddee",
+      "type": "application",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:Contrast_.NET_Agent:Contrast_.NET_Agent:4.4.3.0:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x86/native/ContrastCoreNativeModule.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "1431dc369502a3c5",
+      "type": "application",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:Contrast_.NET_Agent:Contrast_.NET_Agent:4.4.3.0:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x86/native/ContrastNativeHttpModule.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "47c7bf8714886d5a",
+      "type": "application",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:Contrast_.NET_Agent:Contrast_.NET_Agent:4.4.3.0:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x86/native/ContrastProfiler.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/Contrast%20.NET%20Agent@4.4.3.0?package-id=454f3533a1d984d2",
+      "type": "library",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:contrast_security:contrast__net_agent_.net:4.4.3.0:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/Contrast%20.NET%20Agent@4.4.3.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_security:contrast__net_agent:4.4.3.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/net5.0/Contrast.SensorsNetCore.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/Contrast%20.NET%20Agent@4.4.3.0?package-id=3620f4f04e5c8156",
+      "type": "library",
+      "name": "Contrast .NET Agent",
+      "version": "4.4.3.0",
+      "cpe": "cpe:2.3:a:contrast_security:contrast__net_agent_.net:4.4.3.0:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/Contrast%20.NET%20Agent@4.4.3.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_security:contrast__net_agent:4.4.3.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "16110b3a7e663957",
+      "type": "application",
+      "name": "Contrast Agent Library",
+      "version": "1.1.4",
+      "cpe": "cpe:2.3:a:Contrast_Agent_Library:Contrast_Agent_Library:1.1.4:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x64/native/contrast_c.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "23ffc84ebf77741a",
+      "type": "application",
+      "name": "Contrast Agent Library",
+      "version": "1.1.4",
+      "cpe": "cpe:2.3:a:Contrast_Agent_Library:Contrast_Agent_Library:1.1.4:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x86/native/contrast_c.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "71da150267648b3a",
+      "type": "application",
+      "name": "Contrast Reporting Library",
+      "version": "0.22.7",
+      "cpe": "cpe:2.3:a:Contrast_Reporting_Library:Contrast_Reporting_Library:0.22.7:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x64/native/fireball_c.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "e47298ea019a306c",
+      "type": "application",
+      "name": "Contrast Reporting Library",
+      "version": "0.22.7",
+      "cpe": "cpe:2.3:a:Contrast_Reporting_Library:Contrast_Reporting_Library:0.22.7:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/runtimes/win-x86/native/fireball_c.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/JetBrains.Annotations@2019.1.3?package-id=5f00f5b1e8ebd23e",
+      "type": "library",
+      "name": "JetBrains.Annotations",
+      "version": "2019.1.3",
+      "cpe": "cpe:2.3:a:jetbrains_annotations:jetbrains_annotations_.net:2019.1.3:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/JetBrains.Annotations@2019.1.3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jetbrains_annotations:jetbrains_annotations:2019.1.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/net5.0/Contrast.SensorsNetCore.deps.json"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/JetBrains.Annotations@2019.1.3?package-id=d624ba9867457ca3",
+      "type": "library",
+      "name": "JetBrains.Annotations",
+      "version": "2019.1.3",
+      "cpe": "cpe:2.3:a:jetbrains_annotations:jetbrains_annotations_.net:2019.1.3:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/JetBrains.Annotations@2019.1.3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jetbrains_annotations:jetbrains_annotations:2019.1.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/Microsoft.Win32.Registry@4.700.19.56404?package-id=ff39ca35ac4ff12e",
+      "type": "library",
+      "name": "Microsoft.Win32.Registry",
+      "version": "4.700.19.56404",
+      "purl": "pkg:nuget/Microsoft.Win32.Registry@4.700.19.56404",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/Microsoft.Win32.Registry@4.700.19.56404?package-id=c05b3585b036258a",
+      "type": "library",
+      "name": "Microsoft.Win32.Registry",
+      "version": "4.700.19.56404",
+      "purl": "pkg:nuget/Microsoft.Win32.Registry@4.700.19.56404",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.IO.Pipes.AccessControl@4.3.0?package-id=489cebac2f5d9c3a",
+      "type": "library",
+      "name": "System.IO.Pipes.AccessControl",
+      "version": "4.3.0",
+      "cpe": "cpe:2.3:a:system_io_pipes_accesscontrol:system_io_pipes_accesscontrol_.net:4.3.0:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/System.IO.Pipes.AccessControl@4.3.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:system_io_pipes_accesscontrol:system_io_pipes_accesscontrol:4.3.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Runtime.CompilerServices.Unsafe@4.7.1?package-id=343ee7b28a8e66d9",
+      "type": "library",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "version": "4.7.1",
+      "cpe": "cpe:2.3:a:system_runtime_compilerservices_unsafe:system_runtime_compilerservices_unsafe_.net:4.7.1:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/System.Runtime.CompilerServices.Unsafe@4.7.1",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:system_runtime_compilerservices_unsafe:system_runtime_compilerservices_unsafe:4.7.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:microsoft_corporation:system_runtime_compilerservices_unsafe_.net:4.7.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:microsoft_corporation:system_runtime_compilerservices_unsafe:4.7.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json"
+        },
+        {
+          "name": "syft:location:1:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/System.Runtime.CompilerServices.Unsafe.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Security.AccessControl@4.7.0?package-id=bc715eedb4f433f5",
+      "type": "library",
+      "name": "System.Security.AccessControl",
+      "version": "4.7.0",
+      "cpe": "cpe:2.3:a:system_security_accesscontrol:system_security_accesscontrol_.net:4.7.0:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/System.Security.AccessControl@4.7.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:system_security_accesscontrol:system_security_accesscontrol:4.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:microsoft_corporation:system_security_accesscontrol_.net:4.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:microsoft_corporation:system_security_accesscontrol:4.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json"
+        },
+        {
+          "name": "syft:location:1:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/System.Security.AccessControl.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Security.AccessControl@4.700.19.56404?package-id=5134658a6db31910",
+      "type": "library",
+      "name": "System.Security.AccessControl",
+      "version": "4.700.19.56404",
+      "purl": "pkg:nuget/System.Security.AccessControl@4.700.19.56404",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Security.Permissions@4.4.0?package-id=08e625cbb5195677",
+      "type": "library",
+      "name": "System.Security.Permissions",
+      "version": "4.4.0",
+      "cpe": "cpe:2.3:a:system_security_permissions:system_security_permissions_.net:4.4.0:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/System.Security.Permissions@4.4.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:system_security_permissions:system_security_permissions:4.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Security.Principal.Windows@4.7.0?package-id=c36589472a648a41",
+      "type": "library",
+      "name": "System.Security.Principal.Windows",
+      "version": "4.7.0",
+      "cpe": "cpe:2.3:a:system_security_principal_windows:system_security_principal_windows_.net:4.7.0:*:*:*:*:*:*:*",
+      "purl": "pkg:nuget/System.Security.Principal.Windows@4.7.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-deps-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:system_security_principal_windows:system_security_principal_windows:4.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:microsoft_corporation:system_security_principal_windows_.net:4.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:microsoft_corporation:system_security_principal_windows:4.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json"
+        },
+        {
+          "name": "syft:location:1:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/System.Security.Principal.Windows.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Security.Principal.Windows@4.700.19.56404?package-id=c08b0e960093cf8a",
+      "type": "library",
+      "name": "System.Security.Principal.Windows",
+      "version": "4.700.19.56404",
+      "purl": "pkg:nuget/System.Security.Principal.Windows@4.700.19.56404",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Security.Principal.Windows@4.700.19.56404?package-id=16884529e4893833",
+      "type": "library",
+      "name": "System.Security.Principal.Windows",
+      "version": "4.700.19.56404",
+      "purl": "pkg:nuget/System.Security.Principal.Windows@4.700.19.56404",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "dotnet-deps-binary-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "dotnet"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "dotnet-portable-executable-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/cache@v4?package-id=930e2a2d94577ab4",
+      "type": "library",
+      "name": "actions/cache",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/cache:actions\\/cache:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/cache@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v2?package-id=0ce155028af38aba",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v2",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v2:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v2",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v3?package-id=0d40a07d1a02d0af",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/fast-redact/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v3?package-id=ff0f7bf52a0efe8d",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v3?package-id=1cd5acab192f9444",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=db8c23e3144034ef",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/nan/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=5d84619f716ec9b2",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=4a352492f737313f",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=036ade9078912b94",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/bench.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=7f2ffbff69f3efc0",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=5b42a7ab8186b056",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/package-manager-ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/dependency-review-action@v3?package-id=b1ab474650e8bea9",
+      "type": "library",
+      "name": "actions/dependency-review-action",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/dependency-review-action@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/dependency-review-action@v3?package-id=882dbcb3cbc74cfb",
+      "type": "library",
+      "name": "actions/dependency-review-action",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/dependency-review-action@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/dependency-review-action@v3?package-id=5b991d4705a2423f",
+      "type": "library",
+      "name": "actions/dependency-review-action",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/dependency-review-action@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency-review-action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency_review_action:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/dependency-review-action@v4?package-id=9dfe128c2d13a534",
+      "type": "library",
+      "name": "actions/dependency-review-action",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency-review-action:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/dependency-review-action@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review-action:actions\\/dependency_review_action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency-review-action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review_action:actions\\/dependency_review_action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency-review-action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency-review:actions\\/dependency_review_action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency-review-action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency_review:actions\\/dependency_review_action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency-review-action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/dependency:actions\\/dependency_review_action:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/github-script@v7?package-id=6ebe617515f1c6d9",
+      "type": "library",
+      "name": "actions/github-script",
+      "version": "v7",
+      "cpe": "cpe:2.3:a:actions\\/github-script:actions\\/github-script:v7:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/github-script@v7",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/github-script:actions\\/github_script:v7:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/github_script:actions\\/github-script:v7:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/github_script:actions\\/github_script:v7:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/github:actions\\/github-script:v7:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/github:actions\\/github_script:v7:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/target-main.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v1?package-id=95ae985097be4e5e",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v1",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v1:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v1",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v3?package-id=fa411e7ae8008a71",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/fast-redact/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v3?package-id=70e2513a4a298757",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v3?package-id=9c0f87b8876b3350",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=1f97d012661b674f",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/nan/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=45a941cc315e9519",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=67441b8c794821fd",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/bench.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=1d8295117b968566",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=9097e1e332cae590",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/package-manager-ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=f6f48c462c144974",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/upload-artifact@v4?package-id=125740ee0c5dde0c",
+      "type": "library",
+      "name": "actions/upload-artifact",
+      "version": "v4",
+      "cpe": "cpe:2.3:a:actions\\/upload-artifact:actions\\/upload-artifact:v4:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/upload-artifact@v4",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/upload-artifact:actions\\/upload_artifact:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/upload_artifact:actions\\/upload-artifact:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/upload_artifact:actions\\/upload_artifact:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/upload:actions\\/upload-artifact:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/upload:actions\\/upload_artifact:v4:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/bench.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/com.contrastsecurity.agent.ContrastLoaderAgent/contrast?package-id=a6680f6e9e2e18b9",
+      "type": "library",
+      "name": "contrast",
+      "version": "UNKNOWN",
+      "cpe": "cpe:2.3:a:com.contrastsecurity.agent.ContrastLoaderAgent:ContrastLoaderAgent:*:*:*:*:*:*:*:*",
+      "purl": "pkg:maven/com.contrastsecurity.agent.ContrastLoaderAgent/contrast",
+      "externalReferences": [
+        {
+          "url": "",
+          "hashes": [
+            {
+              "alg": "SHA-1",
+              "content": "4dc737557c1d04602bcf2c654c3427c08c5703b8"
+            }
+          ],
+          "type": "build-meta"
+        }
+      ],
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "java-archive-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "java"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "java-archive"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "java-archive"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:com.contrastsecurity.agent.ContrastLoaderAgent:contrast:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:com.contrastsecurity.agent.ContrastLoaderAgent:agent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ContrastLoaderAgent:ContrastLoaderAgent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrastsecurity:ContrastLoaderAgent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ContrastLoaderAgent:contrast:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:ContrastLoaderAgent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ContrastLoaderAgent:agent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:agent:ContrastLoaderAgent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrastsecurity:contrast:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrastsecurity:agent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:agent:contrast:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:agent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:agent:agent:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/java/6.19.0/contrast.jar"
+        },
+        {
+          "name": "syft:metadata:virtualPath",
+          "value": "agents/java/6.19.0/contrast.jar"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/contrast-agent-base-injections/contrast-agent-base-injections?package-id=8f41a4dc1574a01b",
+      "type": "library",
+      "name": "contrast-agent-base-injections",
+      "version": "UNKNOWN",
+      "cpe": "cpe:2.3:a:contrast-agent-base-injections:contrast-agent-base-injections:*:*:*:*:*:*:*:*",
+      "purl": "pkg:maven/contrast-agent-base-injections/contrast-agent-base-injections",
+      "externalReferences": [
+        {
+          "url": "",
+          "hashes": [
+            {
+              "alg": "SHA-1",
+              "content": "0958cf3adc965afe230ea54b22a3519666300603"
+            }
+          ],
+          "type": "build-meta"
+        }
+      ],
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "java-archive-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "java"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "java-archive"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "java-archive"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-base-injections:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_base_injections:contrast-agent-base-injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_base_injections:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-base:contrast-agent-base-injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-base:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_base:contrast-agent-base-injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_base:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:contrast-agent-base-injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:contrast-agent-base-injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast-agent-base-injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast_agent_base_injections:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/java/6.19.0/contrast.jar"
+        },
+        {
+          "name": "syft:metadata:virtualPath",
+          "value": "agents/java/6.19.0/contrast.jar:com/contrastsecurity/agent/lib/contrast-agent-base-injections.jar"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/contrast-agent-bundle@10.11.0?package-id=b1d111533701758d",
+      "type": "library",
+      "author": "\"Contrast Security, Inc.\" <python@contrastsecurity.com>",
+      "name": "contrast-agent-bundle",
+      "version": "10.11.0",
+      "licenses": [
+        {
+          "expression": "LicenseRef-ContrastSecurity-ContrastPlatformLicense"
+        }
+      ],
+      "cpe": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/contrast-agent-bundle@10.11.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-installed-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-package"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-bundle:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-bundle:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_bundle:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_bundle:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-bundle:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-bundle:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_bundle:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_bundle:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast-agent:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast_agent:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-contrast:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_contrast:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:contrast-agent-bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:contrast_agent_bundle:10.11.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_agent_bundle-10.11.0.dist-info/METADATA"
+        },
+        {
+          "name": "syft:location:1:path",
+          "value": "agents/python/10.11.0/contrast_agent_bundle-10.11.0.dist-info/RECORD"
+        },
+        {
+          "name": "syft:location:2:path",
+          "value": "agents/python/10.11.0/contrast_agent_bundle-10.11.0.dist-info/top_level.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/contrast-agent-dispatcher-annotations/contrast-agent-dispatcher-annotations?package-id=63646cca813044d8",
+      "type": "library",
+      "name": "contrast-agent-dispatcher-annotations",
+      "version": "UNKNOWN",
+      "cpe": "cpe:2.3:a:contrast-agent-dispatcher-annotations:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*",
+      "purl": "pkg:maven/contrast-agent-dispatcher-annotations/contrast-agent-dispatcher-annotations",
+      "externalReferences": [
+        {
+          "url": "",
+          "hashes": [
+            {
+              "alg": "SHA-1",
+              "content": "9103726a169e0c4c777256cd811e16a9413419ed"
+            }
+          ],
+          "type": "build-meta"
+        }
+      ],
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "java-archive-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "java"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "java-archive"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "java-archive"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-dispatcher-annotations:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_dispatcher_annotations:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_dispatcher_annotations:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-dispatcher:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent-dispatcher:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_dispatcher:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent_dispatcher:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast-agent:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast_agent:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast-agent-dispatcher-annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:contrast:contrast_agent_dispatcher_annotations:*:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/java/6.19.0/contrast.jar"
+        },
+        {
+          "name": "syft:metadata:virtualPath",
+          "value": "agents/java/6.19.0/contrast.jar:com/contrastsecurity/agent/lib/contrast-agent-dispatcher-annotations.jar"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/coverallsapp/github-action@v2.1.2?package-id=b708e7b6f0331053",
+      "type": "library",
+      "name": "coverallsapp/github-action",
+      "version": "v2.1.2",
+      "cpe": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github-action:v2.1.2:*:*:*:*:*:*:*",
+      "purl": "pkg:github/coverallsapp/github-action@v2.1.2",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github_action:v2.1.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github-action:v2.1.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github_action:v2.1.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github-action:v2.1.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github_action:v2.1.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/coverallsapp/github-action@v2.2.3?package-id=1b314db64a998a56",
+      "type": "library",
+      "name": "coverallsapp/github-action",
+      "version": "v2.2.3",
+      "cpe": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github-action:v2.2.3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/coverallsapp/github-action@v2.2.3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github_action:v2.2.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github-action:v2.2.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github_action:v2.2.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github-action:v2.2.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github_action:v2.2.3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=6b58ca3c5da66812",
+      "type": "library",
+      "name": "fastify/github-action-merge-dependabot",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/fastify/github-action-merge-dependabot@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=7c44f95b09f56ced",
+      "type": "library",
+      "name": "fastify/github-action-merge-dependabot",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/fastify/github-action-merge-dependabot@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=583bd76dc1851d88",
+      "type": "library",
+      "name": "fastify/github-action-merge-dependabot",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/fastify/github-action-merge-dependabot@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=3ba144464a59818c",
+      "type": "library",
+      "name": "fastify/github-action-merge-dependabot",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/fastify/github-action-merge-dependabot@v3",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github-action-merge-dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github_action_merge_dependabot:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3.9?package-id=5ebdb7cddd10b8bf",
+      "type": "library",
+      "name": "fastify/github-action-merge-dependabot",
+      "version": "v3.9",
+      "cpe": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*",
+      "purl": "pkg:github/fastify/github-action-merge-dependabot@v3.9",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge-dependabot:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge_dependabot:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action-merge:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action_merge:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github-action:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github_action:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github-action-merge-dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/github:fastify\\/github_action_merge_dependabot:v3.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/fastify/workflows@v3?package-id=8716c4532909c193#.github/workflows/plugins-ci.yml",
+      "type": "library",
+      "name": "fastify/workflows/.github/workflows/plugins-ci.yml",
+      "version": "v3",
+      "cpe": "cpe:2.3:a:fastify\\/workflows\\/.github\\/workflows\\/plugins-ci.yml:fastify\\/workflows\\/.github\\/workflows\\/plugins-ci.yml:v3:*:*:*:*:*:*:*",
+      "purl": "pkg:github/fastify/workflows@v3#.github/workflows/plugins-ci.yml",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-action-workflow-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action-workflow"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/workflows\\/.github\\/workflows\\/plugins-ci.yml:fastify\\/workflows\\/.github\\/workflows\\/plugins_ci.yml:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/workflows\\/.github\\/workflows\\/plugins_ci.yml:fastify\\/workflows\\/.github\\/workflows\\/plugins-ci.yml:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/workflows\\/.github\\/workflows\\/plugins_ci.yml:fastify\\/workflows\\/.github\\/workflows\\/plugins_ci.yml:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/workflows\\/.github\\/workflows\\/plugins:fastify\\/workflows\\/.github\\/workflows\\/plugins-ci.yml:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:fastify\\/workflows\\/.github\\/workflows\\/plugins:fastify\\/workflows\\/.github\\/workflows\\/plugins_ci.yml:v3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/process-warning/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/filelock@3.18.0?package-id=be661d48ea79cd84",
+      "type": "library",
+      "name": "filelock",
+      "version": "3.18.0",
+      "cpe": "cpe:2.3:a:python-filelock:python-filelock:3.18.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/filelock@3.18.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-filelock:python_filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_filelock:python-filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_filelock:python_filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:filelock:python-filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:filelock:python_filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-filelock:filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_filelock:filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:filelock:filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:filelock:3.18.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/importlib-metadata@8.7.0?package-id=23d508ae493df15d",
+      "type": "library",
+      "name": "importlib-metadata",
+      "version": "8.7.0",
+      "cpe": "cpe:2.3:a:python-importlib-metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/importlib-metadata@8.7.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib-metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib_metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib_metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib-metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib-metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib_metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib_metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib-metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib-metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib_metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib_metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib-metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib-metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib_metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib_metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-importlib:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_importlib:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:importlib:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/jsumners/lock-threads@b27edac0ac998d42b2815e122b6c24b32b568321?package-id=4dd81d1b5c88bbef",
+      "type": "library",
+      "name": "jsumners/lock-threads",
+      "version": "b27edac0ac998d42b2815e122b6c24b32b568321",
+      "cpe": "cpe:2.3:a:jsumners\\/lock-threads:jsumners\\/lock-threads:b27edac0ac998d42b2815e122b6c24b32b568321:*:*:*:*:*:*:*",
+      "purl": "pkg:github/jsumners/lock-threads@b27edac0ac998d42b2815e122b6c24b32b568321",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jsumners\\/lock-threads:jsumners\\/lock_threads:b27edac0ac998d42b2815e122b6c24b32b568321:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jsumners\\/lock_threads:jsumners\\/lock-threads:b27edac0ac998d42b2815e122b6c24b32b568321:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jsumners\\/lock_threads:jsumners\\/lock_threads:b27edac0ac998d42b2815e122b6c24b32b568321:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jsumners\\/lock:jsumners\\/lock-threads:b27edac0ac998d42b2815e122b6c24b32b568321:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jsumners\\/lock:jsumners\\/lock_threads:b27edac0ac998d42b2815e122b6c24b32b568321:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/lock-threads.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/pnpm/action-setup@v2.4.0?package-id=803b07f6210f4de0",
+      "type": "library",
+      "name": "pnpm/action-setup",
+      "version": "v2.4.0",
+      "cpe": "cpe:2.3:a:pnpm\\/action-setup:pnpm\\/action-setup:v2.4.0:*:*:*:*:*:*:*",
+      "purl": "pkg:github/pnpm/action-setup@v2.4.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:pnpm\\/action-setup:pnpm\\/action_setup:v2.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:pnpm\\/action_setup:pnpm\\/action-setup:v2.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:pnpm\\/action_setup:pnpm\\/action_setup:v2.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:pnpm\\/action:pnpm\\/action-setup:v2.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:pnpm\\/action:pnpm\\/action_setup:v2.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/node/5.39.1/package/node_modules/pino/.github/workflows/package-manager-ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/ruamel-yaml@0.17.32?package-id=5552ae08a9c28bc6",
+      "type": "library",
+      "name": "ruamel-yaml",
+      "version": "0.17.32",
+      "cpe": "cpe:2.3:a:python-ruamel-yaml:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/ruamel-yaml@0.17.32",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel-yaml:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel_yaml:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel_yaml:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel-yaml:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel-yaml:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel_yaml:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel_yaml:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel-yaml:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel-yaml:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel_yaml:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel_yaml:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-ruamel:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_ruamel:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel:python-ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel:python_ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel-yaml:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel-yaml:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel_yaml:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel_yaml:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel:ruamel-yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:ruamel:ruamel_yaml:0.17.32:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/stdlib-list@0.11.1?package-id=0c89c3f8007b9081",
+      "type": "library",
+      "name": "stdlib-list",
+      "version": "0.11.1",
+      "cpe": "cpe:2.3:a:python-stdlib-list:python-stdlib-list:0.11.1:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/stdlib-list@0.11.1",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib-list:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib_list:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib_list:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib-list:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib-list:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib_list:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib_list:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib-list:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib-list:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib_list:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib_list:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-stdlib:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_stdlib:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib:python-stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib:python_stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib-list:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib-list:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib_list:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib_list:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib:stdlib-list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:stdlib:stdlib_list:0.11.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/structlog@24.4.0?package-id=b2811e642824e3ac",
+      "type": "library",
+      "name": "structlog",
+      "version": "24.4.0",
+      "cpe": "cpe:2.3:a:python-structlog:python-structlog:24.4.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/structlog@24.4.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-structlog:python_structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_structlog:python-structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_structlog:python_structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-structlog:structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_structlog:structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:structlog:python-structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:structlog:python_structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:structlog:structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:structlog:24.4.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/webob@1.8.9?package-id=322a8f02c1a78dd9",
+      "type": "library",
+      "name": "webob",
+      "version": "1.8.9",
+      "cpe": "cpe:2.3:a:python-webob:python-webob:1.8.9:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/webob@1.8.9",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-webob:python_webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_webob:python-webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_webob:python_webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-webob:webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_webob:webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:webob:python-webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:webob:python_webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:webob:webob:1.8.9:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/wrapt@1.17.2?package-id=4a84a33caa6f7bb6",
+      "type": "library",
+      "name": "wrapt",
+      "version": "1.17.2",
+      "cpe": "cpe:2.3:a:python-wrapt:python-wrapt:1.17.2:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/wrapt@1.17.2",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-wrapt:python_wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_wrapt:python-wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_wrapt:python_wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-wrapt:wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_wrapt:wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:wrapt:python-wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:wrapt:python_wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:wrapt:wrapt:1.17.2:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/zipp@3.23.0?package-id=d1f58d498d54b848",
+      "type": "library",
+      "name": "zipp",
+      "version": "3.23.0",
+      "cpe": "cpe:2.3:a:python-zipp:python-zipp:3.23.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/zipp@3.23.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-zipp:python_zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_zipp:python-zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_zipp:python_zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-zipp:zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_zipp:zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:zipp:python-zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:zipp:python_zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:zipp:zipp:3.23.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "agents/python/10.11.0/contrast_vendor/vendor-requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "2112023bd9e56e5c",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/net5.0/Contrast.SensorsNetCore.deps.json",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "833d1d871df515cad8a01c79b860b5c4360c4907"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "b195591fe2107b0c0cbffb0c9fbc5012b7f275019e56b897f4d0352fb8a49b35"
+        }
+      ]
+    },
+    {
+      "bom-ref": "9896ee158b8ba69c",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/net5.0/Contrast.SensorsNetCore.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "064e9675cfacdf4ced7bf4047d7ec004372351ef"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "28f66f2e9354f0f4803eff5663411f791abd3c529c1f7ac2a7e92a4d38ffb811"
+        }
+      ]
+    },
+    {
+      "bom-ref": "c8729dbe16b41f57",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.deps.json",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "4a44ce39fea0ff8a8afe0df2e955f6251cb4c431"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "8b527d8b8332e144d408eb5dae0eada9465b0cf5ca04fc02abcc1d0668f35862"
+        }
+      ]
+    },
+    {
+      "bom-ref": "4a4b2881cfab3a75",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/Contrast.SensorsNetCore.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "cae555db81fd071272e943a2030287baebcf480b"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "06cf41a1c9844c781963db6de19f74efd16c9efe93fc8d4b33b6ce8d3490abaf"
+        }
+      ]
+    },
+    {
+      "bom-ref": "431b49d9f9fc4792",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/System.Runtime.CompilerServices.Unsafe.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "d6c42365f3629afb5fb62352aff49a41b8e5a345"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "ff5e18e50614ede3203de2cc060a873a5ad52f2f557abc450843dc5533f9d22d"
+        }
+      ]
+    },
+    {
+      "bom-ref": "d5d75f3a7b79eb8e",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/System.Security.AccessControl.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "af0199c9ca9b7331307549763af545e176cc6e77"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "9cb9e5f6140adce1ebbd5d9d9084a3f57e231f846ca716fd71a9430bb5a41c5d"
+        }
+      ]
+    },
+    {
+      "bom-ref": "33f82d07d0f9a846",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/System.Security.Principal.Windows.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "cab4c677d470d68aa616ba93bd24fa84583ff9a8"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "0fce2232630730222e4d4a292348cd4567ac97ef232734448281c52551442823"
+        }
+      ]
+    },
+    {
+      "bom-ref": "defac02b88d2169b",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "4ce7fa77ad3628287a9422bfe587aea0a8d17942"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "77ef1a9e02740c99fb7a6356b34a78e4768504a68127f7b6b4486c18cef77c0d"
+        }
+      ]
+    },
+    {
+      "bom-ref": "1c0157728c42cde1",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "9314fc218b8ac1eddc84147d53a779b625fd95d1"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "dc9e09f1ad9fbf18875491afd63c5fb2c4976aea4ee09032dcdc316d01b21082"
+        }
+      ]
+    },
+    {
+      "bom-ref": "2d659ebf73748efb",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "f7463bfd81c5cc31297e0460d63ee98e738c115e"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "711e8a3ac018b3563fabeb58c56785c129c14a74fd52a59b1b593ad03962b7b1"
+        }
+      ]
+    },
+    {
+      "bom-ref": "33408f8534072829",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "58c3702ffc4b2caf8356cd3471fb603d8e15dfd2"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "4566f27c097d1ef89efa080e4c979f141a44ef9c9f0d6536c632fc4fdfa9bccf"
+        }
+      ]
+    },
+    {
+      "bom-ref": "6a89fe9e0a00ce96",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/netcoreapp3.0/runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "c3bb0f82b0e4b22d2ac29cb0a2482c2f7be87aa7"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "d2b7be3605ac484e7156dcd0ba0f3edf329845871978a359b76d104a0911e440"
+        }
+      ]
+    },
+    {
+      "bom-ref": "614c0a3101e6f7d7",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x64/native/ContrastCoreNativeModule.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "bdc4c2e5410b8cb5f071b5f26700667ee1a1c8b4"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "f51e25482da43a46b0ee5a0696e21501206a589407ea5c847e3407d7223b9121"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ee4c97eabd2be599",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x64/native/ContrastNativeHttpModule.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "6ac39ea89364acf8a79b99eb5f44f4abca1f7a35"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "3f95e4449542eff9d37407626cffa94c58f59f946882ae14918c012a23af566b"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ada1a587d13b0eb3",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x64/native/ContrastProfiler.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "0f69942bb348c0f4db22710d700555932cfe643c"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "833ad922bc488c909a551815b50387ce35aa21fdf0a0ccc12507a49a3917f881"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a0d155ce105519d3",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x64/native/contrast_c.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "4be6c04468670bcb578420a44b6aaa146a85a4d1"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "e3bf806d30f4b3daf4e489e4bcc3d89ea48b4b695cbd4eab913adf24828ae453"
+        }
+      ]
+    },
+    {
+      "bom-ref": "61633834b381791b",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x64/native/fireball_c.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "ead46d8bf6e42a1272ea1e3713de896e31c29677"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "8c148b8c6407a14180b1d782be8be104ffe3009e93d83cec920a6c7df06793f7"
+        }
+      ]
+    },
+    {
+      "bom-ref": "bb720d85af6baaaa",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x86/native/ContrastCoreNativeModule.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "a7d12a10d06155f7ba025eff6df3658568f0ab31"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "2a8de7ab224778fb25fb3d77f88cc003acdf5bb19528663a691062555e876afc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "99c572addefafa52",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x86/native/ContrastNativeHttpModule.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "93f01cb25f94c3334657a4d5918da65e0353da27"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "19df93040fc3d31074bbe20573fce372775035a0063a4fedf0da79c052b48f13"
+        }
+      ]
+    },
+    {
+      "bom-ref": "dd1c7634acab762b",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x86/native/ContrastProfiler.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "19a090f0922e3f0af4a3092a78778b7e118c073a"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "f58f0be5fbd4cf89292f93883beb736ee07f6bb064e4a564f49e7ff842abfed8"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a3ce5d888d77b386",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x86/native/contrast_c.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "5c7f3592dba3aa4b1e8e88af5ce4d30cddee7572"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "2c06fab9be63ee2ea998c10b2c11d86ba7ea3514341dff89eeb057854db00374"
+        }
+      ]
+    },
+    {
+      "bom-ref": "41ae08ccd72880c8",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/dotnet-core/4.4.3/runtimes/win-x86/native/fireball_c.dll",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "994cf6c6fbefd2e7d441e2cf18a69fe4654d2a5a"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "a1b49d6244b239add8ff8333a1abceb9a4007e0f9e1ae69fe6f5e5a8b189607c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "9f445a0b546cc2f7",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/java/6.19.0/contrast.jar",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "4dc737557c1d04602bcf2c654c3427c08c5703b8"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "0c9fbbb0ed59bb14b242a2e5627f167d0b30eb328be15a1ebde007862bed9100"
+        }
+      ]
+    },
+    {
+      "bom-ref": "1789c7d5ad57270f",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/fast-redact/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "2b3e67977c1adbb0b5dcf4d15a762bc9f82b48ff"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "3cde955ff8e71e36a3d5fd62d04df0ca14e9e036174407e7d2b115f312bf07f5"
+        }
+      ]
+    },
+    {
+      "bom-ref": "5bf9129763281056",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/nan/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "a21beb03751d5c22e59ee20a7a540cd813c28a22"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "8aec9c18a51c840039b2b610aeb69b9799843fb74bf617d3203d0b35f0bb372f"
+        }
+      ]
+    },
+    {
+      "bom-ref": "aaa77f5ed78b7edb",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "f4a14b32b68323ce92ab39f5479bf18c8cf2660b"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "21cf16fd27546e41b7d28d6616d6888560b8f6d8f6a2e8acf02a91e08a86f4fe"
+        }
+      ]
+    },
+    {
+      "bom-ref": "af76752ad96da457",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "cb6099fe0098b370ff891ddcdf210b1b3e10e576"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "5327b84ddde18a4a527648e267ca1e28e17dca70dd3c603971c45a362e57deb0"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a64bcb9efe8e85bc",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "3b8f768b71389e0824a760b8fb28d9c2fa21af3b"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "cb4bb1ffff5ba6cc6314ef961f8c9de54cf0bf95a1d8a13eb39f1d0f39f3a204"
+        }
+      ]
+    },
+    {
+      "bom-ref": "86d54fe603788275",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino/.github/workflows/bench.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "fd7473812834ea7c9be8b0b8654d083b15223fea"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "c14516ac8296232ca7e3bd0dbbc7bfa8bbbb1ebf8034a20ce3a5513dcc6e301d"
+        }
+      ]
+    },
+    {
+      "bom-ref": "eebdcfda4f55fdc1",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "d91fc158657062d22fca4edd7fb38e1e3810a8ce"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "953915f93c358244b378b118c7392edbf4b061a633ddd64129a71b09581a4530"
+        }
+      ]
+    },
+    {
+      "bom-ref": "b6b254b5eb363675",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino/.github/workflows/lock-threads.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "c18e2a4cdf784a8a93e28b214d6c454adf15c740"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "81ba5d81363caa4fb5686d2cae012996e9f5cfc18f860dccb2b35f33e2b1a819"
+        }
+      ]
+    },
+    {
+      "bom-ref": "41ee6e56020db2d4",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino/.github/workflows/package-manager-ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "480cab9dbf95c85f88ab4fa25b97521d32934a11"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "142203cd140bab7bf6aba6710f5aab2ee50ac2e78a3eb03233d2d41729648e09"
+        }
+      ]
+    },
+    {
+      "bom-ref": "9a154d2a07d9fa65",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/pino/.github/workflows/target-main.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "07fd1ac88e406e5c32e70e0199c48ff6a8aea4e0"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "277e481810d8b0e2c07ec66f9a945f2dedcb817f059c55f916b71e55c878aa24"
+        }
+      ]
+    },
+    {
+      "bom-ref": "fc6b764daf097c94",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/process-warning/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "5b07a6708529703b2f9ad0e0ceab30390e5f88d3"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "1ff3f84f5e66d89c2cb01030dfca71c6011916e802e0dcc6b89d32e580e67432"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ea464eda2a1e36f1",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "1c4fd8f6fb8d8619208fa249c28fafefc89218b7"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "409262d62291133c0dbc4fd8b14d2afdcdd3669b00a17b54716ea8d6436d902e"
+        }
+      ]
+    },
+    {
+      "bom-ref": "d11a850f32458028",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/node/5.39.1/package/node_modules/thread-stream/.github/workflows/ci.yml",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "868e764b5122f3385e1cfd5af6fb2640f2a5d904"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "85da9340e6c2ef2648efd8c85f28baa9c1309f321618ff5fc1e01af263972744"
+        }
+      ]
+    },
+    {
+      "bom-ref": "808d0f026e9bf172",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/python/10.11.0/contrast_agent_bundle-10.11.0.dist-info/METADATA",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "f96c861b558b32415846525108e347a65d2ca031"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "807ae72b08307b50055f3f8f1d19d8343d6545522ecdb9c21580963f75bdedea"
+        }
+      ]
+    },
+    {
+      "bom-ref": "d893be3d058fbdba",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/python/10.11.0/contrast_agent_bundle-10.11.0.dist-info/RECORD",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "3d3b0a724985be17ea649e03a2a9ee723194a714"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "8b3b298d00c81c295559ae672e82e8d83b44b61156781a82a850b210b85136fd"
+        }
+      ]
+    },
+    {
+      "bom-ref": "c0e6794b641592e5",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/python/10.11.0/contrast_agent_bundle-10.11.0.dist-info/top_level.txt",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "b939ca9987527d281d6ea46d69ca6540b45a155d"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "3791ed0123cb5feaecea97598e5d1ed549d3cb9e954cb95439e30156f8504b7d"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ee1cbb5e79c702be",
+      "type": "file",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2575287373/agents/python/10.11.0/contrast_vendor/vendor-requirements.txt",
+      "hashes": [
+        {
+          "alg": "SHA-1",
+          "content": "7df50d48e202ac810edcce6667130cc21ab1aafe"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "6b43f99dbc75feff391b93c732a90c850709c6899ec14e43dc640e2a50d301db"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:nuget/System.IO.Pipes.AccessControl@4.3.0?package-id=489cebac2f5d9c3a",
+      "dependsOn": [
+        "pkg:nuget/System.Security.AccessControl@4.7.0?package-id=bc715eedb4f433f5",
+        "pkg:nuget/System.Security.Principal.Windows@4.7.0?package-id=c36589472a648a41"
+      ]
+    },
+    {
+      "ref": "pkg:nuget/System.Security.AccessControl@4.7.0?package-id=bc715eedb4f433f5",
+      "dependsOn": [
+        "pkg:nuget/System.Security.Principal.Windows@4.7.0?package-id=c36589472a648a41"
+      ]
+    },
+    {
+      "ref": "pkg:nuget/System.Security.Permissions@4.4.0?package-id=08e625cbb5195677",
+      "dependsOn": [
+        "pkg:nuget/System.Security.AccessControl@4.7.0?package-id=bc715eedb4f433f5"
+      ]
+    }
+  ]
+}
