@@ -1,90 +1,142 @@
 {
-  "generated": "2026-02-08T19:23:46Z",
-  "generator": "Syft",
+  "generated": "2026-02-08T21:50:34Z",
   "products": [
     {
+      "name": "Contrast CLI Linux",
+      "slug": "contrast-cli-linux",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "Contrast CLI Mac",
+      "slug": "contrast-cli-mac",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "Contrast CLI Windows",
+      "slug": "contrast-cli-windows",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "EOP",
+      "slug": "eop",
+      "source": "s3",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "Flex Agent",
+      "slug": "flex-agent",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "Go Agent (Linux AMD64)",
+      "slug": "go-agent-linux-amd64",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
       "name": "Java Agent",
+      "slug": "java-agent",
+      "source": "maven",
       "versions": [
         {
           "version": "6.25.1",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.25.1/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.25.1/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:49:42Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.25.0",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.25.0/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.25.0/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:49:46Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.24.0",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.24.0/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.24.0/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:49:49Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.23.0",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.23.0/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.23.0/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:49:53Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.22.1",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.22.1/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.22.1/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:49:56Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.22.0",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.22.0/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.22.0/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:49:59Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.21.0",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.21.0/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.21.0/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:50:03Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.20.1",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.20.1/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.20.1/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:50:06Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.19.0",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.19.0/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.19.0/sbom.cyclonedx.json"
-          }
-        },
+          "generatedAt": "2026-02-08T21:50:09Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
         {
           "version": "6.18.1",
-          "releaseDate": "2026-02-08",
-          "sboms": {
-            "spdx": "sboms/java-agent/6.18.1/sbom.spdx.json",
-            "cyclonedx": "sboms/java-agent/6.18.1/sbom.cyclonedx.json"
-          }
+          "generatedAt": "2026-02-08T21:50:13Z",
+          "formats": ["spdx","cyclonedx"]
         }
+      ]
+    }
+,
+    {
+      "name": "Node Agent",
+      "slug": "node-agent",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "Python Agent",
+      "slug": "python-agent",
+      "source": "artifactory",
+      "versions": [
+      ]
+    }
+,
+    {
+      "name": "Ruby Agent",
+      "slug": "ruby-agent",
+      "source": "artifactory",
+      "versions": [
       ]
     }
   ]
