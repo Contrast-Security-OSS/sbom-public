@@ -156,8 +156,8 @@ function handleSort(event) {
             break;
         case 'date':
             filteredProducts.sort((a, b) => {
-                const dateA = a.versions[0]?.releaseDate || '0000-00-00';
-                const dateB = b.versions[0]?.releaseDate || '0000-00-00';
+                const dateA = a.versions[0]?.generatedAt || '0000-00-00';
+                const dateB = b.versions[0]?.generatedAt || '0000-00-00';
                 const result = dateB.localeCompare(dateA);
                 return sortOrder === 'desc' ? result : -result;
             });
@@ -281,7 +281,7 @@ function applyFilters() {
         let matchesDate = true;
         if (dateFilterActive) {
             matchesDate = product.versions.some(version => {
-                const versionDate = new Date(version.releaseDate);
+                const versionDate = new Date(version.generatedAt);
                 if (dateFrom && versionDate < dateFrom) return false;
                 if (dateTo && versionDate > dateTo) return false;
                 return true;
@@ -354,37 +354,51 @@ function renderProductCard(product) {
 
 // Render version item
 function renderVersionItem(product, version) {
+    // Construct SBOM URLs from slug, version, and format
+    const spdxUrl = `sboms/${product.slug}/${version.version}/sbom.spdx.json`;
+    const cyclonedxUrl = `sboms/${product.slug}/${version.version}/sbom.cyclonedx.json`;
+
+    // Check which formats are available
+    const hasSpdx = version.formats.includes('spdx');
+    const hasCyclonedx = version.formats.includes('cyclonedx');
+
     return `
         <div class="version-item">
             <div class="version-info">
                 <div class="version-number">${escapeHtml(version.version)}</div>
-                <div class="version-date">Released: ${formatDate(version.releaseDate)}</div>
+                <div class="version-date">Generated: ${formatDate(version.generatedAt)}</div>
             </div>
             <div class="version-actions">
-                <button
-                    class="btn-format"
-                    onclick="downloadSBOM('${escapeHtml(version.sboms.spdx)}', '${escapeHtml(product.name)}-${escapeHtml(version.version)}-spdx.json')"
-                    title="Download SPDX format"
-                >
-                    SPDX
-                </button>
-                <button
-                    class="btn-format"
-                    onclick="downloadSBOM('${escapeHtml(version.sboms.cyclonedx)}', '${escapeHtml(product.name)}-${escapeHtml(version.version)}-cyclonedx.json')"
-                    title="Download CycloneDX format"
-                >
-                    CycloneDX
-                </button>
-                <button
-                    class="btn-icon"
-                    onclick="viewSBOM('${escapeHtml(version.sboms.spdx)}', '${escapeHtml(product.name)} ${escapeHtml(version.version)}')"
-                    title="View SBOM"
-                >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                        <circle cx="12" cy="12" r="3"/>
-                    </svg>
-                </button>
+                ${hasSpdx ? `
+                    <button
+                        class="btn-format"
+                        onclick="downloadSBOM('${escapeHtml(spdxUrl)}', '${escapeHtml(product.name)}-${escapeHtml(version.version)}-spdx.json')"
+                        title="Download SPDX format"
+                    >
+                        SPDX
+                    </button>
+                ` : ''}
+                ${hasCyclonedx ? `
+                    <button
+                        class="btn-format"
+                        onclick="downloadSBOM('${escapeHtml(cyclonedxUrl)}', '${escapeHtml(product.name)}-${escapeHtml(version.version)}-cyclonedx.json')"
+                        title="Download CycloneDX format"
+                    >
+                        CycloneDX
+                    </button>
+                ` : ''}
+                ${hasSpdx ? `
+                    <button
+                        class="btn-icon"
+                        onclick="viewSBOM('${escapeHtml(spdxUrl)}', '${escapeHtml(product.name)} ${escapeHtml(version.version)}')"
+                        title="View SBOM"
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </button>
+                ` : ''}
             </div>
         </div>
     `;
