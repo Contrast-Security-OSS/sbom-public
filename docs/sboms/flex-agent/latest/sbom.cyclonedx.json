@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:3041a47d-2adc-426b-a6ce-9e2577818ea2",
+  "serialNumber": "urn:uuid:89b82718-7b24-4058-945a-c7e89b277995",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-02-07T21:56:21-05:00",
+    "timestamp": "2026-02-07T21:55:13-05:00",
     "tools": {
       "components": [
         {
@@ -17,10 +17,10 @@
       ]
     },
     "component": {
-      "bom-ref": "25b76664ddb2cc92",
+      "bom-ref": "5f8b817dadf9e845",
       "type": "file",
       "name": "contrast-flex-agent.tar.gz",
-      "version": "sha256:aadf4f48326fa458427c71bee65f60e349a80d29eb5bc067bf0c002713974620"
+      "version": "sha256:b725a3bdff5ae36d7fe4403f991a8f58703ac0ffce0d6a530157b6cebdefe009"
     }
   },
   "components": [
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/cache@v4?package-id=d5b16fcca376f0cd",
+      "bom-ref": "pkg:github/actions/cache@v4?package-id=d6ad2e476951d616",
       "type": "library",
       "name": "actions/cache",
       "version": "v4",
@@ -142,12 +142,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493?package-id=32ae157cc24f3cab",
+      "bom-ref": "pkg:github/actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493?package-id=52ddf45ad38bba29",
       "type": "library",
       "name": "actions/checkout",
       "version": "ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493",
@@ -168,12 +168,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/@pinojs/redact/.github/workflows/publish-release.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/@pinojs/redact/.github/workflows/publish-release.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@v2?package-id=d0093937ac769cbb",
+      "bom-ref": "pkg:github/actions/checkout@v2?package-id=2204b5188e5595da",
       "type": "library",
       "name": "actions/checkout",
       "version": "v2",
@@ -194,38 +194,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@v3?package-id=0bbf289adf84c907",
-      "type": "library",
-      "name": "actions/checkout",
-      "version": "v3",
-      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v3:*:*:*:*:*:*:*",
-      "purl": "pkg:github/actions/checkout@v3",
-      "properties": [
-        {
-          "name": "syft:package:foundBy",
-          "value": "github-actions-usage-cataloger"
-        },
-        {
-          "name": "syft:package:type",
-          "value": "github-action"
-        },
-        {
-          "name": "syft:package:metadataType",
-          "value": "github-actions-use-statement"
-        },
-        {
-          "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/thread-stream/.github/workflows/ci.yml"
-        }
-      ]
-    },
-    {
-      "bom-ref": "pkg:github/actions/checkout@v4?package-id=4e00062e584fe733",
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=36a36cbdaaf43be2",
       "type": "library",
       "name": "actions/checkout",
       "version": "v4",
@@ -246,12 +220,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/nan/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/nan/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@v4?package-id=033bbc7842998cdc",
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=e38df74c606fc46a",
       "type": "library",
       "name": "actions/checkout",
       "version": "v4",
@@ -272,12 +246,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@v4?package-id=e8c441b8a785a601",
+      "bom-ref": "pkg:github/actions/checkout@v4?package-id=23d8ff3a499702d7",
       "type": "library",
       "name": "actions/checkout",
       "version": "v4",
@@ -298,17 +272,17 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@v4?package-id=074e32214e3aa060",
+      "bom-ref": "pkg:github/actions/checkout@v5?package-id=e33c11a6bfaf74b7",
       "type": "library",
       "name": "actions/checkout",
-      "version": "v4",
-      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v4:*:*:*:*:*:*:*",
-      "purl": "pkg:github/actions/checkout@v4",
+      "version": "v5",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v5:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v5",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -324,12 +298,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/checkout@v5.0.0?package-id=c5cde7b7827028a8",
+      "bom-ref": "pkg:github/actions/checkout@v5.0.0?package-id=a86d53af38e8a27f",
       "type": "library",
       "name": "actions/checkout",
       "version": "v5.0.0",
@@ -350,12 +324,38 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/@pinojs/redact/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/@pinojs/redact/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/dependency-review-action@v3?package-id=d8745964dc01aaf4",
+      "bom-ref": "pkg:github/actions/checkout@v6?package-id=6d21beeb3559db49",
+      "type": "library",
+      "name": "actions/checkout",
+      "version": "v6",
+      "cpe": "cpe:2.3:a:actions\\/checkout:actions\\/checkout:v6:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/checkout@v6",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/dependency-review-action@v3?package-id=89a8a8a03104d146",
       "type": "library",
       "name": "actions/dependency-review-action",
       "version": "v3",
@@ -412,12 +412,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/dependency-review-action@v4?package-id=6b2e93b632615e7b",
+      "bom-ref": "pkg:github/actions/dependency-review-action@v4?package-id=ea9844236b524e2d",
       "type": "library",
       "name": "actions/dependency-review-action",
       "version": "v4",
@@ -474,12 +474,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/dependency-review-action@v4?package-id=00ef33eadc812b92",
+      "bom-ref": "pkg:github/actions/dependency-review-action@v4?package-id=d72ab568dbb69dff",
       "type": "library",
       "name": "actions/dependency-review-action",
       "version": "v4",
@@ -536,12 +536,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/thread-stream/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/setup-node@v1?package-id=9f21d6c78ade1e86",
+      "bom-ref": "pkg:github/actions/setup-node@v1?package-id=63d0507b5b259a46",
       "type": "library",
       "name": "actions/setup-node",
       "version": "v1",
@@ -582,12 +582,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/setup-node@v3?package-id=c29b61cb5730dd02",
+      "bom-ref": "pkg:github/actions/setup-node@v3?package-id=bf56b83490135053",
       "type": "library",
       "name": "actions/setup-node",
       "version": "v3",
@@ -628,12 +628,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=6a400f0842ae3b0a",
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=9e95c656119c16ec",
       "type": "library",
       "name": "actions/setup-node",
       "version": "v4",
@@ -674,12 +674,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/nan/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/nan/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=2771c462c29134ce",
+      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=c842049232dd0854",
       "type": "library",
       "name": "actions/setup-node",
       "version": "v4",
@@ -720,104 +720,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=63a389da0c09807d",
-      "type": "library",
-      "name": "actions/setup-node",
-      "version": "v4",
-      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
-      "purl": "pkg:github/actions/setup-node@v4",
-      "properties": [
-        {
-          "name": "syft:package:foundBy",
-          "value": "github-actions-usage-cataloger"
-        },
-        {
-          "name": "syft:package:type",
-          "value": "github-action"
-        },
-        {
-          "name": "syft:package:metadataType",
-          "value": "github-actions-use-statement"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
-        }
-      ]
-    },
-    {
-      "bom-ref": "pkg:github/actions/setup-node@v4?package-id=9ee47e3e1e01edd1",
-      "type": "library",
-      "name": "actions/setup-node",
-      "version": "v4",
-      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v4:*:*:*:*:*:*:*",
-      "purl": "pkg:github/actions/setup-node@v4",
-      "properties": [
-        {
-          "name": "syft:package:foundBy",
-          "value": "github-actions-usage-cataloger"
-        },
-        {
-          "name": "syft:package:type",
-          "value": "github-action"
-        },
-        {
-          "name": "syft:package:metadataType",
-          "value": "github-actions-use-statement"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v4:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/thread-stream/.github/workflows/ci.yml"
-        }
-      ]
-    },
-    {
-      "bom-ref": "pkg:github/actions/setup-node@v5?package-id=fcee36104da73614",
+      "bom-ref": "pkg:github/actions/setup-node@v5?package-id=0748ca9accf82660",
       "type": "library",
       "name": "actions/setup-node",
       "version": "v5",
@@ -858,12 +766,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/@pinojs/redact/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/@pinojs/redact/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/actions/setup-node@v5?package-id=2a39afa20b406e1e",
+      "bom-ref": "pkg:github/actions/setup-node@v5?package-id=3401b0165cce67ff",
       "type": "library",
       "name": "actions/setup-node",
       "version": "v5",
@@ -904,17 +812,109 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/@pinojs/redact/.github/workflows/publish-release.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/@pinojs/redact/.github/workflows/publish-release.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/contrast@1.47.0?package-id=16dc1adc0ea639af",
+      "bom-ref": "pkg:github/actions/setup-node@v5?package-id=b91ba17ffeb57c43",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v5",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v5:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v5",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v5:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v5:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v5:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v5:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v5:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:github/actions/setup-node@v6?package-id=cc0e2046ae4dd8cb",
+      "type": "library",
+      "name": "actions/setup-node",
+      "version": "v6",
+      "cpe": "cpe:2.3:a:actions\\/setup-node:actions\\/setup-node:v6:*:*:*:*:*:*:*",
+      "purl": "pkg:github/actions/setup-node@v6",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "github-actions-usage-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "github-action"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "github-actions-use-statement"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup-node:actions\\/setup_node:v6:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup-node:v6:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup_node:actions\\/setup_node:v6:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup-node:v6:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:actions\\/setup:actions\\/setup_node:v6:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:generic/contrast@1.48.0?package-id=b2aaa195a8218bbb",
       "type": "application",
       "name": "contrast",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-contrast:php-contrast:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/contrast@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-contrast:php-contrast:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/contrast@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -930,21 +930,21 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast:contrast:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast:contrast:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/contrast.so"
+          "value": "flex-agents/php/1.48.0/amd64/contrast.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/contrast@1.47.0?package-id=72ec589bd38735cb",
+      "bom-ref": "pkg:generic/contrast@1.48.0?package-id=35f07b33fac6a1a0",
       "type": "application",
       "name": "contrast",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-contrast:php-contrast:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/contrast@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-contrast:php-contrast:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/contrast@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -960,16 +960,16 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast:contrast:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast:contrast:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/contrast.so"
+          "value": "flex-agents/php/1.48.0/arm64/contrast.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:maven/com.contrastsecurity.agent.ContrastLoaderAgent/contrast?package-id=066586e2a551de3e",
+      "bom-ref": "pkg:maven/com.contrastsecurity.agent.ContrastLoaderAgent/contrast?package-id=71519ccf2fca34aa",
       "type": "library",
       "name": "contrast",
       "version": "UNKNOWN",
@@ -981,7 +981,7 @@
           "hashes": [
             {
               "alg": "SHA-1",
-              "content": "a1aa394e25e6acd69e87da9ec46a023c5417a9c7"
+              "content": "397c3df4510575ef3822e520e466f7ba1f547613"
             }
           ],
           "type": "build-meta"
@@ -1062,16 +1062,16 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/java/6.24.0/contrast.jar"
+          "value": "flex-agents/java/6.25.1/contrast.jar"
         },
         {
           "name": "syft:metadata:virtualPath",
-          "value": "flex-agents/java/6.24.0/contrast.jar"
+          "value": "flex-agents/java/6.25.1/contrast.jar"
         }
       ]
     },
     {
-      "bom-ref": "pkg:maven/contrast-agent-base-injections/contrast-agent-base-injections?package-id=c0a3148d6e62c916",
+      "bom-ref": "pkg:maven/contrast-agent-base-injections/contrast-agent-base-injections?package-id=1e90d994c937391c",
       "type": "library",
       "name": "contrast-agent-base-injections",
       "version": "UNKNOWN",
@@ -1083,7 +1083,7 @@
           "hashes": [
             {
               "alg": "SHA-1",
-              "content": "0c0de88f04b520d49cce63f6aed46700ef499ad2"
+              "content": "b2cb1d382075ff0ed48d81a6fc640bdd9cfa65ec"
             }
           ],
           "type": "build-meta"
@@ -1160,27 +1160,27 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/java/6.24.0/contrast.jar"
+          "value": "flex-agents/java/6.25.1/contrast.jar"
         },
         {
           "name": "syft:metadata:virtualPath",
-          "value": "flex-agents/java/6.24.0/contrast.jar:com/contrastsecurity/agent/lib/contrast-agent-base-injections.jar"
+          "value": "flex-agents/java/6.25.1/contrast.jar:com/contrastsecurity/agent/lib/contrast-agent-base-injections.jar"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/contrast-agent-bundle@10.22.0?package-id=14611469e6a0be2a",
+      "bom-ref": "pkg:pypi/contrast-agent-bundle@10.23.1?package-id=8b4eddb0107ea644",
       "type": "library",
       "author": "\"Contrast Security, Inc.\" <python@contrastsecurity.com>",
       "name": "contrast-agent-bundle",
-      "version": "10.22.0",
+      "version": "10.23.1",
       "licenses": [
         {
           "expression": "LicenseRef-ContrastSecurity-ContrastPlatformLicense"
         }
       ],
-      "cpe": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*",
-      "purl": "pkg:pypi/contrast-agent-bundle@10.22.0",
+      "cpe": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/contrast-agent-bundle@10.23.1",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -1200,272 +1200,272 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python_project:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<pythonproject:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent-bundle:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent-bundle:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent_bundle:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent_bundle:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast-security\\,-inc-\\\"-\\<python:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:\\\"contrast_security\\,_inc_\\\"_\\<python:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent-bundle:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent-bundle:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent-bundle:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent-bundle:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent_bundle:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent_bundle:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent_bundle:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent_bundle:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent-bundle:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent-bundle:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent-bundle:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent_bundle:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent_bundle:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent_bundle:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent-bundle:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent-bundle:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent-bundle:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent-bundle:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent_bundle:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent_bundle:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent_bundle:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent_bundle:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast-agent:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast-agent:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast_agent:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast_agent:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-contrast:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-contrast:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_contrast:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_contrast:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast-agent:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast-agent:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast_agent:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast_agent:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:python-contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:python-contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:python_contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:python_contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:contrast:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:contrast:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:contrast-agent-bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:contrast-agent-bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:contrast_agent_bundle:10.22.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:contrast_agent_bundle:10.23.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_agent_bundle-10.22.0.dist-info/METADATA"
+          "value": "flex-agents/python/10.23.1/contrast_agent_bundle-10.23.1.dist-info/METADATA"
         },
         {
           "name": "syft:location:1:path",
-          "value": "flex-agents/python/10.22.0/contrast_agent_bundle-10.22.0.dist-info/RECORD"
+          "value": "flex-agents/python/10.23.1/contrast_agent_bundle-10.23.1.dist-info/RECORD"
         },
         {
           "name": "syft:location:2:path",
-          "value": "flex-agents/python/10.22.0/contrast_agent_bundle-10.22.0.dist-info/top_level.txt"
+          "value": "flex-agents/python/10.23.1/contrast_agent_bundle-10.23.1.dist-info/top_level.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:maven/contrast-agent-dispatcher-annotations/contrast-agent-dispatcher-annotations?package-id=850db6286d66d3d9",
+      "bom-ref": "pkg:maven/contrast-agent-dispatcher-annotations/contrast-agent-dispatcher-annotations?package-id=7447b26a82ccc65e",
       "type": "library",
       "name": "contrast-agent-dispatcher-annotations",
       "version": "UNKNOWN",
@@ -1477,7 +1477,7 @@
           "hashes": [
             {
               "alg": "SHA-1",
-              "content": "30e034edb7225811d6c37f7f6c8ad28dd7b452bf"
+              "content": "80de9ff17ffac9b3f3a8ae9603ec062d593b10c1"
             }
           ],
           "type": "build-meta"
@@ -1554,108 +1554,16 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/java/6.24.0/contrast.jar"
+          "value": "flex-agents/java/6.25.1/contrast.jar"
         },
         {
           "name": "syft:metadata:virtualPath",
-          "value": "flex-agents/java/6.24.0/contrast.jar:com/contrastsecurity/agent/lib/contrast-agent-dispatcher-annotations.jar"
+          "value": "flex-agents/java/6.25.1/contrast.jar:com/contrastsecurity/agent/lib/contrast-agent-dispatcher-annotations.jar"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/coverallsapp/github-action@v2.1.2?package-id=808fc855cb2e1a3a",
-      "type": "library",
-      "name": "coverallsapp/github-action",
-      "version": "v2.1.2",
-      "cpe": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github-action:v2.1.2:*:*:*:*:*:*:*",
-      "purl": "pkg:github/coverallsapp/github-action@v2.1.2",
-      "properties": [
-        {
-          "name": "syft:package:foundBy",
-          "value": "github-actions-usage-cataloger"
-        },
-        {
-          "name": "syft:package:type",
-          "value": "github-action"
-        },
-        {
-          "name": "syft:package:metadataType",
-          "value": "github-actions-use-statement"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github_action:v2.1.2:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github-action:v2.1.2:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github_action:v2.1.2:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github-action:v2.1.2:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github_action:v2.1.2:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
-        }
-      ]
-    },
-    {
-      "bom-ref": "pkg:github/coverallsapp/github-action@v2.3.0?package-id=e7185d9edb2ff6b4",
-      "type": "library",
-      "name": "coverallsapp/github-action",
-      "version": "v2.3.0",
-      "cpe": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github-action:v2.3.0:*:*:*:*:*:*:*",
-      "purl": "pkg:github/coverallsapp/github-action@v2.3.0",
-      "properties": [
-        {
-          "name": "syft:package:foundBy",
-          "value": "github-actions-usage-cataloger"
-        },
-        {
-          "name": "syft:package:type",
-          "value": "github-action"
-        },
-        {
-          "name": "syft:package:metadataType",
-          "value": "github-actions-use-statement"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github-action:coverallsapp\\/github_action:v2.3.0:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github-action:v2.3.0:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github_action:coverallsapp\\/github_action:v2.3.0:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github-action:v2.3.0:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:cpe23",
-          "value": "cpe:2.3:a:coverallsapp\\/github:coverallsapp\\/github_action:v2.3.0:*:*:*:*:*:*:*"
-        },
-        {
-          "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/thread-stream/.github/workflows/ci.yml"
-        }
-      ]
-    },
-    {
-      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=228109c5a9ab0835",
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=2838c98d1fa75f99",
       "type": "library",
       "name": "fastify/github-action-merge-dependabot",
       "version": "v3",
@@ -1728,12 +1636,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=7151b6218dcc1654",
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=3e215a9412ffc830",
       "type": "library",
       "name": "fastify/github-action-merge-dependabot",
       "version": "v3",
@@ -1806,12 +1714,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=335ebdd6ab5521fe",
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3?package-id=ddd8a2de7ae388a2",
       "type": "library",
       "name": "fastify/github-action-merge-dependabot",
       "version": "v3",
@@ -1884,12 +1792,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/thread-stream/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/thread-stream/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3.9?package-id=f5a58c38c3fc9eec",
+      "bom-ref": "pkg:github/fastify/github-action-merge-dependabot@v3.9?package-id=9f565d528d7a1300",
       "type": "library",
       "name": "fastify/github-action-merge-dependabot",
       "version": "v3.9",
@@ -1962,12 +1870,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/fastify/workflows@v5?package-id=db19a2d6a9029b4d#.github/workflows/plugins-ci.yml",
+      "bom-ref": "pkg:github/fastify/workflows@v5?package-id=1e6b311db5b5ea4c#.github/workflows/plugins-ci.yml",
       "type": "library",
       "name": "fastify/workflows/.github/workflows/plugins-ci.yml",
       "version": "v5",
@@ -2008,17 +1916,17 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/process-warning/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/process-warning/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/filelock@3.20.0?package-id=982ce05fb80577e7",
+      "bom-ref": "pkg:pypi/filelock@3.20.2?package-id=36662768ed1c9b10",
       "type": "library",
       "name": "filelock",
-      "version": "3.20.0",
-      "cpe": "cpe:2.3:a:python-filelock:python-filelock:3.20.0:*:*:*:*:*:*:*",
-      "purl": "pkg:pypi/filelock@3.20.0",
+      "version": "3.20.2",
+      "cpe": "cpe:2.3:a:python-filelock:python-filelock:3.20.2:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/filelock@3.20.2",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2038,61 +1946,61 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-filelock:python_filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-filelock:python_filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_filelock:python-filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_filelock:python-filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_filelock:python_filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_filelock:python_filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:filelock:python-filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:filelock:python-filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:filelock:python_filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:filelock:python_filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-filelock:filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-filelock:filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_filelock:filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_filelock:filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:python-filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:python-filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:python_filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:python_filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:filelock:filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:filelock:filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:filelock:3.20.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:filelock:3.20.2:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/importlib-metadata@8.7.0?package-id=cc95e9b28bb6a676",
+      "bom-ref": "pkg:pypi/importlib-metadata@8.7.1?package-id=cd1eb48e78560220",
       "type": "library",
       "name": "importlib-metadata",
-      "version": "8.7.0",
-      "cpe": "cpe:2.3:a:python-importlib-metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*",
-      "purl": "pkg:pypi/importlib-metadata@8.7.0",
+      "version": "8.7.1",
+      "cpe": "cpe:2.3:a:python-importlib-metadata:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/importlib-metadata@8.7.1",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2112,141 +2020,141 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib-metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib-metadata:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib_metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib_metadata:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib_metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib_metadata:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib-metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib-metadata:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib-metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib-metadata:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib_metadata:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib_metadata:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib_metadata:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib_metadata:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib-metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib-metadata:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib-metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib-metadata:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib_metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib_metadata:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib_metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib_metadata:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib-metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib-metadata:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib-metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib-metadata:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib_metadata:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib_metadata:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib_metadata:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib_metadata:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python-importlib:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python-importlib:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python_importlib:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python_importlib:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:python-importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:python-importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:python_importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:python_importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:importlib:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:importlib:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:importlib-metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:importlib-metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:python:importlib_metadata:8.7.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:python:importlib_metadata:8.7.1:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php7.4@1.47.0?package-id=3635de110266af19",
+      "bom-ref": "pkg:generic/libcontrast-php7.4@1.48.0?package-id=19728d0a7126e4d0",
       "type": "application",
       "name": "libcontrast-php7.4",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php7.4:php-libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php7.4@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php7.4:php-libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php7.4@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2262,97 +2170,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/libcontrast-php7.4.so"
+          "value": "flex-agents/php/1.48.0/amd64/libcontrast-php7.4.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php7.4@1.47.0?package-id=bc93af8e7fa86865",
+      "bom-ref": "pkg:generic/libcontrast-php7.4@1.48.0?package-id=f684d20cfabe625e",
       "type": "application",
       "name": "libcontrast-php7.4",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php7.4:php-libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php7.4@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php7.4:php-libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php7.4@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2368,97 +2276,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.4:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.4:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php7.:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php7.:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php7.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/libcontrast-php7.4.so"
+          "value": "flex-agents/php/1.48.0/arm64/libcontrast-php7.4.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.0@1.47.0?package-id=d4fbb56da75b3e27",
+      "bom-ref": "pkg:generic/libcontrast-php8.0@1.48.0?package-id=3c8b51092713902e",
       "type": "application",
       "name": "libcontrast-php8.0",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.0:php-libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.0@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.0:php-libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.0@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2474,97 +2382,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/libcontrast-php8.0.so"
+          "value": "flex-agents/php/1.48.0/amd64/libcontrast-php8.0.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.0@1.47.0?package-id=8e82b6d72eb5a19a",
+      "bom-ref": "pkg:generic/libcontrast-php8.0@1.48.0?package-id=7e544920c3d47e66",
       "type": "application",
       "name": "libcontrast-php8.0",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.0:php-libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.0@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.0:php-libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.0@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2580,97 +2488,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.0:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.0:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.0:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.0:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/libcontrast-php8.0.so"
+          "value": "flex-agents/php/1.48.0/arm64/libcontrast-php8.0.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.1@1.47.0?package-id=31775e745aa450b3",
+      "bom-ref": "pkg:generic/libcontrast-php8.1@1.48.0?package-id=a933dd14c4927bb2",
       "type": "application",
       "name": "libcontrast-php8.1",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.1:php-libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.1@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.1:php-libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.1@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2686,97 +2594,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/libcontrast-php8.1.so"
+          "value": "flex-agents/php/1.48.0/amd64/libcontrast-php8.1.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.1@1.47.0?package-id=94355fcd7d44cd56",
+      "bom-ref": "pkg:generic/libcontrast-php8.1@1.48.0?package-id=6494cf7dbd41b567",
       "type": "application",
       "name": "libcontrast-php8.1",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.1:php-libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.1@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.1:php-libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.1@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2792,97 +2700,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.1:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.1:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.1:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.1:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/libcontrast-php8.1.so"
+          "value": "flex-agents/php/1.48.0/arm64/libcontrast-php8.1.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.2@1.47.0?package-id=2448c2349db234f8",
+      "bom-ref": "pkg:generic/libcontrast-php8.2@1.48.0?package-id=7ac995a876f629eb",
       "type": "application",
       "name": "libcontrast-php8.2",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.2:php-libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.2@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.2:php-libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.2@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -2898,97 +2806,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/libcontrast-php8.2.so"
+          "value": "flex-agents/php/1.48.0/amd64/libcontrast-php8.2.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.2@1.47.0?package-id=3f3cb04cd55f9b9b",
+      "bom-ref": "pkg:generic/libcontrast-php8.2@1.48.0?package-id=f9ecbd0eb2288478",
       "type": "application",
       "name": "libcontrast-php8.2",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.2:php-libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.2@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.2:php-libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.2@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -3004,97 +2912,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.2:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.2:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.2:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.2:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/libcontrast-php8.2.so"
+          "value": "flex-agents/php/1.48.0/arm64/libcontrast-php8.2.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.3@1.47.0?package-id=40df28506787b40c",
+      "bom-ref": "pkg:generic/libcontrast-php8.3@1.48.0?package-id=d675285500888ded",
       "type": "application",
       "name": "libcontrast-php8.3",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.3:php-libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.3@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.3:php-libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.3@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -3110,97 +3018,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/libcontrast-php8.3.so"
+          "value": "flex-agents/php/1.48.0/amd64/libcontrast-php8.3.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.3@1.47.0?package-id=b3534b987d9c2a3f",
+      "bom-ref": "pkg:generic/libcontrast-php8.3@1.48.0?package-id=e086d390984e71b7",
       "type": "application",
       "name": "libcontrast-php8.3",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.3:php-libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.3@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.3:php-libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.3@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -3216,97 +3124,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.3:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.3:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.3:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.3:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/libcontrast-php8.3.so"
+          "value": "flex-agents/php/1.48.0/arm64/libcontrast-php8.3.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.4@1.47.0?package-id=a5bda2ced3d2809c",
+      "bom-ref": "pkg:generic/libcontrast-php8.4@1.48.0?package-id=7d82ea7d97e86adf",
       "type": "application",
       "name": "libcontrast-php8.4",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.4:php-libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.4@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.4:php-libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.4@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -3322,97 +3230,97 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/amd64/libcontrast-php8.4.so"
+          "value": "flex-agents/php/1.48.0/amd64/libcontrast-php8.4.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:generic/libcontrast-php8.4@1.47.0?package-id=14df8e84a41b594a",
+      "bom-ref": "pkg:generic/libcontrast-php8.4@1.48.0?package-id=f0c1391ad3a92bff",
       "type": "application",
       "name": "libcontrast-php8.4",
-      "version": "1.47.0",
-      "cpe": "cpe:2.3:a:php-libcontrast-php8.4:php-libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/libcontrast-php8.4@1.47.0",
+      "version": "1.48.0",
+      "cpe": "cpe:2.3:a:php-libcontrast-php8.4:php-libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/libcontrast-php8.4@1.48.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -3428,92 +3336,92 @@
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.4:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.4:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast-php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast_php8.:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.4:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.4:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast-php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:cpe23",
-          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.47.0:*:*:*:*:*:*:*"
+          "value": "cpe:2.3:a:libcontrast:libcontrast_php8.:1.48.0:*:*:*:*:*:*:*"
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/php/1.47.0/arm64/libcontrast-php8.4.so"
+          "value": "flex-agents/php/1.48.0/arm64/libcontrast-php8.4.so"
         }
       ]
     },
     {
-      "bom-ref": "pkg:github/pre-commit/action@v3.0.1?package-id=48d461f1c8e425cb",
+      "bom-ref": "pkg:github/pre-commit/action@v3.0.1?package-id=ead8a94080dafc31",
       "type": "library",
       "name": "pre-commit/action",
       "version": "v3.0.1",
@@ -3554,12 +3462,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/node/5.49.0/package/node_modules/nan/.github/workflows/ci.yml"
+          "value": "flex-agents/node/5.50.1/package/node_modules/nan/.github/workflows/ci.yml"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/ruamel-yaml@0.17.32?package-id=a028931c602271a2",
+      "bom-ref": "pkg:pypi/ruamel-yaml@0.17.32?package-id=6d30a8c5ae8d3840",
       "type": "library",
       "name": "ruamel-yaml",
       "version": "0.17.32",
@@ -3708,12 +3616,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/stdlib-list@0.11.1?package-id=75af0042e1263825",
+      "bom-ref": "pkg:pypi/stdlib-list@0.11.1?package-id=1a0bf8ff24677cc1",
       "type": "library",
       "name": "stdlib-list",
       "version": "0.11.1",
@@ -3862,12 +3770,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/structlog@24.4.0?package-id=7989fa57bd647a42",
+      "bom-ref": "pkg:pypi/structlog@24.4.0?package-id=8c0a25031f35d6b3",
       "type": "library",
       "name": "structlog",
       "version": "24.4.0",
@@ -3936,12 +3844,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/webob@1.8.9?package-id=716c5514a6f716fd",
+      "bom-ref": "pkg:pypi/webob@1.8.9?package-id=a1a7c3efbdf1ab22",
       "type": "library",
       "name": "webob",
       "version": "1.8.9",
@@ -4010,12 +3918,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/wrapt@1.17.3?package-id=9e74a98c54624af4",
+      "bom-ref": "pkg:pypi/wrapt@1.17.3?package-id=4d728c1fd3bb4be9",
       "type": "library",
       "name": "wrapt",
       "version": "1.17.3",
@@ -4084,12 +3992,12 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
-      "bom-ref": "pkg:pypi/zipp@3.23.0?package-id=f9e03918090476f9",
+      "bom-ref": "pkg:pypi/zipp@3.23.0?package-id=00040af6b5681fe3",
       "type": "library",
       "name": "zipp",
       "version": "3.23.0",
@@ -4158,14 +4066,14 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt"
+          "value": "flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt"
         }
       ]
     },
     {
       "bom-ref": "9b5e29b6ef7fb337",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/dotnet-core/5.0.0/net6.0/Contrast.SensorsNetCore.deps.json",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/dotnet-core/5.0.0/net6.0/Contrast.SensorsNetCore.deps.json",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4180,7 +4088,7 @@
     {
       "bom-ref": "22ac251f7cfc773a",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/dotnet-core/5.0.0/net6.0/Contrast.SensorsNetCore.dll",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/dotnet-core/5.0.0/net6.0/Contrast.SensorsNetCore.dll",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4193,24 +4101,24 @@
       ]
     },
     {
-      "bom-ref": "52571ed4ae2b0058",
+      "bom-ref": "3a0bb87fdafd1b41",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/java/6.24.0/contrast.jar",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/java/6.25.1/contrast.jar",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "a1aa394e25e6acd69e87da9ec46a023c5417a9c7"
+          "content": "397c3df4510575ef3822e520e466f7ba1f547613"
         },
         {
           "alg": "SHA-256",
-          "content": "166ee229cd48e26154172560292d6b7b737579e9bc4f6893db2359dd4594ab29"
+          "content": "89171102cee43fd98eac88a3adde6c66a361ee44df8971653b0e8a6f99aee42b"
         }
       ]
     },
     {
-      "bom-ref": "23c334bf4184c11b",
+      "bom-ref": "9b1201a6eb9452a7",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/@pinojs/redact/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/@pinojs/redact/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4223,9 +4131,9 @@
       ]
     },
     {
-      "bom-ref": "b684acd8bfddff2d",
+      "bom-ref": "af0b8550d9a40084",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/@pinojs/redact/.github/workflows/publish-release.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/@pinojs/redact/.github/workflows/publish-release.yml",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4238,9 +4146,9 @@
       ]
     },
     {
-      "bom-ref": "a225064e78e42ae8",
+      "bom-ref": "063076b477725bd2",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/nan/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/nan/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4253,9 +4161,9 @@
       ]
     },
     {
-      "bom-ref": "ecf522704c85de5a",
+      "bom-ref": "ac83259e206802c4",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/on-exit-leak-free/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4268,39 +4176,39 @@
       ]
     },
     {
-      "bom-ref": "baa8865aaea6facd",
+      "bom-ref": "44f1012b8894a0a6",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/pino-abstract-transport/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "060106fdb6173538c3ea8521cfb48dd214bb5498"
+          "content": "f7c6693276010023ef2f02a9d398652f7bfd7159"
         },
         {
           "alg": "SHA-256",
-          "content": "00a80501ed880346a1f01cb352bb5c52b6c8c820e585c057dbd04955483b919d"
+          "content": "5ad36959b72a89576d1be3a1a2fd1c93ad99bb68af8fec5ce17d109673e52217"
         }
       ]
     },
     {
-      "bom-ref": "2ece1a0100bf808d",
+      "bom-ref": "ff9d56a0616590f7",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/pino-std-serializers/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/pino-std-serializers/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "4363063eb5105085f1e507f58d2b71e0a250e3eb"
+          "content": "95f0d10ddd3bb28039ef9a326905c2796d82fd95"
         },
         {
           "alg": "SHA-256",
-          "content": "2850acd208e820768877e90bbc0f1d6f45438ef849d85fb2531cc64577ddb1ca"
+          "content": "6bf0b56f28cbf59473481150d53a3b80cbf43da1507ba9c8569901b4d60a288e"
         }
       ]
     },
     {
-      "bom-ref": "563b1dd808750cbd",
+      "bom-ref": "af12524403c4e97e",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/process-warning/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/process-warning/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4313,9 +4221,9 @@
       ]
     },
     {
-      "bom-ref": "65ae8f68c7ccf17b",
+      "bom-ref": "217715345d281342",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/quick-format-unescaped/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
@@ -4328,287 +4236,287 @@
       ]
     },
     {
-      "bom-ref": "1f9e43392d606da1",
+      "bom-ref": "800ebb66afe075a8",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/node/5.49.0/package/node_modules/thread-stream/.github/workflows/ci.yml",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/node/5.50.1/package/node_modules/thread-stream/.github/workflows/ci.yml",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "4dd403184aff7be55aa482511ff38583aae622a6"
+          "content": "5515eaea656e258a34779272472df5b312da221c"
         },
         {
           "alg": "SHA-256",
-          "content": "56a1b09273a741d490e55bde4966f0861721d97e7135075b1eb13c60e9153432"
+          "content": "f4777cd617a4527214a601b903386578900e5cc3e8451cbd749561e1969a9d5f"
         }
       ]
     },
     {
-      "bom-ref": "a13e6f3551006090",
+      "bom-ref": "290abca62ac1bc5f",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/contrast.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/contrast.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "8fcd6bb4f9fe98f07ab5a817a0c5f9807992ff9f"
+          "content": "48c9893f175733f5401e3bd3603ed5b53259ea4b"
         },
         {
           "alg": "SHA-256",
-          "content": "363e0c3663bfe4a936ddb22e4bd2ac23bbb665c82722d2bd0cc50fa5ea4f537d"
+          "content": "158f1da3e545b55ea4dcd81cf989417b65e6173da81fe8e6627fe5f139e72577"
         }
       ]
     },
     {
-      "bom-ref": "2ea18f23b54c35c6",
+      "bom-ref": "a69dcacb8af382be",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/libcontrast-php7.4.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/libcontrast-php7.4.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "8569a837ac7ddb6c92dca68f2ccc6319eba28671"
+          "content": "2142e409ab72c3cbdf2e8220624f8c592cbe8fcf"
         },
         {
           "alg": "SHA-256",
-          "content": "93f387c0d1dd34806a876fbfe986d5439b709d365930925211cc7dcdfbc878a5"
+          "content": "2b0216d98beb4cba18e224c1c57397f877b269b6736b94d2329ee5add23a1f5f"
         }
       ]
     },
     {
-      "bom-ref": "f7abee9066e9a3bb",
+      "bom-ref": "1c0c2cbef8514310",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/libcontrast-php8.0.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/libcontrast-php8.0.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "146ee7cffd3090a1f44cb5e104acd4f456900ea2"
+          "content": "ba8613f3b289dd691488fe2cf80f5a95ded4c619"
         },
         {
           "alg": "SHA-256",
-          "content": "918e0aa80369084de4a2b1b680ed700c24b4468a5960e359996fd7931fd42300"
+          "content": "58a3edcf098020f6d05a1c924aa978a5fed34a4583738090eb21d832fd81f0df"
         }
       ]
     },
     {
-      "bom-ref": "d6d60c8f95a4ca94",
+      "bom-ref": "99af79df5460b638",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/libcontrast-php8.1.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/libcontrast-php8.1.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "48df03c61245ba36b8d1b8bd0aa9f9dc7cf070c3"
+          "content": "f36811ceec48f8c8be2bbfc853289a3afd6c05f2"
         },
         {
           "alg": "SHA-256",
-          "content": "f752748f1bb7c63b6fccf1f4c5b83480bdcdd6b760c0f9a108a6836d6024a603"
+          "content": "99c98c92e8b5427f17e14bf60105a2ce3129917538d573ec453b3e1fc4c4e26c"
         }
       ]
     },
     {
-      "bom-ref": "8bca04d73e44566b",
+      "bom-ref": "178949e3ab7136f6",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/libcontrast-php8.2.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/libcontrast-php8.2.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "203cd779207363233f7f8cbdea67e92acabe9113"
+          "content": "931edf9bbfce34ed3969fcd398985d04877e160a"
         },
         {
           "alg": "SHA-256",
-          "content": "1de3ad699072fa8f88a0ba4af42850a77437a7bc468d071a0d009dfa3ec84d44"
+          "content": "08f4a5d0f43cc578e7b470c990349b2ec28c51c22a6ef31822fb6dd2931ba9ab"
         }
       ]
     },
     {
-      "bom-ref": "0d56bb274a1e567d",
+      "bom-ref": "b120455b3385c324",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/libcontrast-php8.3.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/libcontrast-php8.3.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "c045c716d0acf2578d415cb9b5197744118e03d4"
+          "content": "7d9422dc43313baf4acea7b0f87c7e01fc9ccb0d"
         },
         {
           "alg": "SHA-256",
-          "content": "dbb425064edc2d9050c5130b25c8eabffa2a26274e14c9c5e1d849daa7bc09f3"
+          "content": "20974475357de52117cdf9a4c4f7825d647d8086b6b2d4ded1026c41a8502cbc"
         }
       ]
     },
     {
-      "bom-ref": "19bf1e2ef2eae416",
+      "bom-ref": "fb44690847a25faf",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/amd64/libcontrast-php8.4.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/amd64/libcontrast-php8.4.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "b04507b0a0c77bed5d5eea71e78eb0aa82e59e7a"
+          "content": "f19032fe4cb6112ddb9a637153951a5efc5554dd"
         },
         {
           "alg": "SHA-256",
-          "content": "9e508b2fce188755ffd679f492207190098c5105a9895518a94edfd127c83eed"
+          "content": "a47d42dde9a4cfe87a01cd8cf0e988775b865f857bbc62160623e98047704679"
         }
       ]
     },
     {
-      "bom-ref": "3dea20f5ca78436a",
+      "bom-ref": "c120304d3be91245",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/contrast.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/contrast.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "9a9fad3ea5f9de9b0cfe46d481d99e3c0b5a91d7"
+          "content": "dd203fb6651051f2c0a7fa8facbe5c46bc60b743"
         },
         {
           "alg": "SHA-256",
-          "content": "2b928a54ac2d269bc5d1c2578c9f66874a96c093108f22dd05d310d971db25d2"
+          "content": "60b77e96d5429391ee8ac3508e4d905c8c3d1ed9a4ef033afcc7a82b42fff36a"
         }
       ]
     },
     {
-      "bom-ref": "c6744fe73d290c2e",
+      "bom-ref": "922f2f976fd8c23a",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/libcontrast-php7.4.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/libcontrast-php7.4.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "3b8bf3c4cb4f1f95fc11da17c153c5b6c2ebef55"
+          "content": "906e350cead683011cd6f4dfdabced16c68a3eb2"
         },
         {
           "alg": "SHA-256",
-          "content": "7d0d759cf721203e8e5c45dbfc7e36aa07bea309154a78e7219b31d74a2abf1d"
+          "content": "8b9cfc4c15d45f50f3b50479f807eb97f0d4cbca79c93edfdfd038e18f3e9b30"
         }
       ]
     },
     {
-      "bom-ref": "da8012afdbb5724e",
+      "bom-ref": "e258873e5d2b297b",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/libcontrast-php8.0.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/libcontrast-php8.0.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "74c656801757a46b4b59a95260dcdc19bef42d34"
+          "content": "0c358cb1f9e8a4efe33e2ddacf9cb207bf65f0b3"
         },
         {
           "alg": "SHA-256",
-          "content": "6810f60fe28ee8277398e67db8402bd3d69e1ee3b03130d0f94e0f63d8de68c2"
+          "content": "0d69f0ad1c2eaddc0fddfc735a3d9bfca83ec2daca54f6f54dab119ee7a9418c"
         }
       ]
     },
     {
-      "bom-ref": "4c860aa547e1397e",
+      "bom-ref": "9f36ad235299dfce",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/libcontrast-php8.1.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/libcontrast-php8.1.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "8fe8e917f2a0b40aef0aee6a5eea32d517599410"
+          "content": "dd89147f1a96dcc60ca5e7f1fb5d3bd254a468a2"
         },
         {
           "alg": "SHA-256",
-          "content": "1bc875eb4e131bcfd42323d0f9f279a4a0ea643cdebf4a3759011b6c32a58eeb"
+          "content": "b7c18cf0dd51ade445067782f2d19337e7098a645f033c3252e0af535bfcf159"
         }
       ]
     },
     {
-      "bom-ref": "c06c4a7fd59b65cf",
+      "bom-ref": "eda573b0f387d156",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/libcontrast-php8.2.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/libcontrast-php8.2.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "9bb012ec8af959348be6b5af09354c5eb0ecda91"
+          "content": "f00072328685b9309768080db160e154bb695879"
         },
         {
           "alg": "SHA-256",
-          "content": "a875f27f8d6625ff024f4cdb2c57621f89df63c94d57d74b8d43e167b7ba3bdb"
+          "content": "5f930d3a0d50c86730d39b9dc31b614d401cfb39fd1cb2f8138a37b0afa73d9d"
         }
       ]
     },
     {
-      "bom-ref": "500da898be4bf95c",
+      "bom-ref": "1d19dc1b22ee8586",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/libcontrast-php8.3.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/libcontrast-php8.3.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "89467fcaae6228cbdfd03120b54a783f350b520e"
+          "content": "37f027a5eccdf36a184caf8e44c64f07832fff2d"
         },
         {
           "alg": "SHA-256",
-          "content": "3b11b5377153966c271b454bfaaf922b7abc68993fe44474d1237582c3f7cc24"
+          "content": "65ad9b5496aa196f9ecd15ec200c9289d0f10ebea3f4e2937de6ed810f34be7f"
         }
       ]
     },
     {
-      "bom-ref": "12f5a4b1e055e3de",
+      "bom-ref": "e2c7347011947698",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/php/1.47.0/arm64/libcontrast-php8.4.so",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/php/1.48.0/arm64/libcontrast-php8.4.so",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "7d0b2325ea79f8238e5db11e228dcf211fe737d4"
+          "content": "ce43c5113244ff2552e4db31fd4580f790b3332a"
         },
         {
           "alg": "SHA-256",
-          "content": "eed3d881828259f0253d885d8261d4f9f1f3497ee37ec631b2179ec12d9ca1f8"
+          "content": "5ddfce400bb2960b1efd02ad9f9c2274a745e7ff4d9608c6709687c94c80d65c"
         }
       ]
     },
     {
-      "bom-ref": "058d6f8e099965f7",
+      "bom-ref": "619bc22d6360b15f",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/python/10.22.0/contrast_agent_bundle-10.22.0.dist-info/METADATA",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/python/10.23.1/contrast_agent_bundle-10.23.1.dist-info/METADATA",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "2842670e2dc213af576d3aec5ba8b02baf10eabc"
+          "content": "dadac406fcc3c2556bcdc14b7bb3295ea681c79d"
         },
         {
           "alg": "SHA-256",
-          "content": "a808ffb409d5f1fd83578e5c745dbdc406ea31068f9e87c7a88b6a28bde6821b"
+          "content": "a28c336514cc79589cef9f275662de7c7bb3b48c465609c60383cd0da9f5a749"
         }
       ]
     },
     {
-      "bom-ref": "5780b2d3e1826e32",
+      "bom-ref": "79043b3469b36de4",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/python/10.22.0/contrast_agent_bundle-10.22.0.dist-info/RECORD",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/python/10.23.1/contrast_agent_bundle-10.23.1.dist-info/RECORD",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "432c54511102870ea1dee4d30317009ae02d802e"
+          "content": "c9c2034d916af10e14dad47abf8f4a18364590e4"
         },
         {
           "alg": "SHA-256",
-          "content": "24e7589bf0074a3d56c1a776264a37cb71543148fdeb0b6c103f4d65493e3998"
+          "content": "f73889e7bd1d49fcb712912595a8cde5e33d94f19eaa5b43f468df2969e778c6"
         }
       ]
     },
     {
-      "bom-ref": "b9b5520ab980d7b9",
+      "bom-ref": "062dc5549a8ef912",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/python/10.22.0/contrast_agent_bundle-10.22.0.dist-info/top_level.txt",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/python/10.23.1/contrast_agent_bundle-10.23.1.dist-info/top_level.txt",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "2052cb6f8070e8a4ea4b814065f788662f7e3e3a"
+          "content": "2a5bf755514a644a640c844660045e4ee18b7898"
         },
         {
           "alg": "SHA-256",
-          "content": "47fdea1aed4c3599dde4c823971632b35590add019dba7b57f0e49bc8690d885"
+          "content": "ef31f985639f0a73ffb485d1f454819a70abef7c6e4720253b6e96dbbda36272"
         }
       ]
     },
     {
-      "bom-ref": "2aab7652b8ee1680",
+      "bom-ref": "77675e4bad7578a5",
       "type": "file",
-      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-2546318248/flex-agents/python/10.22.0/contrast_vendor/vendor-requirements.txt",
+      "name": "/private/var/folders/xy/001wts1n0974yk0m5vn_7jyc0000gp/T/syft-archive-contents-3597784374/flex-agents/python/10.23.1/contrast_vendor/vendor-requirements.txt",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "98e38e2a44c1cd9502c8c0965be141ceb8c0af3b"
+          "content": "403aa1b142a3d32606dab35ff27f8774113f6cc8"
         },
         {
           "alg": "SHA-256",
-          "content": "704d75d1b451562b068f384f1387c519f9e907334f598eca69080e07099305cb"
+          "content": "fe5698e72695e6c0544b968dd90b85dc58aac74f531bc4892724fdf44629a24f"
         }
       ]
     }

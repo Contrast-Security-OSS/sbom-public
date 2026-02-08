@@ -24,11 +24,13 @@ products:
     maven_artifact_id: "contrast-agent"
     max_versions: 10
 
-  - name: "Flex Agent"
-    source: "artifactory"
-    artifactory_path: "flex-agent-release"
-    artifact_pattern: "contrast-flex-agent*"
-    max_versions: 10 
+  # Flex Agent - MANUALLY MAINTAINED (Do not uncomment - will overwrite manual SBOMs)
+  # SBOMs are manually committed to docs/sboms/flex-agent/ and protected from overwrite
+  # - name: "Flex Agent"
+  #   source: "artifactory"
+  #   artifactory_path: "flex-agent-release"
+  #   artifact_pattern: "contrast-flex-agent*"
+  #   max_versions: 10
 
   - name: ".NET Agent"
     source: "artifactory"
