@@ -1,13 +1,122 @@
 {
-  "generated": "2026-02-08T02:54:49Z",
+  "generated": "2026-02-08T18:46:41Z",
   "generator": "Syft",
   "products": [
+    {
+      "name": "Eop",
+      "versions": [
+        {
+          "version": "3.12.10",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.10/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.10/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.9",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.9/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.9/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.8",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.8/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.8/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.7",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.7/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.7/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.6",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.6/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.6/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.5",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.5/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.5/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.4-PATCH",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.4-PATCH/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.4-PATCH/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.4",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.4/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.4/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.3",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.3/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.3/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.2",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.2/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.2/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.1",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.1/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.1/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.12.0",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.12.0/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.12.0/sbom.cyclonedx.json"
+          }
+        },
+        {
+          "version": "3.11.11",
+          "releaseDate": "2026-02-08",
+          "sboms": {
+            "spdx": "sboms/eop/3.11.11/sbom.spdx.json",
+            "cyclonedx": "sboms/eop/3.11.11/sbom.cyclonedx.json"
+          }
+        }
+      ]
+    },
     {
       "name": "Flex Agent",
       "versions": [
         {
           "version": "latest",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/latest/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/latest/sbom.cyclonedx.json"
@@ -15,7 +124,7 @@
         },
         {
           "version": "CFA-381-Separate-APK-Arch",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/CFA-381-Separate-APK-Arch/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/CFA-381-Separate-APK-Arch/sbom.cyclonedx.json"
@@ -23,7 +132,7 @@
         },
         {
           "version": "1.11.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.11.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.11.0/sbom.cyclonedx.json"
@@ -31,7 +140,7 @@
         },
         {
           "version": "1.10.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.10.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.10.0/sbom.cyclonedx.json"
@@ -39,7 +148,7 @@
         },
         {
           "version": "1.9.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.9.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.9.0/sbom.cyclonedx.json"
@@ -47,7 +156,7 @@
         },
         {
           "version": "1.8.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.8.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.8.0/sbom.cyclonedx.json"
@@ -55,7 +164,7 @@
         },
         {
           "version": "1.7.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.7.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.7.0/sbom.cyclonedx.json"
@@ -63,7 +172,7 @@
         },
         {
           "version": "1.6.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.6.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.6.0/sbom.cyclonedx.json"
@@ -71,7 +180,7 @@
         },
         {
           "version": "1.5.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.5.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.5.0/sbom.cyclonedx.json"
@@ -79,7 +188,7 @@
         },
         {
           "version": "1.4.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.4.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.4.0/sbom.cyclonedx.json"
@@ -87,7 +196,7 @@
         },
         {
           "version": "1.3.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.3.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.3.0/sbom.cyclonedx.json"
@@ -95,7 +204,7 @@
         },
         {
           "version": "1.2.2",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.2.2/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.2.2/sbom.cyclonedx.json"
@@ -103,7 +212,7 @@
         },
         {
           "version": "1.2.1",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.2.1/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.2.1/sbom.cyclonedx.json"
@@ -111,7 +220,7 @@
         },
         {
           "version": "1.2.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.2.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.2.0/sbom.cyclonedx.json"
@@ -119,7 +228,7 @@
         },
         {
           "version": "1.1.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.1.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.1.0/sbom.cyclonedx.json"
@@ -127,7 +236,7 @@
         },
         {
           "version": "1.0.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/1.0.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/1.0.0/sbom.cyclonedx.json"
@@ -135,7 +244,7 @@
         },
         {
           "version": "0.8.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/0.8.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/0.8.0/sbom.cyclonedx.json"
@@ -143,7 +252,7 @@
         },
         {
           "version": "0.7.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/0.7.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/0.7.0/sbom.cyclonedx.json"
@@ -151,7 +260,7 @@
         },
         {
           "version": "0.6.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/0.6.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/0.6.0/sbom.cyclonedx.json"
@@ -159,7 +268,7 @@
         },
         {
           "version": "0.5.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/0.5.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/0.5.0/sbom.cyclonedx.json"
@@ -167,7 +276,7 @@
         },
         {
           "version": "0.4.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/0.4.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/0.4.0/sbom.cyclonedx.json"
@@ -175,7 +284,7 @@
         },
         {
           "version": "0.3.0",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/flex-agent/0.3.0/sbom.spdx.json",
             "cyclonedx": "sboms/flex-agent/0.3.0/sbom.cyclonedx.json"
@@ -188,7 +297,7 @@
       "versions": [
         {
           "version": "latest",
-          "releaseDate": "2026-02-07",
+          "releaseDate": "2026-02-08",
           "sboms": {
             "spdx": "sboms/java-agent/latest/sbom.spdx.json",
             "cyclonedx": "sboms/java-agent/latest/sbom.cyclonedx.json"
