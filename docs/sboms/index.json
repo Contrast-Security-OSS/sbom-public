@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-08T23:36:43Z",
+  "generated": "2026-02-08T23:42:25Z",
   "products": [
     {
       "name": "Contrast CLI Linux",
@@ -625,14 +625,6 @@
           "generatedAt": "2026-02-08T18:30:37Z",
           "formats": ["spdx","cyclonedx"]
         }
-      ]
-    }
-,
-    {
-      "name": "Ruby Agent",
-      "slug": "ruby-agent",
-      "source": "artifactory",
-      "versions": [
       ]
     }
   ]

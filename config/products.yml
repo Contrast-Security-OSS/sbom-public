@@ -61,12 +61,6 @@ products:
     pypi_package: "contrast-agent"
     max_versions: 10
 
-  - name: "Ruby Agent"
-    source: "artifactory"
-    artifactory_path: "ruby-agent-release"
-    artifact_pattern: "contrast-agent*"
-    max_versions: 10
-
   - name: "Contrast CLI Linux"
     source: "artifactory"
     artifactory_path: "cli"
