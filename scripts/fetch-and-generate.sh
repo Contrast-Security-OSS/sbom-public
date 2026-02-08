@@ -347,7 +347,19 @@ fetch_artifactory() {
         -d \"$aql_query\" \
         \"$ARTIFACTORY_URL/api/search/aql\" 2>/dev/null || echo '{"results":[]}')
 
-    local result_count=$(echo "$response" | jq '.results | length')
+    # Debug: Check if response is valid JSON
+    if ! echo "$response" | jq empty 2>/dev/null; then
+        echo -e "${RED}  ERROR: Invalid JSON response from Artifactory${NC}" >&2
+        echo "  Response: ${response:0:200}" >&2
+        return
+    fi
+
+    local result_count=$(echo "$response" | jq '.results | length' 2>/dev/null)
+
+    if [[ -z "$result_count" || "$result_count" == "null" ]]; then
+        echo -e "${YELLOW}  No results field in Artifactory response${NC}" >&2
+        return
+    fi
 
     if [[ "$result_count" == "0" ]]; then
         echo -e "${YELLOW}  No artifacts found${NC}" >&2
