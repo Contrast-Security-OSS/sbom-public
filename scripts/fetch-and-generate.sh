@@ -72,7 +72,7 @@ validate_product() {
     fi
 
     # Check source type
-    if [[ ! "$source" =~ ^(s3|maven|artifactory)$ ]]; then
+    if [[ ! "$source" =~ ^(s3|maven|artifactory|npm)$ ]]; then
         echo -e "${RED}ERROR: Product '$name' has invalid source type: $source${NC}"
         exit 1
     fi
@@ -122,6 +122,13 @@ validate_product() {
             fi
             if [[ "$pattern" == "null" || -z "$pattern" ]]; then
                 echo -e "${RED}ERROR: Artifactory product '$name' missing 'artifact_pattern'${NC}"
+                exit 1
+            fi
+            ;;
+        npm)
+            local package_name=$(yq eval ".products[$index].npm_package" "$CONFIG_FILE")
+            if [[ "$package_name" == "null" || -z "$package_name" ]]; then
+                echo -e "${RED}ERROR: npm product '$name' missing 'npm_package'${NC}"
                 exit 1
             fi
             ;;
@@ -295,6 +302,61 @@ fetch_maven() {
         echo "    Version: $version - $filename" >&2
 
         if curl -f -s "$download_url" -o "$download_path"; then
+            echo "$download_path|$version"
+        else
+            echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
+        fi
+    done <<< "$versions"
+}
+
+fetch_npm() {
+    local product_json="$1"
+    local slug="$2"
+
+    local name=$(echo "$product_json" | jq -r '.name')
+    local package_name=$(echo "$product_json" | jq -r '.npm_package')
+    local max_versions=$(echo "$product_json" | jq -r '.max_versions')
+
+    echo "  npm registry: $package_name" >&2
+
+    # Fetch package metadata from npm registry
+    local registry_url="https://registry.npmjs.org/${package_name}"
+    local metadata=$(curl -s "$registry_url")
+
+    if [[ -z "$metadata" ]] || ! echo "$metadata" | jq -e '.versions' > /dev/null 2>&1; then
+        echo -e "${YELLOW}  Failed to fetch metadata from npm registry${NC}" >&2
+        return
+    fi
+
+    # Extract version numbers, sort, and limit
+    local versions=$(echo "$metadata" | jq -r '.versions | keys[]' | sort -V -r | head -n "$max_versions")
+
+    if [[ -z "$versions" ]]; then
+        echo -e "${YELLOW}  No versions found${NC}" >&2
+        return
+    fi
+
+    local count=$(echo "$versions" | wc -l | tr -d ' ')
+    echo "  Found $count version(s)" >&2
+
+    # Download each version
+    while IFS= read -r version; do
+        [[ -z "$version" ]] && continue
+
+        # Get tarball URL for this version
+        local tarball_url=$(echo "$metadata" | jq -r ".versions[\"$version\"].dist.tarball")
+
+        if [[ -z "$tarball_url" || "$tarball_url" == "null" ]]; then
+            echo -e "${YELLOW}    Version $version: No tarball URL found${NC}" >&2
+            continue
+        fi
+
+        local filename=$(basename "$tarball_url")
+        local download_path="$TEMP_DIR/$slug-$version-$filename"
+
+        echo "    Version: $version - $filename" >&2
+
+        if curl -f -s "$tarball_url" -o "$download_path"; then
             echo "$download_path|$version"
         else
             echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
@@ -555,6 +617,9 @@ main() {
                 ;;
             maven)
                 artifacts=$(fetch_maven "$product_json" "$slug")
+                ;;
+            npm)
+                artifacts=$(fetch_npm "$product_json" "$slug")
                 ;;
             artifactory)
                 artifacts=$(fetch_artifactory "$product_json" "$slug")
