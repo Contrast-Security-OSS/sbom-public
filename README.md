@@ -20,17 +20,22 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
+**7 of 12 products active** • **73 versions** • **146 SBOM files** (SPDX + CycloneDX)
+
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
 | **EOP** | 13 | S3 | ✅ Active |
 | **Java Agent** | 10 | Maven Central | ✅ Active |
-| **Flex Agent** | 10 | Artifactory | ✅ Active |
-| .NET Agent | - | Artifactory | ⚠️ Requires credentials |
-| Node Agent | - | Artifactory | ⚠️ Requires credentials |
-| Python Agent | - | Artifactory | ⚠️ Requires credentials |
-| Ruby Agent | - | Artifactory | ⚠️ Requires credentials |
-| Go Agent | - | Artifactory | ⚠️ Requires credentials |
-| Contrast CLI | - | Artifactory | ⚠️ Requires credentials |
+| **Flex Agent** | 10 | Artifactory (public) | ✅ Active |
+| **Go Agent (Linux AMD64)** | 10 | Artifactory (public) | ✅ Active |
+| **Contrast CLI Linux** | 10 | Artifactory (public) | ✅ Active |
+| **Contrast CLI Mac** | 10 | Artifactory (public) | ✅ Active |
+| **Contrast CLI Windows** | 10 | Artifactory (public) | ✅ Active |
+| .NET Agent | - | Artifactory (private) | ⚠️ Requires credentials |
+| .NET Agent IIS Installer | - | Artifactory (private) | ⚠️ Requires credentials |
+| Node Agent | - | Artifactory (private) | ⚠️ Requires credentials |
+| Python Agent | - | Artifactory (private) | ⚠️ Requires credentials |
+| Ruby Agent | - | Artifactory (private) | ⚠️ Requires credentials |
 
 ## Architecture
 
@@ -127,14 +132,32 @@ Products are configured in `config/products.yml`:
 
 ```yaml
 products:
+  # Maven Central example
   - name: "Product Name"
-    source: "maven"  # or "s3", "artifactory"
+    source: "maven"
     maven_group_id: "com.example"
     maven_artifact_id: "product"
+    max_versions: 10
+
+  # Artifactory with flat structure (version/file)
+  - name: "Flex Agent"
+    source: "artifactory"
+    artifactory_path: "flex-agent-release"
+    artifact_pattern: "contrast-flex-agent*"
+    max_versions: 10
+
+  # Artifactory with nested structure (version/platform/file)
+  - name: "Go Agent (Linux AMD64)"
+    source: "artifactory"
+    artifactory_path: "go-agent-release"
+    platform_subdir: "linux-amd64"
+    artifact_pattern: "contrast-go*"
     max_versions: 10
 ```
 
 See `config/products.yml` for complete examples.
+
+**Platform Subdirectory Support**: For Artifactory repositories with nested version/platform/file structures, use the `platform_subdir` field to specify the platform directory within each version folder.
 
 ## Usage
 
