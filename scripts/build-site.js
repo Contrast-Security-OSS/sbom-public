@@ -26,7 +26,9 @@ const filesToCopy = [
     'index.html',
     'styles.css',
     'app.js',
-    'logo.svg'
+    'logo.svg',
+    'dependency-tree.html',
+    'dependency-tree.js'
 ];
 
 console.log('Copying site files to docs/...');

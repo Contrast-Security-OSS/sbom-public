@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Tree - Contrast Security SBOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .tree-container {
+            width: 100%;
+            height: calc(100vh - 200px);
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .tree-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .tree-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tree-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tree-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .tree-legend {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+        }
+
+        .legend-circle {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .node circle {
+            stroke-width: 2.5px;
+            transition: all 0.3s ease;
+        }
+
+        .node:hover circle {
+            stroke-width: 4px;
+            filter: brightness(1.3);
+        }
+
+        .node text {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            pointer-events: none;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .link {
+            fill: none;
+            stroke: rgba(150, 150, 255, 0.4);
+            stroke-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke: rgba(150, 150, 255, 0.8);
+            stroke-width: 3px;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            pointer-events: none;
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+        }
+
+        .tooltip strong {
+            color: #8b9bff;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b9bff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #a8b5ff;
+            transform: translateX(-4px);
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 14, 39, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(139, 155, 255, 0.2);
+            border-top-color: #8b9bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            text-align: center;
+            padding: 40px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <header class="hero" style="padding: 40px 0;">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Products
+            </a>
+            <h1 class="hero-title" id="page-title">Dependency Tree</h1>
+            <p class="hero-subtitle" id="page-subtitle">
+                Interactive visualization of package dependencies
+            </p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="tree-container" id="tree-container">
+                <div class="loading-overlay" id="loading">
+                    <div class="loading-spinner"></div>
+                    <div style="color: white; font-size: 16px;">Loading dependency tree...</div>
+                </div>
+
+                <div class="tree-legend">
+                    <div style="font-weight: 600; margin-bottom: 12px;">Legend</div>
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: #8b9bff;"></div>
+                        <span>Root Package</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: #6dd5ed;"></div>
+                        <span>Direct Dependency</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: #f093fb;"></div>
+                        <span>Transitive Dependency</span>
+                    </div>
+                </div>
+
+                <div class="tree-controls">
+                    <button class="tree-btn" onclick="resetZoom()">Reset View</button>
+                    <button class="tree-btn" onclick="expandAll()">Expand All</button>
+                    <button class="tree-btn" onclick="collapseAll()">Collapse All</button>
+                </div>
+
+                <div class="tree-info" id="tree-info">
+                    <div id="selected-node-info">Click on a node to see details</div>
+                </div>
+
+                <svg id="tree-svg"></svg>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Dependency visualization powered by D3.js</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.contrastsecurity.com" target="_blank">Contrast Security</a></li>
+                        <li><a href="https://github.com/Contrast-Security-OSS" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dependency-tree.js"></script>
+</body>
+</html>

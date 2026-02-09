@@ -387,6 +387,22 @@ function renderVersionItem(product, version) {
                         CycloneDX
                     </button>
                 ` : ''}
+                ${hasCyclonedx ? `
+                    <button
+                        class="btn-icon"
+                        onclick="viewDependencyTree('${escapeHtml(cyclonedxUrl)}', '${escapeHtml(product.name)}', '${escapeHtml(version.version)}')"
+                        title="View Dependency Tree"
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="7" r="2"/>
+                            <path d="M12 9v6"/>
+                            <circle cx="8" cy="17" r="2"/>
+                            <circle cx="16" cy="17" r="2"/>
+                            <path d="M12 15l-2.5 1.5"/>
+                            <path d="M12 15l2.5 1.5"/>
+                        </svg>
+                    </button>
+                ` : ''}
                 ${hasSpdx ? `
                     <button
                         class="btn-icon"
@@ -511,6 +527,17 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// View dependency tree
+function viewDependencyTree(sbomUrl, productName, version) {
+    // Navigate to dependency tree page with parameters
+    const params = new URLSearchParams({
+        sbom: sbomUrl,
+        product: productName,
+        version: version
+    });
+    window.location.href = `dependency-tree.html?${params.toString()}`;
 }
 
 // Add slideIn and fadeOut animations
