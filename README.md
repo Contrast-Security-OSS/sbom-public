@@ -15,8 +15,10 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 - 🔐 **Anonymous Access**: Works with public repositories without credentials
 - 📋 **Dual Format**: SPDX and CycloneDX for maximum compatibility
 - 🔍 **Searchable Interface**: Modern web UI with filtering and sorting
+- 🌳 **Dependency Tree Viewer**: Interactive, collapsible tree visualization with search
 - 📱 **Mobile Responsive**: Works seamlessly on all devices
 - ⚡ **Static Site**: Fast, no backend required
+- 🛡️ **Enhanced Detection**: Comprehensive multi-language dependency scanning
 
 ## Current SBOM Coverage
 
@@ -40,10 +42,11 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ### Technology Stack
 
-- **SBOM Generator**: [Syft](https://github.com/anchore/syft) by Anchore
+- **SBOM Generator**: [Syft](https://github.com/anchore/syft) by Anchore (with enhanced multi-language catalogers)
 - **Automation**: GitHub Actions workflows
 - **Hosting**: GitHub Pages (static site)
 - **Frontend**: Vanilla JavaScript with modern UI
+- **Visualization**: Interactive dependency tree viewer
 
 ### Data Flow
 
@@ -94,6 +97,8 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 │   ├── index.html
 │   ├── app.js
 │   ├── styles.css
+│   ├── dependency-tree.html
+│   ├── dependency-tree.js
 │   └── logo.svg
 ├── docs/                      # Generated GitHub Pages site
 │   ├── sboms/                 # Generated SBOMs
@@ -190,6 +195,7 @@ Features:
 - **Sort**: By name, date, or version count
 - **Download**: SPDX or CycloneDX formats
 - **View**: Inspect SBOM content in-browser
+- **Dependency Tree**: Interactive hierarchical view with expand/collapse and search
 
 ### Manual Workflow Run
 
@@ -309,11 +315,12 @@ For private Artifactory repositories:
 
 ### SBOM Protection
 
-Manually-committed SBOMs are protected from overwrite:
-- **EOP**: Manually committed from S3, protected by existence check in script
-- **Flex Agent**: Manually committed, removed from products.yml to prevent fetching
-- Products marked as manual are skipped during workflow execution
-- To update manual SBOMs: Replace files directly and rebuild index
+SBOMs are automatically protected from overwrite:
+- **Version-level protection**: The `check_sbom_exists()` function checks for existing SBOMs before processing each version
+- **Automatic skip**: If both SPDX and CycloneDX files exist for a version, it's skipped entirely
+- **Manual SBOMs preserved**: EOP and Flex Agent manually-committed SBOMs remain protected
+- **Selective regeneration**: To regenerate specific SBOMs, delete the version directory and rerun the workflow
+- **No data loss**: Once generated, SBOMs won't be accidentally overwritten
 
 ## Troubleshooting
 

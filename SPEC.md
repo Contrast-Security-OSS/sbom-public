@@ -1,7 +1,7 @@
 # SBOM Repository Specification v2.0
 
-**Version**: 2.0 (Simplified)
-**Last Updated**: 2026-02-08
+**Version**: 2.1 (Enhanced)
+**Last Updated**: 2026-02-09
 **Status**: Active
 
 ## Table of Contents
@@ -49,17 +49,65 @@ Automatically generate and publish Software Bill of Materials (SBOMs) for Contra
 |---------|----------|--------|-------|
 | **EOP** | 13 | S3 (anonymous) | Manually committed, protected from overwrite |
 | **Java Agent** | 10 | Maven Central | Fully automated |
-| **Flex Agent** | 10 | Artifactory (anonymous) | Public repository |
-| .NET Agent | 0 | Artifactory (private) | Requires credentials |
-| Node Agent | 0 | Artifactory (private) | Requires credentials |
-| Python Agent | 0 | Artifactory (private) | Requires credentials |
-| Ruby Agent | 0 | Artifactory (private) | Requires credentials |
-| Go Agent | 0 | Artifactory (private) | Requires credentials |
-| CLI (all platforms) | 0 | Artifactory (private) | Requires credentials |
+| **Flex Agent** | 11 | Artifactory (anonymous) | Public repository |
+| **Python Agent** | 10 | PyPI | Fully automated |
+| **Node Agent** | 10 | npm | Fully automated with enhanced catalogers |
+| **Go Agent (Linux AMD64)** | 10 | Artifactory (anonymous) | Enhanced binary cataloger |
+| **DotNet Core Agent** | 10 | NuGet | Fully automated |
+| **DotNet Core IIS Installer** | 10 | NuGet | Fully automated |
+| **Contrast CLI Linux** | 10 | Artifactory (anonymous) | Enhanced binary cataloger |
+| **Contrast CLI Mac** | 10 | Artifactory (anonymous) | Enhanced binary cataloger |
+| **Contrast CLI Windows** | 10 | Artifactory (anonymous) | Enhanced binary cataloger |
 
 ### Recent Improvements (Feb 2026)
 
-#### 1. Anonymous Access for Public Repositories
+#### 0. Syft Configuration Enhancement (Feb 9, 2026)
+
+**Comprehensive Multi-Language Detection**:
+- Added `--override-default-catalogers all` to enable all 52+ catalogers
+- Added `--enrich golang,java,javascript,python` for enhanced metadata
+- Changed from deprecated `syft packages` to `syft scan` command
+- Targets binary catalogers for Go, .NET, Node.js compiled artifacts
+
+**Syft Command**:
+```bash
+syft scan "$artifact_path" \
+  --override-default-catalogers all \
+  --enrich golang,java,javascript,python \
+  -o spdx-json="$output_file" \
+  -q
+```
+
+**Enabled Catalogers Include**:
+- `go-module-binary-cataloger`: Extracts Go dependencies from compiled binaries
+- `dotnet-deps-binary-cataloger`: Extracts .NET dependencies from assemblies
+- `javascript-package-cataloger`: Extracts npm package information
+- And 49+ more catalogers for comprehensive coverage
+
+**Impact**: Better SBOM completeness for all languages, especially compiled artifacts
+
+#### 1. Interactive Dependency Tree Visualization (Feb 9, 2026)
+
+**New Feature**: Interactive hierarchical dependency tree viewer
+
+**Files Added**:
+- `site/dependency-tree.html`: Main tree viewer page
+- `site/dependency-tree.js`: Tree rendering and interaction logic
+
+**Features**:
+- File-explorer-style collapsible tree structure
+- Click nodes to expand/collapse (▶/▼ arrows)
+- Search with automatic path expansion and highlighting
+- Expand All / Collapse All buttons
+- Export as ASCII text tree
+- Stats dashboard (total, direct, transitive packages)
+- Contrast Security branded design
+
+**Data Source**: Parses CycloneDX SBOM dependency relationships
+
+**Access**: Click the tree icon (🌳) next to any SBOM version on the main site
+
+#### 2. Anonymous Access for Public Repositories
 
 **S3 (EOP)**:
 - Removed AWS credential requirements
@@ -73,7 +121,7 @@ Automatically generate and publish Software Bill of Materials (SBOMs) for Contra
 - Auto-detects and uses credentials only if provided
 - Constructs URLs from version directories
 
-#### 2. SBOM Protection Mechanism
+#### 3. SBOM Protection Mechanism
 
 Manually-committed SBOMs are now protected from workflow overwrite:
 
@@ -88,7 +136,7 @@ fi
 
 This ensures EOP SBOMs (and any others manually committed) won't be overwritten by automated workflows.
 
-#### 3. Frontend Fixes
+#### 4. Frontend Fixes
 
 **Data Structure Alignment**:
 - Fixed mismatch between backend (`generatedAt`) and frontend (`releaseDate`)
@@ -99,7 +147,7 @@ This ensures EOP SBOMs (and any others manually committed) won't be overwritten 
 - Added version parameter to `app.js` (`app.js?v=2`)
 - Prevents GitHub Pages CDN from serving stale versions
 
-#### 4. Stderr Redirect for Fetch Functions
+#### 5. Stderr Redirect for Fetch Functions
 
 All informational messages now go to stderr:
 
@@ -110,7 +158,7 @@ echo "$download_path|$version"       # DO capture this
 
 This prevents log messages from being captured as artifact data, which was causing empty SBOM generation attempts.
 
-#### 5. Build Script Improvements
+#### 6. Build Script Improvements
 
 **build-index.sh**:
 - Handles empty version arrays without failing
@@ -286,8 +334,7 @@ CONFIG_FILE             # Default: config/products.yml
 - yq (YAML parser)
 - jq (JSON processor)
 - curl (downloads)
-- aws CLI (for S3 products)
-- syft (SBOM generator, auto-installed)
+- syft (SBOM generator with enhanced catalogers)
 
 # Exit Codes
 0 - Success
@@ -314,10 +361,11 @@ CONFIG_FILE             # Default: config/products.yml
       - maven: Fetch maven-metadata.xml, download JARs
       - artifactory: Query AQL, download artifacts
    e. For each downloaded artifact:
+      - Check if SBOM already exists (skip if both formats present)
       - Extract version from filename/path
       - Create version directory: docs/sboms/<slug>/<version>/
-      - Generate SPDX: syft -o spdx-json
-      - Generate CycloneDX: syft -o cyclonedx-json
+      - Generate SPDX: syft scan --override-default-catalogers all --enrich golang,java,javascript,python
+      - Generate CycloneDX: syft scan --override-default-catalogers all --enrich golang,java,javascript,python
    f. Clean up downloaded artifacts (save disk space)
 
 3. Log summary of generated SBOMs
@@ -332,13 +380,19 @@ validate_product()          # Check single product has required fields
 sanitize_slug()             # Convert name to safe filesystem slug
 check_path_traversal()      # Prevent ../.. attacks
 
+# Protection
+check_sbom_exists()         # Check if SBOM already exists for version
+
 # Fetching (one function per source)
 fetch_s3()                  # List & download from S3
 fetch_maven()               # Fetch from Maven Central
-fetch_artifactory()         # Query AQL & download
+fetch_npm()                 # Fetch from npm registry
+fetch_pypi()                # Fetch from PyPI registry
+fetch_nuget()               # Fetch from NuGet registry
+fetch_artifactory()         # Query REST API & download
 
 # SBOM generation
-generate_sboms_for_artifact()  # Run syft on downloaded file
+generate_sboms_for_artifact()  # Run syft scan with enhanced catalogers
 
 # Metadata
 write_metadata()            # Write metadata.json for product
@@ -479,8 +533,10 @@ const spdxPath = `sboms/${product.slug}/${version.version}/sbom.spdx.json`;
 2. Copy site/index.html to docs/index.html
 3. Copy site/styles.css to docs/styles.css
 4. Copy site/app.js to docs/app.js
-5. Copy site/logo.svg to docs/logo.svg
-6. Create docs/.nojekyll (disable Jekyll processing)
+5. Copy site/dependency-tree.html to docs/dependency-tree.html
+6. Copy site/dependency-tree.js to docs/dependency-tree.js
+7. Copy site/logo.svg to docs/logo.svg
+8. Create docs/.nojekyll (disable Jekyll processing)
 ```
 
 **IMPORTANT**: Does NOT copy sboms/ to docs/sboms/ because SBOMs are already generated directly in docs/sboms/ by fetch-and-generate.sh.
@@ -732,6 +788,29 @@ Before merging changes:
 ---
 
 ## Changelog
+
+### Version 2.1 (2026-02-09) - Enhanced Detection & Visualization
+
+**New Features:**
+- ✅ Enhanced Syft configuration with all catalogers enabled
+- ✅ Binary cataloger support for Go, .NET, Node.js compiled artifacts
+- ✅ Interactive dependency tree visualization
+- ✅ npm, PyPI, and NuGet source support
+- ✅ Per-version SBOM protection mechanism
+
+**Improvements:**
+- ✅ Comprehensive multi-language dependency detection
+- ✅ File-explorer-style tree viewer with search
+- ✅ Contrast Security branded visualization
+- ✅ Export dependency trees as ASCII text
+- ✅ Automatic skip of existing SBOMs
+
+**Coverage Expansion:**
+- ✅ Added 70 new SBOMs across 7 products
+- ✅ All Contrast CLI platforms (Linux, Mac, Windows)
+- ✅ Go Agent with binary cataloger
+- ✅ Node Agent with enhanced detection
+- ✅ .NET Core Agent and IIS Installer
 
 ### Version 2.0 (2026-02-08) - Simplified Architecture
 
