@@ -693,8 +693,17 @@ generate_sboms_for_artifact() {
     local spdx_output="$version_dir/sbom.spdx.json"
     local cyclonedx_output="$version_dir/sbom.cyclonedx.json"
 
+    # Syft options for comprehensive scanning:
+    # --override-default-catalogers all: Enable all catalogers including binary catalogers for Go, .NET, etc.
+    # --enrich: Enable package data enrichment for better dependency detection
+    local syft_options=(
+        --override-default-catalogers all
+        --enrich golang,java,javascript,python
+        -q
+    )
+
     echo "      Generating SPDX..."
-    if syft packages "$artifact_path" -q -o spdx-json="$spdx_output" 2>/dev/null; then
+    if syft scan "$artifact_path" "${syft_options[@]}" -o spdx-json="$spdx_output" 2>/dev/null; then
         echo -e "${GREEN}      ✓ SPDX generated${NC}"
     else
         echo -e "${YELLOW}      ✗ SPDX generation failed${NC}"
@@ -702,7 +711,7 @@ generate_sboms_for_artifact() {
     fi
 
     echo "      Generating CycloneDX..."
-    if syft packages "$artifact_path" -q -o cyclonedx-json="$cyclonedx_output" 2>/dev/null; then
+    if syft scan "$artifact_path" "${syft_options[@]}" -o cyclonedx-json="$cyclonedx_output" 2>/dev/null; then
         echo -e "${GREEN}      ✓ CycloneDX generated${NC}"
     else
         echo -e "${YELLOW}      ✗ CycloneDX generation failed${NC}"
