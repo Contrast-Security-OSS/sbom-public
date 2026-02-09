@@ -1027,9 +1027,51 @@ body {
 .node-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0.5rem 0.75rem;
-    cursor: pointer;
     user-select: none;
+    gap: 0.5rem;
+}
+
+.node-main {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.node-copy-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    flex-shrink: 0;
+}
+
+.tree-node:hover .node-copy-btn {
+    opacity: 1;
+}
+
+.node-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+}
+
+.node-copy-btn:active {
+    background: rgba(56, 184, 133, 0.2);
+    color: var(--primary);
+}
+
+.node-copy-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 .node-toggle {

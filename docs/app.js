@@ -837,28 +837,42 @@ function renderTreeNode(node, level) {
 
     const highlightClass = treeSearchQuery && nodeMatches ? 'highlight' : '';
 
+    const packageString = node.version ? `${node.name}@${node.version}` : node.name;
+
     let html = `
         <div class="tree-node ${highlightClass}" style="padding-left: ${level * 24}px;">
-            <div class="node-content" onclick="toggleTreeNode('${escapeHtml(nodeId)}')">
-                ${hasChildren ? `
-                    <span class="node-toggle">
-                        ${isExpanded ? '▼' : '▶'}
+            <div class="node-content">
+                <div class="node-main" onclick="toggleTreeNode('${escapeHtml(nodeId)}')">
+                    ${hasChildren ? `
+                        <span class="node-toggle">
+                            ${isExpanded ? '▼' : '▶'}
+                        </span>
+                    ` : '<span class="node-toggle node-empty">•</span>'}
+
+                    <span class="node-icon ${node.type}">
+                        ${node.type === 'root' ? '📦' : node.type === 'direct' ? '📘' : '📙'}
                     </span>
-                ` : '<span class="node-toggle node-empty">•</span>'}
 
-                <span class="node-icon ${node.type}">
-                    ${node.type === 'root' ? '📦' : node.type === 'direct' ? '📘' : '📙'}
-                </span>
+                    <span class="node-name">${escapeHtml(node.name)}</span>
 
-                <span class="node-name">${escapeHtml(node.name)}</span>
+                    ${node.version ? `
+                        <span class="node-version">@${escapeHtml(node.version)}</span>
+                    ` : ''}
 
-                ${node.version ? `
-                    <span class="node-version">@${escapeHtml(node.version)}</span>
-                ` : ''}
-
-                ${hasChildren ? `
-                    <span class="node-count">(${node.children.length})</span>
-                ` : ''}
+                    ${hasChildren ? `
+                        <span class="node-count">(${node.children.length})</span>
+                    ` : ''}
+                </div>
+                <button
+                    class="node-copy-btn"
+                    onclick="event.stopPropagation(); copyNodeToClipboard('${escapeHtml(packageString)}')"
+                    title="Copy ${escapeHtml(packageString)}"
+                >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
             </div>
 
             ${node.description ? `
@@ -942,6 +956,28 @@ function exportTree(productName, version) {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+}
+
+async function copyNodeToClipboard(packageString) {
+    try {
+        await navigator.clipboard.writeText(packageString);
+        showToast(`✓ Copied: ${packageString}`);
+    } catch (error) {
+        // Fallback for browsers that don't support clipboard API
+        const textarea = document.createElement('textarea');
+        textarea.value = packageString;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showToast(`✓ Copied: ${packageString}`);
+        } catch (err) {
+            showToast('✗ Failed to copy');
+        }
+        document.body.removeChild(textarea);
+    }
 }
 
 // Add slideIn and fadeOut animations
