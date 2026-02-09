@@ -1,10 +1,10 @@
-// Dependency Tree Visualizer
-// Powered by D3.js
+// Dependency Tree Visualizer - File Tree Style
+// Clean hierarchical view like a file explorer
 
-let svg, g, simulation, zoom;
 let treeData = null;
-let nodes = [];
-let links = [];
+let expandedNodes = new Set();
+let filteredTree = null;
+let searchQuery = '';
 
 // Get SBOM URL from query parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -22,8 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update page title
     if (productName && version) {
         document.getElementById('page-title').textContent = `${productName} ${version}`;
-        document.getElementById('page-subtitle').textContent = 'Interactive dependency tree visualization';
+        document.getElementById('page-subtitle').textContent = 'Dependency tree - Click to expand/collapse';
     }
+
+    // Setup event listeners
+    document.getElementById('search-input').addEventListener('input', handleSearch);
+    document.getElementById('expand-all-btn').addEventListener('click', expandAll);
+    document.getElementById('collapse-all-btn').addEventListener('click', collapseAll);
+    document.getElementById('export-btn').addEventListener('click', exportTree);
 
     loadAndVisualize();
 });
@@ -41,8 +47,11 @@ async function loadAndVisualize() {
             return;
         }
 
-        initializeVisualization();
-        renderTree(treeData);
+        // Expand root by default
+        expandedNodes.add(getNodeId(treeData));
+
+        updateStats(treeData);
+        renderTree();
         document.getElementById('loading').style.display = 'none';
     } catch (error) {
         showError(`Error loading SBOM: ${error.message}`);
@@ -68,13 +77,12 @@ function parseCycloneDX(sbom) {
         });
     });
 
-    // Find root component (usually the main artifact)
+    // Find root component
     let rootRef = null;
     if (sbom.metadata && sbom.metadata.component) {
         rootRef = sbom.metadata.component.purl || sbom.metadata.component['bom-ref'] || sbom.metadata.component.name;
     }
 
-    // If no metadata root, use the first dependency or component
     if (!rootRef && dependencies.length > 0) {
         rootRef = dependencies[0].ref;
     }
@@ -85,17 +93,18 @@ function parseCycloneDX(sbom) {
 
     // Build tree structure
     const root = {
-        name: sbom.metadata?.component?.name || productName || 'Root',
+        name: sbom.metadata?.component?.name || productName || 'Root Package',
         version: sbom.metadata?.component?.version || version || '',
         children: [],
         type: 'root',
-        depth: 0
+        depth: 0,
+        id: 'root'
     };
 
-    // Build dependency tree from dependencies array
+    // Build dependency tree
     const processedRefs = new Set();
 
-    function buildTree(ref, depth = 1, maxDepth = 5) {
+    function buildTree(ref, depth = 1, maxDepth = 10) {
         if (depth > maxDepth || processedRefs.has(ref)) {
             return null;
         }
@@ -111,7 +120,9 @@ function parseCycloneDX(sbom) {
             depth: depth,
             purl: component.purl,
             description: component.description,
-            children: []
+            licenses: component.licenses,
+            children: [],
+            id: `${component.name}@${component.version}-${depth}`
         };
 
         // Find dependencies of this component
@@ -143,14 +154,17 @@ function parseCycloneDX(sbom) {
 
     // If no dependencies found, add all components as direct children
     if (root.children.length === 0 && components.length > 0) {
-        components.slice(0, 50).forEach(comp => {
+        components.slice(0, 100).forEach((comp, i) => {
             root.children.push({
                 name: comp.name,
                 version: comp.version || 'unknown',
                 type: 'direct',
                 depth: 1,
                 purl: comp.purl,
-                children: []
+                description: comp.description,
+                licenses: comp.licenses,
+                children: [],
+                id: `${comp.name}@${comp.version || 'unknown'}-1-${i}`
             });
         });
     }
@@ -158,256 +172,226 @@ function parseCycloneDX(sbom) {
     return root;
 }
 
-function initializeVisualization() {
-    const container = document.getElementById('tree-container');
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-
-    // Create SVG
-    svg = d3.select('#tree-svg')
-        .attr('width', width)
-        .attr('height', height);
-
-    // Create zoom behavior
-    zoom = d3.zoom()
-        .scaleExtent([0.1, 4])
-        .on('zoom', (event) => {
-            g.attr('transform', event.transform);
-        });
-
-    svg.call(zoom);
-
-    // Create group for zoomable content
-    g = svg.append('g');
-
-    // Create arrow marker for links
-    svg.append('defs').append('marker')
-        .attr('id', 'arrowhead')
-        .attr('viewBox', '-0 -5 10 10')
-        .attr('refX', 25)
-        .attr('refY', 0)
-        .attr('orient', 'auto')
-        .attr('markerWidth', 8)
-        .attr('markerHeight', 8)
-        .append('svg:path')
-        .attr('d', 'M 0,-5 L 10,0 L 0,5')
-        .attr('fill', 'rgba(150, 150, 255, 0.6)');
+function getNodeId(node) {
+    return node.id || `${node.name}@${node.version}-${node.depth || 0}`;
 }
 
-function renderTree(rootData) {
-    const container = document.getElementById('tree-container');
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+function updateStats(tree) {
+    // Count total packages
+    let totalPackages = 0;
+    let directDeps = 0;
+    let transitiveDeps = 0;
 
-    // Flatten tree to nodes and links
-    nodes = [];
-    links = [];
-
-    function traverse(node, parent = null) {
-        const nodeObj = {
-            id: `${node.name}@${node.version}`,
-            name: node.name,
-            version: node.version,
-            type: node.type,
-            depth: node.depth,
-            purl: node.purl,
-            description: node.description,
-            children: node.children || [],
-            _children: null
-        };
-        nodes.push(nodeObj);
-
-        if (parent) {
-            links.push({
-                source: parent.id,
-                target: nodeObj.id
-            });
-        }
-
+    function countNodes(node) {
+        totalPackages++;
+        if (node.type === 'direct') directDeps++;
+        if (node.type === 'transitive') transitiveDeps++;
         if (node.children) {
-            node.children.forEach(child => traverse(child, nodeObj));
+            node.children.forEach(countNodes);
         }
     }
 
-    traverse(rootData);
+    if (tree.children) {
+        tree.children.forEach(countNodes);
+    }
 
-    // Create force simulation
-    simulation = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links)
-            .id(d => d.id)
-            .distance(d => {
-                // Vary distance based on depth
-                return 80 + (d.target.depth * 20);
-            })
-        )
-        .force('charge', d3.forceManyBody()
-            .strength(-400)
-            .distanceMax(300)
-        )
-        .force('center', d3.forceCenter(width / 2, height / 2))
-        .force('collision', d3.forceCollide().radius(35));
+    document.getElementById('stat-total').textContent = totalPackages;
+    document.getElementById('stat-direct').textContent = directDeps;
+    document.getElementById('stat-transitive').textContent = transitiveDeps;
+}
 
-    // Draw links
-    const link = g.append('g')
-        .selectAll('line')
-        .data(links)
-        .join('line')
-        .attr('class', 'link')
-        .attr('marker-end', 'url(#arrowhead)');
+function handleSearch(e) {
+    searchQuery = e.target.value.toLowerCase().trim();
+    renderTree();
+}
 
-    // Draw nodes
-    const node = g.append('g')
-        .selectAll('g')
-        .data(nodes)
-        .join('g')
-        .attr('class', 'node')
-        .call(drag(simulation));
+function matchesSearch(node) {
+    if (!searchQuery) return true;
 
-    // Add circles
-    node.append('circle')
-        .attr('r', d => d.type === 'root' ? 20 : 15)
-        .attr('fill', d => {
-            if (d.type === 'root') return '#8b9bff';
-            if (d.type === 'direct') return '#6dd5ed';
-            return '#f093fb';
-        })
-        .attr('stroke', 'rgba(255, 255, 255, 0.8)');
+    const matchesName = node.name.toLowerCase().includes(searchQuery);
+    const matchesVersion = node.version && node.version.toLowerCase().includes(searchQuery);
+    const matchesDescription = node.description && node.description.toLowerCase().includes(searchQuery);
 
-    // Add labels
-    node.append('text')
-        .text(d => d.name.length > 20 ? d.name.substring(0, 18) + '...' : d.name)
-        .attr('x', 0)
-        .attr('y', d => d.type === 'root' ? -25 : -20)
-        .attr('text-anchor', 'middle')
-        .attr('fill', 'white')
-        .style('font-size', d => d.type === 'root' ? '14px' : '12px')
-        .style('font-weight', d => d.type === 'root' ? '700' : '500');
+    return matchesName || matchesVersion || matchesDescription;
+}
 
-    // Add version labels
-    node.append('text')
-        .text(d => d.version)
-        .attr('x', 0)
-        .attr('y', d => d.type === 'root' ? 35 : 30)
-        .attr('text-anchor', 'middle')
-        .attr('fill', 'rgba(255, 255, 255, 0.7)')
-        .style('font-size', '10px');
+function hasMatchingChild(node) {
+    if (!node.children || node.children.length === 0) return false;
 
-    // Add tooltips and click handlers
-    node.on('mouseover', showTooltip)
-        .on('mouseout', hideTooltip)
-        .on('click', showNodeInfo);
+    for (const child of node.children) {
+        if (matchesSearch(child) || hasMatchingChild(child)) {
+            return true;
+        }
+    }
+    return false;
+}
 
-    // Update positions on simulation tick
-    simulation.on('tick', () => {
-        link
-            .attr('x1', d => d.source.x)
-            .attr('y1', d => d.source.y)
-            .attr('x2', d => d.target.x)
-            .attr('y2', d => d.target.y);
+function renderTree() {
+    const container = document.getElementById('tree-content');
 
-        node.attr('transform', d => `translate(${d.x},${d.y})`);
-    });
+    if (!treeData) {
+        container.innerHTML = '<div class="tree-empty">No data to display</div>';
+        return;
+    }
 
-    // Initial zoom to fit
-    setTimeout(() => {
-        const bounds = g.node().getBBox();
-        const fullWidth = width;
-        const fullHeight = height;
-        const midX = bounds.x + bounds.width / 2;
-        const midY = bounds.y + bounds.height / 2;
-        const scale = 0.8 / Math.max(bounds.width / fullWidth, bounds.height / fullHeight);
-        const translate = [fullWidth / 2 - scale * midX, fullHeight / 2 - scale * midY];
+    // If searching, expand all matching paths
+    if (searchQuery) {
+        expandMatchingPaths(treeData);
+    }
 
-        svg.transition().duration(750).call(
-            zoom.transform,
-            d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+    const html = renderNode(treeData, 0);
+    container.innerHTML = html;
+}
+
+function expandMatchingPaths(node) {
+    if (matchesSearch(node)) {
+        expandedNodes.add(getNodeId(node));
+    }
+
+    if (node.children && node.children.length > 0) {
+        const hasMatch = node.children.some(child =>
+            matchesSearch(child) || hasMatchingChild(child)
         );
-    }, 500);
+
+        if (hasMatch) {
+            expandedNodes.add(getNodeId(node));
+            node.children.forEach(expandMatchingPaths);
+        }
+    }
 }
 
-function drag(simulation) {
-    function dragstarted(event) {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
-        event.subject.fx = event.subject.x;
-        event.subject.fy = event.subject.y;
+function renderNode(node, level) {
+    const nodeId = getNodeId(node);
+    const isExpanded = expandedNodes.has(nodeId);
+    const hasChildren = node.children && node.children.length > 0;
+
+    // Check if node or its children match search
+    const nodeMatches = matchesSearch(node);
+    const childMatches = hasMatchingChild(node);
+
+    // Hide if doesn't match search
+    if (searchQuery && !nodeMatches && !childMatches) {
+        return '';
     }
 
-    function dragged(event) {
-        event.subject.fx = event.x;
-        event.subject.fy = event.y;
+    // Highlight if matches search
+    const highlightClass = searchQuery && nodeMatches ? 'highlight' : '';
+
+    let html = `
+        <div class="tree-node ${highlightClass}" style="padding-left: ${level * 24}px;">
+            <div class="node-content" onclick="toggleNode('${escapeHtml(nodeId)}')">
+                ${hasChildren ? `
+                    <span class="node-toggle">
+                        ${isExpanded ? '▼' : '▶'}
+                    </span>
+                ` : '<span class="node-toggle node-empty">•</span>'}
+
+                <span class="node-icon ${node.type}">
+                    ${node.type === 'root' ? '📦' : node.type === 'direct' ? '📘' : '📙'}
+                </span>
+
+                <span class="node-name">${escapeHtml(node.name)}</span>
+
+                ${node.version ? `
+                    <span class="node-version">@${escapeHtml(node.version)}</span>
+                ` : ''}
+
+                ${hasChildren ? `
+                    <span class="node-count">(${node.children.length})</span>
+                ` : ''}
+            </div>
+
+            ${node.description ? `
+                <div class="node-description">${escapeHtml(node.description.substring(0, 100))}${node.description.length > 100 ? '...' : ''}</div>
+            ` : ''}
+
+            ${node.licenses && node.licenses.length > 0 ? `
+                <div class="node-license">
+                    License: ${node.licenses.map(l => l.license?.name || l.license?.id || 'Unknown').join(', ')}
+                </div>
+            ` : ''}
+        </div>
+    `;
+
+    // Render children if expanded
+    if (hasChildren && isExpanded) {
+        html += '<div class="node-children">';
+        node.children.forEach(child => {
+            html += renderNode(child, level + 1);
+        });
+        html += '</div>';
     }
 
-    function dragended(event) {
-        if (!event.active) simulation.alphaTarget(0);
-        event.subject.fx = null;
-        event.subject.fy = null;
+    return html;
+}
+
+function toggleNode(nodeId) {
+    if (expandedNodes.has(nodeId)) {
+        expandedNodes.delete(nodeId);
+    } else {
+        expandedNodes.add(nodeId);
     }
-
-    return d3.drag()
-        .on('start', dragstarted)
-        .on('drag', dragged)
-        .on('end', dragended);
-}
-
-function showTooltip(event, d) {
-    const tooltip = d3.select('body').append('div')
-        .attr('class', 'tooltip')
-        .style('opacity', 0);
-
-    let html = `<strong>${d.name}</strong>`;
-    if (d.version) html += `<br>Version: ${d.version}`;
-    if (d.description) html += `<br>${d.description.substring(0, 100)}${d.description.length > 100 ? '...' : ''}`;
-    if (d.purl) html += `<br><small style="opacity: 0.7">${d.purl.substring(0, 60)}${d.purl.length > 60 ? '...' : ''}</small>`;
-
-    tooltip.html(html)
-        .style('left', (event.pageX + 15) + 'px')
-        .style('top', (event.pageY - 28) + 'px')
-        .transition()
-        .duration(200)
-        .style('opacity', 1);
-}
-
-function hideTooltip() {
-    d3.select('.tooltip').remove();
-}
-
-function showNodeInfo(event, d) {
-    const infoDiv = document.getElementById('selected-node-info');
-    let html = `<strong style="color: #8b9bff;">${d.name}</strong>`;
-    if (d.version) html += `<br><span style="opacity: 0.8;">Version: ${d.version}</span>`;
-    html += `<br><span style="opacity: 0.8;">Type: ${d.type}</span>`;
-    html += `<br><span style="opacity: 0.8;">Depth: ${d.depth}</span>`;
-
-    const childCount = d.children ? d.children.length : 0;
-    if (childCount > 0) {
-        html += `<br><span style="opacity: 0.8;">Dependencies: ${childCount}</span>`;
-    }
-
-    infoDiv.innerHTML = html;
-}
-
-function resetZoom() {
-    svg.transition().duration(750).call(
-        zoom.transform,
-        d3.zoomIdentity
-    );
+    renderTree();
 }
 
 function expandAll() {
-    // This would require tree layout - for force layout, we can restart simulation
-    if (simulation) {
-        simulation.alpha(1).restart();
+    function addAllNodes(node) {
+        expandedNodes.add(getNodeId(node));
+        if (node.children) {
+            node.children.forEach(addAllNodes);
+        }
     }
+    addAllNodes(treeData);
+    renderTree();
 }
 
 function collapseAll() {
-    // For force layout, we can cool down the simulation
-    if (simulation) {
-        simulation.alpha(0);
+    expandedNodes.clear();
+    // Keep root expanded
+    expandedNodes.add(getNodeId(treeData));
+    renderTree();
+}
+
+function exportTree() {
+    // Export tree as text
+    let text = '';
+
+    function exportNode(node, prefix = '', isLast = true) {
+        const connector = isLast ? '└── ' : '├── ';
+        const childPrefix = isLast ? '    ' : '│   ';
+
+        text += prefix + connector + node.name;
+        if (node.version) text += `@${node.version}`;
+        text += '\n';
+
+        if (node.children && node.children.length > 0) {
+            node.children.forEach((child, i) => {
+                exportNode(child, prefix + childPrefix, i === node.children.length - 1);
+            });
+        }
     }
+
+    exportNode(treeData);
+
+    // Download as text file
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${productName}-${version}-dependency-tree.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
 function showError(message) {
     const loading = document.getElementById('loading');
     loading.innerHTML = `<div class="error-message">${message}</div>`;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }

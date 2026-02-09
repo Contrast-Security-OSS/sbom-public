@@ -8,155 +8,204 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         .tree-container {
-            width: 100%;
-            height: calc(100vh - 200px);
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            background: white;
             border-radius: 12px;
-            position: relative;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .tree-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 24px;
+            color: white;
         }
 
         .tree-controls {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             display: flex;
-            gap: 10px;
-            z-index: 10;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 16px;
+        }
+
+        .search-wrapper {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .tree-btn {
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 10px 16px;
-            border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
+            font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
         }
 
         .tree-btn:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
-        .tree-info {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 14px;
-            max-width: 300px;
+        .tree-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
-        .tree-legend {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-label {
             font-size: 13px;
+            opacity: 0.9;
+            margin-top: 4px;
         }
 
-        .legend-item {
+        .tree-content {
+            padding: 20px;
+            max-height: calc(100vh - 400px);
+            overflow-y: auto;
+            font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+        }
+
+        .tree-node {
+            margin: 2px 0;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .tree-node:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .tree-node.highlight {
+            background: rgba(255, 235, 59, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { background: rgba(255, 235, 59, 0.2); }
+            50% { background: rgba(255, 235, 59, 0.4); }
+        }
+
+        .node-content {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 8px 0;
-        }
-
-        .legend-circle {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .node {
+            padding: 8px 12px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            user-select: none;
         }
 
-        .node circle {
-            stroke-width: 2.5px;
-            transition: all 0.3s ease;
-        }
-
-        .node:hover circle {
-            stroke-width: 4px;
-            filter: brightness(1.3);
-        }
-
-        .node text {
-            font-family: 'Inter', sans-serif;
+        .node-toggle {
+            width: 16px;
+            margin-right: 8px;
+            color: #667eea;
+            font-weight: bold;
             font-size: 12px;
-            font-weight: 500;
-            pointer-events: none;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
-        .link {
-            fill: none;
-            stroke: rgba(150, 150, 255, 0.4);
-            stroke-width: 2px;
-            transition: all 0.3s ease;
+        .node-toggle.node-empty {
+            color: #ccc;
         }
 
-        .link:hover {
-            stroke: rgba(150, 150, 255, 0.8);
-            stroke-width: 3px;
+        .node-icon {
+            margin-right: 8px;
+            font-size: 16px;
         }
 
-        .tooltip {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 12px 16px;
-            border-radius: 8px;
+        .node-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .node-version {
+            color: #667eea;
             font-size: 13px;
-            pointer-events: none;
-            z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            max-width: 300px;
-        }
-
-        .tooltip strong {
-            color: #8b9bff;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #8b9bff;
-            text-decoration: none;
+            margin-left: 6px;
             font-weight: 500;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
         }
 
-        .back-link:hover {
-            color: #a8b5ff;
-            transform: translateX(-4px);
+        .node-count {
+            color: #a0aec0;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .node-description {
+            padding: 4px 12px 4px 60px;
+            color: #718096;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .node-license {
+            padding: 2px 12px 4px 60px;
+            color: #4299e1;
+            font-size: 11px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .node-children {
+            border-left: 1px solid rgba(102, 126, 234, 0.1);
+            margin-left: 8px;
+        }
+
+        .tree-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #a0aec0;
+            font-size: 16px;
         }
 
         .loading-overlay {
@@ -165,7 +214,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(10, 14, 39, 0.95);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -177,8 +226,8 @@
         .loading-spinner {
             width: 50px;
             height: 50px;
-            border: 4px solid rgba(139, 155, 255, 0.2);
-            border-top-color: #8b9bff;
+            border: 4px solid rgba(102, 126, 234, 0.2);
+            border-top-color: #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -188,7 +237,7 @@
         }
 
         .error-message {
-            color: #ff6b6b;
+            color: #e53e3e;
             text-align: center;
             padding: 40px;
             font-size: 16px;
@@ -208,7 +257,7 @@
             </a>
             <h1 class="hero-title" id="page-title">Dependency Tree</h1>
             <p class="hero-subtitle" id="page-subtitle">
-                Interactive visualization of package dependencies
+                Interactive hierarchical view of package dependencies
             </p>
         </div>
     </header>
@@ -218,36 +267,50 @@
             <div class="tree-container" id="tree-container">
                 <div class="loading-overlay" id="loading">
                     <div class="loading-spinner"></div>
-                    <div style="color: white; font-size: 16px;">Loading dependency tree...</div>
+                    <div style="color: #667eea; font-size: 16px;">Loading dependency tree...</div>
                 </div>
 
-                <div class="tree-legend">
-                    <div style="font-weight: 600; margin-bottom: 12px;">Legend</div>
-                    <div class="legend-item">
-                        <div class="legend-circle" style="background: #8b9bff;"></div>
-                        <span>Root Package</span>
+                <div class="tree-header">
+                    <div style="font-size: 20px; font-weight: 700; margin-bottom: 4px;">Dependency Tree</div>
+                    <div style="opacity: 0.9; font-size: 14px;">Click nodes to expand/collapse • Search to filter</div>
+
+                    <div class="tree-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-total">0</div>
+                            <div class="stat-label">Total Packages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-direct">0</div>
+                            <div class="stat-label">Direct Dependencies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-transitive">0</div>
+                            <div class="stat-label">Transitive</div>
+                        </div>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-circle" style="background: #6dd5ed;"></div>
-                        <span>Direct Dependency</span>
+
+                    <div class="tree-controls">
+                        <div class="search-wrapper">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                            <input
+                                type="text"
+                                id="search-input"
+                                placeholder="Search packages..."
+                                class="search-input"
+                            />
+                        </div>
+                        <button class="tree-btn" id="expand-all-btn">Expand All</button>
+                        <button class="tree-btn" id="collapse-all-btn">Collapse All</button>
+                        <button class="tree-btn" id="export-btn">Export as Text</button>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-circle" style="background: #f093fb;"></div>
-                        <span>Transitive Dependency</span>
-                    </div>
                 </div>
 
-                <div class="tree-controls">
-                    <button class="tree-btn" onclick="resetZoom()">Reset View</button>
-                    <button class="tree-btn" onclick="expandAll()">Expand All</button>
-                    <button class="tree-btn" onclick="collapseAll()">Collapse All</button>
+                <div class="tree-content" id="tree-content">
+                    <!-- Tree will be rendered here -->
                 </div>
-
-                <div class="tree-info" id="tree-info">
-                    <div id="selected-node-info">Click on a node to see details</div>
-                </div>
-
-                <svg id="tree-svg"></svg>
             </div>
         </div>
     </main>
@@ -257,7 +320,11 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>About</h3>
-                    <p>Dependency visualization powered by D3.js</p>
+                    <p>Dependency tree extracted from CycloneDX SBOM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Legend</h3>
+                    <p>📦 Root Package • 📘 Direct Dependency • 📙 Transitive Dependency</p>
                 </div>
                 <div class="footer-section">
                     <h3>Links</h3>
