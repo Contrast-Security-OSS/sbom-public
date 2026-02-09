@@ -22,7 +22,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
-**11 of 11 products** • **114 versions** • **228 SBOM files** (SPDX + CycloneDX)
+**8 of 8 products** • **84 versions** • **168 SBOM files** (SPDX + CycloneDX)
 
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
@@ -30,9 +30,6 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 | **Java Agent** | 10 | Maven Central | ✅ Active |
 | **Flex Agent** | 11 | Manual | ✅ Active |
 | **Go Agent (Linux AMD64)** | 10 | Artifactory (public) | ✅ Active |
-| **Contrast CLI Linux** | 10 | Artifactory (public) | ✅ Active |
-| **Contrast CLI Mac** | 10 | Artifactory (public) | ✅ Active |
-| **Contrast CLI Windows** | 10 | Artifactory (public) | ✅ Active |
 | **Node Agent** | 10 | npm | ✅ Active |
 | **Python Agent** | 10 | PyPI | ✅ Active |
 | **DotNet Core Agent** | 10 | NuGet | ✅ Active |

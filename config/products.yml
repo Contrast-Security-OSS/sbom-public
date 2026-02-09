@@ -58,24 +58,3 @@ products:
     source: "pypi"
     pypi_package: "contrast-agent"
     max_versions: 10
-
-  - name: "Contrast CLI Linux"
-    source: "artifactory"
-    artifactory_path: "cli"
-    platform_subdir: "linux"
-    artifact_pattern: "contrast*"
-    max_versions: 10
-
-  - name: "Contrast CLI Windows"
-    source: "artifactory"
-    artifactory_path: "cli"
-    platform_subdir: "windows"
-    artifact_pattern: "contrast*"
-    max_versions: 10
-
-  - name: "Contrast CLI Mac"
-    source: "artifactory"
-    artifactory_path: "cli"
-    platform_subdir: "mac"
-    artifact_pattern: "contrast*"
-    max_versions: 10
