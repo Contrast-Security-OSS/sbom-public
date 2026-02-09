@@ -20,7 +20,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 
 ## Current SBOM Coverage
 
-**10 of 11 products** • **104 versions** • **208 SBOM files** (SPDX + CycloneDX)
+**11 of 11 products** • **114 versions** • **228 SBOM files** (SPDX + CycloneDX)
 
 | Product | Versions | Source | Status |
 |---------|----------|--------|--------|
@@ -34,7 +34,7 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 | **Node Agent** | 10 | npm | ✅ Active |
 | **Python Agent** | 10 | PyPI | ✅ Active |
 | **.NET Agent** | 10 | NuGet | ✅ Active |
-| .NET Agent IIS Installer | - | Artifactory (private) | ⚠️ Requires credentials |
+| **.NET Agent IIS Installer** | 10 | NuGet | ✅ Active |
 
 ## Architecture
 
