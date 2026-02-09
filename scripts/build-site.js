@@ -27,6 +27,7 @@ const filesToCopy = [
     'styles.css',
     'app.js',
     'logo.svg',
+    'contrast-icon.svg',
     'dependency-tree.html',
     'dependency-tree.js'
 ];

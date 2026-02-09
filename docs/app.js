@@ -17,7 +17,9 @@ const languageLogos = {
     'DotNet Core Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg',
     'Contrast CLI Mac': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg',
     'Contrast CLI Windows': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg',
-    'Contrast CLI Linux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg'
+    'Contrast CLI Linux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+    'EOP': 'contrast-icon.svg',
+    'Flex Agent': 'contrast-icon.svg'
 };
 
 // Initialize on page load
