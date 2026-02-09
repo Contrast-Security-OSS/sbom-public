@@ -9,12 +9,91 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SBOM_DIR="$REPO_ROOT/docs/sboms"
 INDEX_FILE="$SBOM_DIR/index.json"
+CONFIG_FILE="$REPO_ROOT/config/products.yml"
 
 # Colors
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
+
+# Fetch download count from npm
+fetch_npm_downloads() {
+    local package="$1"
+    local count=$(curl -s "https://api.npmjs.org/downloads/point/last-year/$package" | jq -r '.downloads // 0')
+    echo "$count"
+}
+
+# Fetch download count from PyPI
+fetch_pypi_downloads() {
+    local package="$1"
+    # PyPI doesn't have a public API for download counts anymore
+    # Use pypistats.org API which aggregates BigQuery data
+    local count=$(curl -s "https://pypistats.org/api/packages/$package/recent?period=year" | jq -r '.data.last_year // 0')
+    echo "$count"
+}
+
+# Fetch download count from Maven Central
+fetch_maven_downloads() {
+    local group_id="$1"
+    local artifact_id="$2"
+    # Maven Central stats from mvnrepository.com scraping or use a proxy
+    # Note: Maven Central doesn't have official download count API
+    # We'll return 0 for now or implement scraping if needed
+    echo "0"
+}
+
+# Fetch download count from NuGet
+fetch_nuget_downloads() {
+    local package="$1"
+    local count=$(curl -s "https://azuresearch-usnc.nuget.org/query?q=packageid:$package&prerelease=false" | jq -r '.data[0].totalDownloads // 0')
+    echo "$count"
+}
+
+# Get download count based on product source
+get_download_count() {
+    local product_name="$1"
+    local source="$2"
+
+    case "$source" in
+        npm)
+            local npm_package=$(yq eval ".products[] | select(.name == \"$product_name\") | .npm_package" "$CONFIG_FILE" 2>/dev/null)
+            if [[ -n "$npm_package" && "$npm_package" != "null" ]]; then
+                fetch_npm_downloads "$npm_package"
+            else
+                echo "0"
+            fi
+            ;;
+        pypi)
+            local pypi_package=$(yq eval ".products[] | select(.name == \"$product_name\") | .pypi_package" "$CONFIG_FILE" 2>/dev/null)
+            if [[ -n "$pypi_package" && "$pypi_package" != "null" ]]; then
+                fetch_pypi_downloads "$pypi_package"
+            else
+                echo "0"
+            fi
+            ;;
+        maven)
+            local group_id=$(yq eval ".products[] | select(.name == \"$product_name\") | .maven_group_id" "$CONFIG_FILE" 2>/dev/null)
+            local artifact_id=$(yq eval ".products[] | select(.name == \"$product_name\") | .maven_artifact_id" "$CONFIG_FILE" 2>/dev/null)
+            if [[ -n "$group_id" && "$group_id" != "null" && -n "$artifact_id" && "$artifact_id" != "null" ]]; then
+                fetch_maven_downloads "$group_id" "$artifact_id"
+            else
+                echo "0"
+            fi
+            ;;
+        nuget)
+            local nuget_package=$(yq eval ".products[] | select(.name == \"$product_name\") | .nuget_package" "$CONFIG_FILE" 2>/dev/null)
+            if [[ -n "$nuget_package" && "$nuget_package" != "null" ]]; then
+                fetch_nuget_downloads "$nuget_package"
+            else
+                echo "0"
+            fi
+            ;;
+        *)
+            echo "0"
+            ;;
+    esac
+}
 
 echo "Building SBOM index..."
 
@@ -58,6 +137,16 @@ for product_dir in "$SBOM_DIR"/*/; do
 
     echo "  Processing: $product_name ($product_slug)"
 
+    # Fetch download count (directly, no timeout for now)
+    echo "    Fetching download count..."
+    download_count=$(get_download_count "$product_name" "$product_source" 2>/dev/null || echo "0")
+    if [[ "$download_count" =~ ^[0-9]+$ ]]; then
+        echo "    Downloads: $download_count"
+    else
+        download_count="0"
+        echo "    Downloads: unavailable (using 0)"
+    fi
+
     # Add comma if not first product
     if [[ "$FIRST_PRODUCT" == "false" ]]; then
         echo "," >> "$TEMP_INDEX"
@@ -70,6 +159,7 @@ for product_dir in "$SBOM_DIR"/*/; do
       "name": "$product_name",
       "slug": "$product_slug",
       "source": "$product_source",
+      "downloadCount": $download_count,
       "versions": [
 EOF
 

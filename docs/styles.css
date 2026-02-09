@@ -570,7 +570,7 @@ body {
     color: var(--primary);
 }
 
-.viewer-badge {
+.download-badge {
     background: rgba(255, 218, 54, 0.1);
     border: 1px solid rgba(255, 218, 54, 0.2);
     color: var(--accent-yellow);
@@ -578,13 +578,13 @@ body {
     gap: 0.375rem;
 }
 
-.viewer-icon {
+.download-icon {
     width: 16px;
     height: 16px;
-    animation: pulse-icon 3s ease-in-out infinite;
+    animation: bounce-icon 2s ease-in-out infinite;
 }
 
-.viewer-count {
+.download-count {
     font-weight: 600;
     font-variant-numeric: tabular-nums;
 }
@@ -600,14 +600,12 @@ body {
     }
 }
 
-@keyframes pulse-icon {
+@keyframes bounce-icon {
     0%, 100% {
-        opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
     50% {
-        opacity: 0.7;
-        transform: scale(0.95);
+        transform: translateY(-3px);
     }
 }
 

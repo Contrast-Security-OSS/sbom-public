@@ -19,24 +19,18 @@ const languageLogos = {
     'Flex Agent': 'contrast-icon.svg'
 };
 
-// Generate consistent viewer count for product (fun feature!)
-function getViewerCount(productSlug) {
-    // Simple hash function for consistency
-    let hash = 0;
-    for (let i = 0; i < productSlug.length; i++) {
-        hash = ((hash << 5) - hash) + productSlug.charCodeAt(i);
-        hash = hash & hash; // Convert to 32bit integer
+// Format download count with K/M suffix for readability
+function formatDownloadCount(count) {
+    if (count === 0 || count === undefined || count === null) {
+        return null; // Don't show if no data
     }
 
-    // Base view count between 1000-5000
-    const baseViews = 1000 + (Math.abs(hash) % 4000);
-
-    // Add small random variance (±50) to make it feel "live"
-    const variance = Math.floor(Math.random() * 100) - 50;
-    const views = baseViews + variance;
-
-    // Format with commas
-    return views.toLocaleString();
+    if (count >= 1000000) {
+        return (count / 1000000).toFixed(1) + 'M';
+    } else if (count >= 1000) {
+        return (count / 1000).toFixed(1) + 'K';
+    }
+    return count.toLocaleString();
 }
 
 // Initialize on page load
@@ -361,7 +355,7 @@ function renderProductCard(product) {
     const isExpanded = expandedProducts.has(product.name);
     const latestVersion = product.versions[0];
     const logo = languageLogos[product.name];
-    const viewerCount = getViewerCount(product.slug);
+    const downloadCount = formatDownloadCount(product.downloadCount);
 
     return `
         <div class="product-card">
@@ -371,13 +365,16 @@ function renderProductCard(product) {
                     ${escapeHtml(product.name)}
                 </h2>
                 <div class="product-meta">
-                    <span class="meta-badge viewer-badge">
-                        <svg class="viewer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        <span class="viewer-count">${viewerCount}</span>
-                    </span>
+                    ${downloadCount ? `
+                        <span class="meta-badge download-badge">
+                            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span class="download-count">${downloadCount}</span>
+                        </span>
+                    ` : ''}
                     <span class="meta-badge">
                         📦 ${product.versions.length} version${product.versions.length !== 1 ? 's' : ''}
                     </span>

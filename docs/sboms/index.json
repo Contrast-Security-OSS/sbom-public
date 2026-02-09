@@ -1,10 +1,11 @@
 {
-  "generated": "2026-02-09T02:02:24Z",
+  "generated": "2026-02-09T02:24:18Z",
   "products": [
     {
       "name": "DotNet Core Agent",
       "slug": "dotnet-core-agent",
       "source": "nuget",
+      "downloadCount": 2120883,
       "versions": [
         {
           "version": "5.0.1",
@@ -72,6 +73,7 @@
       "name": "DotNet Core IIS Installer",
       "slug": "dotnet-core-iis-installer",
       "source": "nuget",
+      "downloadCount": 219848,
       "versions": [
         {
           "version": "51.5.1",
@@ -139,6 +141,7 @@
       "name": "EOP",
       "slug": "eop",
       "source": "s3",
+      "downloadCount": 0,
       "versions": [
         {
           "version": "3.12.10",
@@ -224,6 +227,7 @@
       "name": "Flex Agent",
       "slug": "flex-agent",
       "source": "artifactory",
+      "downloadCount": 0,
       "versions": [
         {
           "version": "1.11.0",
@@ -297,6 +301,7 @@
       "name": "Go Agent (Linux AMD64)",
       "slug": "go-agent-linux-amd64",
       "source": "artifactory",
+      "downloadCount": 0,
       "versions": [
         {
           "version": "9.1.0",
@@ -364,6 +369,7 @@
       "name": "Java Agent",
       "slug": "java-agent",
       "source": "maven",
+      "downloadCount": 0,
       "versions": [
         {
           "version": "6.25.1",
@@ -431,6 +437,7 @@
       "name": "Node Agent",
       "slug": "node-agent",
       "source": "npm",
+      "downloadCount": 420340,
       "versions": [
         {
           "version": "5.51.0",
@@ -498,6 +505,7 @@
       "name": "Python Agent",
       "slug": "python-agent",
       "source": "pypi",
+      "downloadCount": 0,
       "versions": [
         {
           "version": "10.24.0",
