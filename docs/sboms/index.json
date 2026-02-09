@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-08T23:53:53Z",
+  "generated": "2026-02-09T00:04:18Z",
   "products": [
     {
       "name": "Contrast CLI Linux",
@@ -8,61 +8,61 @@
       "versions": [
         {
           "version": "1.0.24",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.23",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.22",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.21",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:17Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.20",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:18Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.19",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:20Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.18",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:22Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.17",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:24Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.16",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:26Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.15",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:28Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -75,61 +75,61 @@
       "versions": [
         {
           "version": "1.0.24",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:01Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.23",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:03Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.22",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:05Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.21",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:07Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.20",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:08Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.19",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:10Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.18",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:12Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.17",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:14Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.16",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:16Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.15",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:04:17Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -142,61 +142,61 @@
       "versions": [
         {
           "version": "1.0.24",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:36Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.23",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:38Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.22",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:40Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.21",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:42Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.20",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:44Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.19",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:45Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.18",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:47Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.17",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:49Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.16",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:51Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.0.15",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:53Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -217,61 +217,61 @@
       "versions": [
         {
           "version": "5.0.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.0.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.8.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.7.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.6.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.2",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.4.5",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.4.4",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -284,79 +284,79 @@
       "versions": [
         {
           "version": "3.12.10",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.9",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.8",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.7",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.6",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.5",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.4-PATCH",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.4",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.3",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.2",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.1",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.0",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.11.11",
-          "generatedAt": "2026-02-08T17:06:50Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -369,67 +369,67 @@
       "versions": [
         {
           "version": "1.11.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.10.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.9.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.8.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.7.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.6.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.5.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.4.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.3.0",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.2.2",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "latest",
-          "generatedAt": "2026-02-08T18:36:18Z",
+          "generatedAt": "2026-02-08T23:56:15Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -442,61 +442,61 @@
       "versions": [
         {
           "version": "9.1.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:04Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "9.0.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:06Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.7.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:08Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.6.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:09Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.5.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.4.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.3.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:15Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.2.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:17Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.1.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:18Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.0.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:20Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -509,61 +509,61 @@
       "versions": [
         {
           "version": "6.25.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:36Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.25.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:39Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.24.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:41Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.23.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:44Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.22.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:47Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.22.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:49Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.21.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:52Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.20.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:55Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.19.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:56:57Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.18.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T23:57:00Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -576,61 +576,61 @@
       "versions": [
         {
           "version": "5.51.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:25Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.50.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:27Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.50.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:28Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.49.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:30Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.48.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:32Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.47.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:34Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.46.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:36Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.45.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:37Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.45.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:39Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.44.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:41Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -643,61 +643,61 @@
       "versions": [
         {
           "version": "10.24.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:44Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.23.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.23.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:48Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.22.2",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:50Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.22.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:52Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.21.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:54Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.20.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:56Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.19.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:02:58Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.18.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:00Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.17.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-09T00:03:02Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
