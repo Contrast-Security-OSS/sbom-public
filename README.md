@@ -198,6 +198,14 @@ Features:
 3. Click **Run workflow**
 4. Select branch and run
 
+**Performance Optimization**: The workflow is optimized to only process NEW releases. On the first run, it generates SBOMs for all configured versions. On subsequent runs, it:
+- Checks each product's latest releases (up to max_versions)
+- Skips versions that already have SBOMs
+- Only downloads and generates SBOMs for new releases
+- Completes in <1 minute when no new releases are available
+
+This means the workflow can run frequently (daily, weekly) without consuming excessive resources.
+
 ### Local Development
 
 Test the website locally:
