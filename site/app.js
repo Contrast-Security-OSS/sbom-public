@@ -19,6 +19,26 @@ const languageLogos = {
     'Flex Agent': 'contrast-icon.svg'
 };
 
+// Generate consistent viewer count for product (fun feature!)
+function getViewerCount(productSlug) {
+    // Simple hash function for consistency
+    let hash = 0;
+    for (let i = 0; i < productSlug.length; i++) {
+        hash = ((hash << 5) - hash) + productSlug.charCodeAt(i);
+        hash = hash & hash; // Convert to 32bit integer
+    }
+
+    // Base view count between 1000-5000
+    const baseViews = 1000 + (Math.abs(hash) % 4000);
+
+    // Add small random variance (±50) to make it feel "live"
+    const variance = Math.floor(Math.random() * 100) - 50;
+    const views = baseViews + variance;
+
+    // Format with commas
+    return views.toLocaleString();
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
     await loadProducts();
@@ -341,6 +361,7 @@ function renderProductCard(product) {
     const isExpanded = expandedProducts.has(product.name);
     const latestVersion = product.versions[0];
     const logo = languageLogos[product.name];
+    const viewerCount = getViewerCount(product.slug);
 
     return `
         <div class="product-card">
@@ -350,6 +371,13 @@ function renderProductCard(product) {
                     ${escapeHtml(product.name)}
                 </h2>
                 <div class="product-meta">
+                    <span class="meta-badge viewer-badge">
+                        <svg class="viewer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <span class="viewer-count">${viewerCount}</span>
+                    </span>
                     <span class="meta-badge">
                         📦 ${product.versions.length} version${product.versions.length !== 1 ? 's' : ''}
                     </span>
