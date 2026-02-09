@@ -5,6 +5,7 @@ let treeData = null;
 let expandedNodes = new Set();
 let filteredTree = null;
 let searchQuery = '';
+let userExpandedAll = false;
 
 // Get SBOM URL from query parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -202,6 +203,7 @@ function updateStats(tree) {
 
 function handleSearch(e) {
     searchQuery = e.target.value.toLowerCase().trim();
+    userExpandedAll = false; // Reset flag when searching
     renderTree();
 }
 
@@ -234,8 +236,8 @@ function renderTree() {
         return;
     }
 
-    // If searching, expand all matching paths
-    if (searchQuery) {
+    // If searching and user hasn't manually expanded/collapsed all, expand matching paths
+    if (searchQuery && !userExpandedAll) {
         expandMatchingPaths(treeData);
     }
 
@@ -326,6 +328,7 @@ function renderNode(node, level) {
 }
 
 function toggleNode(nodeId) {
+    userExpandedAll = false; // Reset flag when manually toggling
     if (expandedNodes.has(nodeId)) {
         expandedNodes.delete(nodeId);
     } else {
@@ -335,6 +338,7 @@ function toggleNode(nodeId) {
 }
 
 function expandAll() {
+    userExpandedAll = true;
     function addAllNodes(node) {
         expandedNodes.add(getNodeId(node));
         if (node.children) {
@@ -346,6 +350,7 @@ function expandAll() {
 }
 
 function collapseAll() {
+    userExpandedAll = true;
     expandedNodes.clear();
     // Keep root expanded
     expandedNodes.add(getNodeId(treeData));
