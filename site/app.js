@@ -8,14 +8,17 @@ let dateFrom = null;
 let dateTo = null;
 let sortOrder = 'desc'; // 'asc' or 'desc'
 
-// Language logo mapping (using transparent PNGs from CDNs)
+// Language and platform logo mapping (using transparent SVGs from CDNs)
 const languageLogos = {
     'Java Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
     'Python Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     'Node Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     'Go Agent (Linux AMD64)': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
     'DotNet Core Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg',
-    'DotNet Core IIS Installer': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg'
+    'DotNet Core IIS Installer': 'https://upload.wikimedia.org/wikipedia/commons/7/79/Internet_Information_Services_%28IIS%29_logo.svg',
+    'Contrast CLI Mac': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg',
+    'Contrast CLI Windows': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg',
+    'Contrast CLI Linux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg'
 };
 
 // Initialize on page load
