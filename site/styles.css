@@ -859,6 +859,239 @@ body {
     gap: 1rem;
 }
 
+/* Wide modal for dependency tree */
+.modal-wide {
+    width: 95%;
+    max-width: 1400px;
+    height: 90vh;
+    max-height: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tree Modal Styles */
+.tree-header-inline {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.tree-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.813rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.25rem;
+}
+
+.tree-controls {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-wrapper {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tree-btn {
+    padding: 0.625rem 1.25rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.tree-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.tree-content-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.tree-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(56, 184, 133, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.tree-content {
+    padding: 1.25rem;
+    height: 100%;
+    overflow-y: auto;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.tree-node {
+    margin: 2px 0;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.tree-node:hover {
+    background: rgba(56, 184, 133, 0.1);
+}
+
+.tree-node.highlight {
+    background: rgba(255, 218, 54, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { background: rgba(255, 218, 54, 0.2); }
+    50% { background: rgba(255, 218, 54, 0.35); }
+}
+
+.node-content {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.node-toggle {
+    width: 16px;
+    margin-right: 0.5rem;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.node-toggle.node-empty {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.node-icon {
+    margin-right: 0.5rem;
+    font-size: 16px;
+}
+
+.node-name {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.875rem;
+}
+
+.node-version {
+    color: var(--primary);
+    font-size: 0.813rem;
+    margin-left: 0.375rem;
+    font-weight: 500;
+}
+
+.node-count {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+.node-description {
+    padding: 0.25rem 0.75rem 0.25rem 3.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+}
+
+.node-license {
+    padding: 0.125rem 0.75rem 0.25rem 3.75rem;
+    color: var(--accent-yellow);
+    font-size: 0.688rem;
+}
+
+.node-children {
+    border-left: 1px solid rgba(56, 184, 133, 0.2);
+    margin-left: 0.5rem;
+}
+
+.tree-empty {
+    text-align: center;
+    padding: 3.75rem 1.25rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+}
+
 /* Buttons */
 button {
     font-family: inherit;
