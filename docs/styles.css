@@ -268,7 +268,6 @@ body {
 }
 
 .sort-toggle,
-.date-filter-toggle,
 .view-toggle {
     padding: 1rem;
     background: var(--surface-glass);
@@ -280,19 +279,16 @@ body {
 }
 
 .sort-toggle:hover,
-.date-filter-toggle:hover,
 .view-toggle:hover {
     border-color: var(--primary);
 }
 
-.sort-toggle.active,
-.date-filter-toggle.active {
+.sort-toggle.active {
     background: rgba(56, 184, 133, 0.1);
     border-color: var(--primary);
 }
 
 .sort-icon,
-.calendar-icon,
 .view-icon {
     width: 20px;
     height: 20px;
@@ -302,180 +298,6 @@ body {
 
 .sort-toggle.descending .sort-icon {
     transform: rotate(180deg);
-}
-
-/* Date Filter Panel */
-.date-filter-panel {
-    background: var(--surface-glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.date-filter-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.date-filter-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.date-filter-header h3 {
-    font-size: 1.2rem;
-    color: var(--text);
-}
-
-.btn-text {
-    background: none;
-    border: none;
-    color: var(--primary);
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: var(--transition);
-}
-
-.btn-text:hover {
-    background: rgba(56, 184, 133, 0.1);
-}
-
-.date-inputs {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-}
-
-.date-input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-    min-width: 200px;
-}
-
-.date-input-group label {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.date-input {
-    padding: 0.75rem 1rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.date-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(56, 184, 133, 0.1);
-}
-
-.date-input::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-    cursor: pointer;
-}
-
-.date-separator {
-    color: var(--primary);
-    font-size: 1.5rem;
-    font-weight: 300;
-    padding-bottom: 0.75rem;
-}
-
-.date-quick-filters {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
-}
-
-.quick-filter-btn {
-    padding: 0.5rem 1rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.quick-filter-btn:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.active-filter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(56, 184, 133, 0.1);
-    border: 1px solid rgba(56, 184, 133, 0.3);
-    border-radius: 10px;
-}
-
-.filter-text {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.filter-text strong {
-    color: var(--primary);
-}
-
-.btn-icon-small {
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text-tertiary);
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-icon-small:hover {
-    background: rgba(221, 110, 30, 0.1);
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.btn-icon-small svg {
-    width: 16px;
-    height: 16px;
 }
 
 /* Product Grid */
@@ -1321,21 +1143,6 @@ button {
 
     .date-separator {
         display: none;
-    }
-
-    .date-quick-filters {
-        justify-content: center;
-    }
-
-    .quick-filter-btn {
-        flex: 1;
-        min-width: calc(50% - 0.5rem);
-    }
-
-    .active-filter {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
     }
 
     .footer-content {

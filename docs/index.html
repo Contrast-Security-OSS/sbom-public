@@ -81,14 +81,6 @@
                         <path d="M11 5h10M11 9h7M11 13h4M3 17l4 4 4-4M7 21V10"/>
                     </svg>
                 </button>
-                <button id="date-filter-toggle" class="date-filter-toggle" title="Filter by date">
-                    <svg class="calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                </button>
                 <button id="view-toggle" class="view-toggle" title="Toggle view">
                     <svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="3" y="3" width="7" height="7"/>
@@ -97,43 +89,6 @@
                         <rect x="3" y="14" width="7" height="7"/>
                     </svg>
                 </button>
-            </div>
-
-            <!-- Date Filter Panel -->
-            <div id="date-filter-panel" class="date-filter-panel" style="display: none;">
-                <div class="date-filter-content">
-                    <div class="date-filter-header">
-                        <h3>Filter by Release Date</h3>
-                        <button id="clear-dates" class="btn-text">Clear</button>
-                    </div>
-                    <div class="date-inputs">
-                        <div class="date-input-group">
-                            <label for="date-from">From:</label>
-                            <input type="date" id="date-from" class="date-input">
-                        </div>
-                        <div class="date-separator">→</div>
-                        <div class="date-input-group">
-                            <label for="date-to">To:</label>
-                            <input type="date" id="date-to" class="date-input">
-                        </div>
-                        <button id="apply-date-filter" class="btn-primary">Apply Filter</button>
-                    </div>
-                    <div class="date-quick-filters">
-                        <button class="quick-filter-btn" data-days="7">Last 7 Days</button>
-                        <button class="quick-filter-btn" data-days="30">Last 30 Days</button>
-                        <button class="quick-filter-btn" data-days="90">Last 90 Days</button>
-                        <button class="quick-filter-btn" data-days="365">Last Year</button>
-                    </div>
-                    <div id="active-date-filter" class="active-filter" style="display: none;">
-                        <span class="filter-text">Showing releases from <strong id="filter-from-text"></strong> to <strong id="filter-to-text"></strong></span>
-                        <button id="remove-date-filter" class="btn-icon-small">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="6" x2="6" y2="18"/>
-                                <line x1="6" y1="6" x2="18" y2="18"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
             </div>
 
             <!-- Product Grid -->

@@ -3,9 +3,6 @@
 let allProducts = [];
 let filteredProducts = [];
 let expandedProducts = new Set();
-let dateFilterActive = false;
-let dateFrom = null;
-let dateTo = null;
 let sortOrder = 'desc'; // 'asc' or 'desc'
 
 // Language and platform logo mapping (using transparent SVGs from CDNs)
@@ -115,28 +112,12 @@ function setupEventListeners() {
     const searchInput = document.getElementById('search-input');
     const sortSelect = document.getElementById('sort-select');
     const sortOrderToggle = document.getElementById('sort-order-toggle');
-    const dateFilterToggle = document.getElementById('date-filter-toggle');
     const viewToggle = document.getElementById('view-toggle');
-    const applyDateFilter = document.getElementById('apply-date-filter');
-    const clearDates = document.getElementById('clear-dates');
-    const removeDateFilter = document.getElementById('remove-date-filter');
 
     searchInput.addEventListener('input', debounce(handleSearch, 300));
     sortSelect.addEventListener('change', handleSort);
     sortOrderToggle.addEventListener('click', toggleSortOrder);
-    dateFilterToggle.addEventListener('click', toggleDateFilterPanel);
     viewToggle.addEventListener('click', toggleView);
-    applyDateFilter.addEventListener('click', applyDateFiltering);
-    clearDates.addEventListener('click', clearDateFilters);
-    removeDateFilter.addEventListener('click', clearDateFilters);
-
-    // Quick filter buttons
-    document.querySelectorAll('.quick-filter-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const days = parseInt(e.target.dataset.days);
-            applyQuickFilter(days);
-        });
-    });
 
     // Modal keyboard shortcuts
     document.addEventListener('keydown', (e) => {
@@ -150,11 +131,6 @@ function setupEventListeners() {
             }
             if (treeModal && treeModal.style.display === 'flex') {
                 closeTreeModal();
-            }
-
-            const panel = document.getElementById('date-filter-panel');
-            if (panel && panel.style.display === 'block') {
-                toggleDateFilterPanel();
             }
         }
     });
@@ -233,97 +209,17 @@ function toggleView() {
 }
 
 // Toggle date filter panel
-function toggleDateFilterPanel() {
-    const panel = document.getElementById('date-filter-panel');
-    const btn = document.getElementById('date-filter-toggle');
-
-    if (panel.style.display === 'none') {
-        panel.style.display = 'block';
-        btn.classList.add('active');
-    } else {
-        panel.style.display = 'none';
-        btn.classList.remove('active');
-    }
-}
-
-// Apply quick filter
-function applyQuickFilter(days) {
-    const today = new Date();
-    const fromDate = new Date();
-    fromDate.setDate(today.getDate() - days);
-
-    document.getElementById('date-from').value = fromDate.toISOString().split('T')[0];
-    document.getElementById('date-to').value = today.toISOString().split('T')[0];
-
-    applyDateFiltering();
-}
-
-// Apply date filtering
-function applyDateFiltering() {
-    const fromInput = document.getElementById('date-from').value;
-    const toInput = document.getElementById('date-to').value;
-
-    if (!fromInput && !toInput) {
-        showToast('Please select at least one date');
-        return;
-    }
-
-    dateFrom = fromInput ? new Date(fromInput) : null;
-    dateTo = toInput ? new Date(toInput) : null;
-    dateFilterActive = true;
-
-    // Update active filter display
-    const activeFilter = document.getElementById('active-date-filter');
-    const fromText = document.getElementById('filter-from-text');
-    const toText = document.getElementById('filter-to-text');
-
-    fromText.textContent = dateFrom ? formatDate(dateFrom.toISOString().split('T')[0]) : 'beginning';
-    toText.textContent = dateTo ? formatDate(dateTo.toISOString().split('T')[0]) : 'now';
-    activeFilter.style.display = 'flex';
-
-    // Apply filter
-    applyFilters();
-    showToast('Date filter applied');
-}
-
-// Clear date filters
-function clearDateFilters() {
-    dateFrom = null;
-    dateTo = null;
-    dateFilterActive = false;
-
-    document.getElementById('date-from').value = '';
-    document.getElementById('date-to').value = '';
-    document.getElementById('active-date-filter').style.display = 'none';
-
-    applyFilters();
-    showToast('Date filter cleared');
-}
-
-// Apply all filters (search + date)
+// Apply search filter
 function applyFilters() {
     const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
 
     filteredProducts = allProducts.filter(product => {
         // Apply search filter
-        let matchesSearch = true;
         if (searchQuery) {
-            matchesSearch = product.name.toLowerCase().includes(searchQuery) ||
+            return product.name.toLowerCase().includes(searchQuery) ||
                 product.versions.some(v => v.version.toLowerCase().includes(searchQuery));
         }
-
-        // Apply date filter
-        let matchesDate = true;
-        if (dateFilterActive) {
-            matchesDate = product.versions.some(version => {
-                const versionDate = new Date(version.generatedAt);
-                if (dateFrom && versionDate < dateFrom) return false;
-                if (dateTo && versionDate > dateTo) return false;
-                return true;
-            });
-        }
-
-        return matchesSearch && matchesDate;
+        return true;
     });
 
     // Re-apply current sort
