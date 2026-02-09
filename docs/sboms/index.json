@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-09T00:07:06Z",
+  "generated": "2026-02-09T00:16:17Z",
   "products": [
     {
       "name": "Contrast CLI Linux",
@@ -209,61 +209,61 @@
       "versions": [
         {
           "version": "51.5.1",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.5.0",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.4.0",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.3.2",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.3.1",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.3.0",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.5",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.4",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.3",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.2",
-          "generatedAt": "2026-02-08T19:05:13Z",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -276,61 +276,61 @@
       "versions": [
         {
           "version": "5.0.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.0.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.8.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.7.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.6.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.2",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.1",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.0",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.4.5",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.4.4",
-          "generatedAt": "2026-02-08T18:53:04Z",
+          "generatedAt": "2026-02-08T19:05:13Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]

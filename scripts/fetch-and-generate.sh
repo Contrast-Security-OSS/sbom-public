@@ -39,9 +39,9 @@ validate_config() {
     echo "  Found $product_count products"
 
     # Validate each product
-    local seen_names=()
+    SEEN_NAMES=()
     for ((i=0; i<product_count; i++)); do
-        validate_product "$i" seen_names
+        validate_product "$i"
     done
 
     echo -e "${GREEN}✓ Configuration valid${NC}"
@@ -49,7 +49,6 @@ validate_config() {
 
 validate_product() {
     local index=$1
-    local -n seen=$2
 
     local name=$(yq eval ".products[$index].name" "$CONFIG_FILE")
     local source=$(yq eval ".products[$index].source" "$CONFIG_FILE")
@@ -83,14 +82,16 @@ validate_product() {
         exit 1
     fi
 
-    # Check for duplicate names
-    for seen_name in "${seen[@]}"; do
-        if [[ "$seen_name" == "$name" ]]; then
-            echo -e "${RED}ERROR: Duplicate product name: $name${NC}"
-            exit 1
-        fi
-    done
-    seen+=("$name")
+    # Check for duplicate names using global array
+    if [[ ${#SEEN_NAMES[@]} -gt 0 ]]; then
+        for seen_name in "${SEEN_NAMES[@]}"; do
+            if [[ "$seen_name" == "$name" ]]; then
+                echo -e "${RED}ERROR: Duplicate product name: $name${NC}"
+                exit 1
+            fi
+        done
+    fi
+    SEEN_NAMES+=("$name")
 
     # Validate source-specific fields
     case "$source" in
@@ -151,9 +152,24 @@ validate_product() {
 
 sanitize_slug() {
     local name="$1"
+    # Replace ".NET" with "dotnet" to avoid leading dot in slug
+    name="${name//.NET/dotnet}"
+    name="${name//.Net/dotnet}"
     # Keep only alphanumeric, spaces, hyphens, and dots
     # Convert to lowercase, replace spaces with hyphens, remove leading/trailing hyphens
-    echo "$name" | tr -cd 'a-zA-Z0-9 .-' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed 's/^-*//' | sed 's/-*$//' | sed 's/--*/-/g'
+    echo "$name" | tr -cd 'a-zA-Z0-9 .-' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed 's/^-*//' | sed 's/-*$//' | sed 's/--*/-/g' | sed 's/^\.//'
+}
+
+check_sbom_exists() {
+    local slug="$1"
+    local version="$2"
+
+    # Check if both SBOM files exist for this version
+    if [[ -f "$SBOM_DIR/$slug/$version/sbom.spdx.json" ]] && [[ -f "$SBOM_DIR/$slug/$version/sbom.cyclonedx.json" ]]; then
+        return 0  # exists
+    else
+        return 1  # doesn't exist
+    fi
 }
 
 # ============================================================================
@@ -259,6 +275,12 @@ fetch_s3() {
             version=$(echo "$filename" | sed 's/\.[^.]*$//' | sed 's/.*-//')
         fi
 
+        # Check if SBOM already exists for this version
+        if check_sbom_exists "$slug" "$version"; then
+            echo "    Version: $version - SBOM already exists, skipping" >&2
+            continue
+        fi
+
         echo "    Version: $version - $filename" >&2
 
         # Download
@@ -309,6 +331,12 @@ fetch_maven() {
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
 
+        # Check if SBOM already exists for this version
+        if check_sbom_exists "$slug" "$version"; then
+            echo "    Version: $version - SBOM already exists, skipping" >&2
+            continue
+        fi
+
         local filename="${artifact_id}-${version}.jar"
         local download_url="${maven_base}/${version}/${filename}"
         local download_path="$TEMP_DIR/$slug-$version-${filename}"
@@ -356,6 +384,12 @@ fetch_npm() {
     # Download each version
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
+
+        # Check if SBOM already exists for this version
+        if check_sbom_exists "$slug" "$version"; then
+            echo "    Version: $version - SBOM already exists, skipping" >&2
+            continue
+        fi
 
         # Get tarball URL for this version
         local tarball_url=$(echo "$metadata" | jq -r ".versions[\"$version\"].dist.tarball")
@@ -411,6 +445,12 @@ fetch_pypi() {
     # Download each version
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
+
+        # Check if SBOM already exists for this version
+        if check_sbom_exists "$slug" "$version"; then
+            echo "    Version: $version - SBOM already exists, skipping" >&2
+            continue
+        fi
 
         # Get source distribution (sdist) URL for this version
         # Prefer .tar.gz source distributions for SBOM generation
@@ -475,6 +515,12 @@ fetch_nuget() {
     # Download each version
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
+
+        # Check if SBOM already exists for this version
+        if check_sbom_exists "$slug" "$version"; then
+            echo "    Version: $version - SBOM already exists, skipping" >&2
+            continue
+        fi
 
         # Construct NuGet package URL
         # Format: https://api.nuget.org/v3-flatcontainer/{id-lower}/{version}/{id-lower}.{version}.nupkg
@@ -562,6 +608,12 @@ fetch_artifactory() {
     # For each version folder, list files and download matches
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
+
+        # Check if SBOM already exists for this version
+        if check_sbom_exists "$slug" "$version"; then
+            echo "    Version: $version - SBOM already exists, skipping" >&2
+            continue
+        fi
 
         # Construct path based on whether platform_subdir exists
         local version_path

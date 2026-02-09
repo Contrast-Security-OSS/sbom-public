@@ -1,6 +1,6 @@
 {
   "name": ".NET Agent",
-  "slug": ".net-agent",
+  "slug": "dotnet-agent",
   "source": "nuget",
-  "generatedAt": "2026-02-08T23:47:40Z"
+  "generatedAt": "2026-02-09T00:16:29Z"
 }
