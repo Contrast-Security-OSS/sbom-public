@@ -33,8 +33,8 @@ This repository automatically generates and publishes SBOMs for Contrast Securit
 | **Contrast CLI Windows** | 10 | Artifactory (public) | ✅ Active |
 | **Node Agent** | 10 | npm | ✅ Active |
 | **Python Agent** | 10 | PyPI | ✅ Active |
-| **.NET Agent** | 10 | NuGet | ✅ Active |
-| **.NET Agent IIS Installer** | 10 | NuGet | ✅ Active |
+| **DotNet Core Agent** | 10 | NuGet | ✅ Active |
+| **DotNet Core IIS Installer** | 10 | NuGet | ✅ Active |
 
 ## Architecture
 
@@ -154,7 +154,7 @@ products:
     max_versions: 10
 
   # NuGet registry example
-  - name: ".NET Agent"
+  - name: "DotNet Core Agent"
     source: "nuget"
     nuget_package: "Contrast.SensorsNetCore"
     max_versions: 10

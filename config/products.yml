@@ -32,12 +32,12 @@ products:
   #   artifact_pattern: "contrast-flex-agent*"
   #   max_versions: 10
 
-  - name: ".NET Agent"
+  - name: "DotNet Core Agent"
     source: "nuget"
     nuget_package: "Contrast.SensorsNetCore"
     max_versions: 10
 
-  - name: ".NET Agent IIS Installer"
+  - name: "DotNet Core IIS Installer"
     source: "nuget"
     nuget_package: "Contrast.FrameworkIIS.Installer"
     max_versions: 10

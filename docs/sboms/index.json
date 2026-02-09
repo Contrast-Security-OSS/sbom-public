@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-09T00:16:17Z",
+  "generated": "2026-02-09T00:19:27Z",
   "products": [
     {
       "name": "Contrast CLI Linux",
@@ -203,75 +203,8 @@
     }
 ,
     {
-      "name": ".NET Agent IIS Installer",
-      "slug": "dotnet-agent-iis-installer",
-      "source": "nuget",
-      "versions": [
-        {
-          "version": "51.5.1",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.5.0",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.4.0",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.3.2",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.3.1",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.3.0",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.2.5",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.2.4",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.2.3",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-,
-        {
-          "version": "51.2.2",
-          "generatedAt": "2026-02-08T19:16:11Z",
-          "formats": ["spdx","cyclonedx"]
-        }
-      ]
-    }
-,
-    {
-      "name": ".NET Agent",
-      "slug": "dotnet-agent",
+      "name": "DotNet Core Agent",
+      "slug": "dotnet-core-agent",
       "source": "nuget",
       "versions": [
         {
@@ -331,6 +264,73 @@
         {
           "version": "4.4.4",
           "generatedAt": "2026-02-08T19:05:13Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+      ]
+    }
+,
+    {
+      "name": "DotNet Core IIS Installer",
+      "slug": "dotnet-core-iis-installer",
+      "source": "nuget",
+      "versions": [
+        {
+          "version": "51.5.1",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.5.0",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.4.0",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.3.2",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.3.1",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.3.0",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.2.5",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.2.4",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.2.3",
+          "generatedAt": "2026-02-08T19:16:11Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
+          "version": "51.2.2",
+          "generatedAt": "2026-02-08T19:16:11Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
