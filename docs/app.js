@@ -8,6 +8,16 @@ let dateFrom = null;
 let dateTo = null;
 let sortOrder = 'desc'; // 'asc' or 'desc'
 
+// Language logo mapping (using transparent PNGs from CDNs)
+const languageLogos = {
+    'Java Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+    'Python Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    'Node Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+    'Go Agent (Linux AMD64)': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+    'DotNet Core Agent': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg',
+    'DotNet Core IIS Installer': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg'
+};
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
     await loadProducts();
@@ -319,11 +329,15 @@ function renderProducts() {
 function renderProductCard(product) {
     const isExpanded = expandedProducts.has(product.name);
     const latestVersion = product.versions[0];
+    const logo = languageLogos[product.name];
 
     return `
         <div class="product-card">
             <div class="product-header">
-                <h2 class="product-name">${escapeHtml(product.name)}</h2>
+                <h2 class="product-name">
+                    ${logo ? `<img src="${logo}" alt="${escapeHtml(product.name)} logo" class="product-logo" />` : ''}
+                    ${escapeHtml(product.name)}
+                </h2>
                 <div class="product-meta">
                     <span class="meta-badge">
                         📦 ${product.versions.length} version${product.versions.length !== 1 ? 's' : ''}

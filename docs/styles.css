@@ -540,6 +540,16 @@ body {
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.product-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .product-meta {
