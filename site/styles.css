@@ -491,12 +491,14 @@ body {
 .version-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1rem;
     padding: 1rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: 10px;
     transition: var(--transition);
+    flex-wrap: wrap;
 }
 
 .version-item:hover {
@@ -506,6 +508,7 @@ body {
 
 .version-info {
     flex: 1;
+    min-width: 150px;
 }
 
 .version-number {
@@ -522,6 +525,8 @@ body {
 .version-actions {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .btn-icon {
