@@ -4,8 +4,8 @@ on:
   # Allow manual trigger
   workflow_dispatch:
   # Can also be triggered on schedule
-  # schedule:
-  #   - cron: '0 3 * * 1' # Weekly on Monday at 3 AM UTC
+  schedule:
+    - cron: '0 3 * * 1' # Weekly on Monday at 3 AM UTC
 
 permissions:
   contents: write
