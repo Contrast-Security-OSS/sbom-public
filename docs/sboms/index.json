@@ -1,81 +1,87 @@
 {
-  "generated": "2026-03-23T03:59:20Z",
+  "generated": "2026-03-30T04:07:42Z",
   "products": [
     {
       "name": "DotNet Core Agent",
       "slug": "dotnet-core-agent",
       "source": "nuget",
-      "downloadCount": 2296175,
+      "downloadCount": 2306274,
       "versions": [
         {
+          "version": "5.0.4",
+          "generatedAt": "2026-03-30T04:07:16Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
           "version": "5.0.3",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.0.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.0.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.0.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.8.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.7.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.6.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.5.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.4.5",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "4.4.4",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -85,77 +91,83 @@
       "name": "DotNet Core IIS Installer",
       "slug": "dotnet-core-iis-installer",
       "source": "nuget",
-      "downloadCount": 239705,
+      "downloadCount": 245013,
       "versions": [
         {
+          "version": "51.5.4",
+          "generatedAt": "2026-03-30T04:07:35Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
           "version": "51.5.3",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.5.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.5.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.5.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.4.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.3.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.3.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.3.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.5",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.4",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.3",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "51.2.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -169,79 +181,79 @@
       "versions": [
         {
           "version": "3.12.10",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.9",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.8",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.7",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.6",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.5",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.4-PATCH",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.4",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.3",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.12.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "3.11.11",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -255,67 +267,67 @@
       "versions": [
         {
           "version": "1.11.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.10.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.9.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.8.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.7.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.6.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.5.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.4.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.3.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "1.2.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "latest",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -328,68 +340,74 @@
       "downloadCount": 0,
       "versions": [
         {
+          "version": "9.3.0",
+          "generatedAt": "2026-03-30T04:07:39Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
           "version": "9.2.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "9.1.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "9.0.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.7.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.6.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.5.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.4.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.3.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.2.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.1.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "8.0.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -403,73 +421,73 @@
       "versions": [
         {
           "version": "6.27.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.26.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.25.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.25.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.24.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.23.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.22.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.22.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.21.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.20.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.19.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "6.18.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -479,77 +497,83 @@
       "name": "Node Agent",
       "slug": "node-agent",
       "source": "npm",
-      "downloadCount": 365745,
+      "downloadCount": 367845,
       "versions": [
         {
+          "version": "5.53.0",
+          "generatedAt": "2026-03-30T04:07:41Z",
+          "formats": ["spdx","cyclonedx"]
+        }
+,
+        {
           "version": "5.52.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.52.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.51.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.50.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.50.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.49.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.48.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.47.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.46.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.45.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.45.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "5.44.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
@@ -563,73 +587,73 @@
       "versions": [
         {
           "version": "10.26.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.25.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.24.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.23.1",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.23.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.22.2",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.22.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.21.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.20.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.19.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.18.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
 ,
         {
           "version": "10.17.0",
-          "generatedAt": "2026-03-23T03:59:05Z",
+          "generatedAt": "2026-03-30T04:06:46Z",
           "formats": ["spdx","cyclonedx"]
         }
       ]
