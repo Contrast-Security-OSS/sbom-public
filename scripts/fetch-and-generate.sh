@@ -381,7 +381,12 @@ fetch_npm() {
     local count=$(echo "$versions" | wc -l | tr -d ' ')
     echo "  Found $count version(s)" >&2
 
-    # Download each version
+    # Install each version so syft can scan the full node_modules tree.
+    # Strategy: extract the npm tarball (which contains the package's real
+    # package.json with correct name/version), then run npm install inside it.
+    # This ensures syft identifies the root component as @contrast/agent (not a
+    # synthetic wrapper), producing a well-formed SBOM with a correct root purl.
+    local npm_install_failed=0
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
 
@@ -393,23 +398,62 @@ fetch_npm() {
 
         # Get tarball URL for this version
         local tarball_url=$(echo "$metadata" | jq -r ".versions[\"$version\"].dist.tarball")
-
         if [[ -z "$tarball_url" || "$tarball_url" == "null" ]]; then
             echo -e "${YELLOW}    Version $version: No tarball URL found${NC}" >&2
             continue
         fi
 
-        local filename=$(basename "$tarball_url")
-        local download_path="$TEMP_DIR/$slug-$version-$filename"
+        local extract_dir="$TEMP_DIR/$slug-$version-extract"
+        local tarball_path="$TEMP_DIR/$slug-$version.tgz"
+        mkdir -p "$extract_dir"
 
-        echo "    Version: $version - $filename" >&2
+        echo "    Version: $version - downloading and installing" >&2
 
-        if curl -f -s "$tarball_url" -o "$download_path"; then
-            echo "$download_path|$version"
+        # Download tarball
+        if ! curl -f -s "$tarball_url" -o "$tarball_path"; then
+            echo -e "${YELLOW}      Failed to download tarball${NC}" >&2
+            rm -rf "$extract_dir" "$tarball_path"
+            continue
+        fi
+
+        # Extract — npm tarballs always unpack into a "package/" subdirectory
+        tar xzf "$tarball_path" -C "$extract_dir" 2>/dev/null
+        rm -f "$tarball_path"
+
+        local pkg_dir="$extract_dir/package"
+        if [[ ! -f "$pkg_dir/package.json" ]]; then
+            echo -e "${YELLOW}      No package.json found after extraction${NC}" >&2
+            rm -rf "$extract_dir"
+            continue
+        fi
+
+        # Install production deps inside the extracted package dir.
+        # --ignore-scripts suppresses lifecycle hooks (preinstall/postinstall);
+        # it is a risk-reduction measure, not a full sandbox.
+        # Redirect all npm output to /dev/null — stdout would otherwise
+        # pollute the artifacts stream captured by the caller.
+        if npm install \
+            --prefix "$pkg_dir" \
+            --omit=dev \
+            --ignore-scripts \
+            --no-audit \
+            --no-fund \
+            > /dev/null 2>&1; then
+            # Pass extract_dir (not pkg_dir) so the parent directory is fully
+            # removed when the main loop calls rm -rf on the artifact path.
+            # syft receives pkg_dir as a subdirectory of extract_dir.
+            echo "$extract_dir|$version|$pkg_dir"
         else
-            echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
+            echo -e "${RED}      ERROR: npm install failed for ${package_name}@${version}${NC}" >&2
+            rm -rf "$extract_dir"
+            npm_install_failed=1
         fi
     done <<< "$versions"
+
+    if [[ "$npm_install_failed" -ne 0 ]]; then
+        echo -e "${RED}ERROR: One or more npm installs failed for ${name}${NC}" >&2
+        exit 1
+    fi
 }
 
 fetch_pypi() {
@@ -442,7 +486,11 @@ fetch_pypi() {
     local count=$(echo "$versions" | wc -l | tr -d ' ')
     echo "  Found $count version(s)" >&2
 
-    # Download each version
+    # Install each version so syft can scan the full installed package tree.
+    # Downloading the sdist gives syft source files but no dependency metadata —
+    # pip install --target captures all transitive deps with their dist-info
+    # directories, which syft's python-installed-package-cataloger reads.
+    local pip_install_failed=0
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
 
@@ -452,31 +500,32 @@ fetch_pypi() {
             continue
         fi
 
-        # Get source distribution (sdist) URL for this version
-        # Prefer .tar.gz source distributions for SBOM generation
-        local dist_url=$(echo "$metadata" | jq -r ".releases[\"$version\"][] | select(.packagetype == \"sdist\") | .url" | head -1)
+        local install_dir="$TEMP_DIR/$slug-$version-install"
+        mkdir -p "$install_dir"
 
-        if [[ -z "$dist_url" || "$dist_url" == "null" ]]; then
-            # Fallback to wheel if no sdist available
-            dist_url=$(echo "$metadata" | jq -r ".releases[\"$version\"][] | select(.packagetype == \"bdist_wheel\") | .url" | head -1)
-        fi
+        echo "    Version: $version - installing to capture dependency tree" >&2
 
-        if [[ -z "$dist_url" || "$dist_url" == "null" ]]; then
-            echo -e "${YELLOW}    Version $version: No distribution URL found${NC}" >&2
-            continue
-        fi
-
-        local filename=$(basename "$dist_url")
-        local download_path="$TEMP_DIR/$slug-$version-$filename"
-
-        echo "    Version: $version - $filename" >&2
-
-        if curl -f -s "$dist_url" -o "$download_path"; then
-            echo "$download_path|$version"
+        # --target installs into a flat directory with .dist-info metadata.
+        # --no-compile skips .pyc generation (faster, saves space).
+        # --no-deps is intentionally NOT used — we want transitive deps.
+        if pip install \
+            "${package_name}==${version}" \
+            --target "$install_dir" \
+            --no-compile \
+            --quiet \
+            > /dev/null 2>&1; then
+            echo "$install_dir|$version"
         else
-            echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
+            echo -e "${RED}      ERROR: pip install failed for ${package_name}==${version}${NC}" >&2
+            rm -rf "$install_dir"
+            pip_install_failed=1
         fi
     done <<< "$versions"
+
+    if [[ "$pip_install_failed" -ne 0 ]]; then
+        echo -e "${RED}ERROR: One or more pip installs failed for ${name}${NC}" >&2
+        exit 1
+    fi
 }
 
 fetch_nuget() {
@@ -512,7 +561,11 @@ fetch_nuget() {
     local count=$(echo "$versions" | wc -l | tr -d ' ')
     echo "  Found $count version(s)" >&2
 
-    # Download each version
+    # Download and extract each version. syft does not treat .nupkg as an
+    # archive to unpack — passing the file directly yields 0 components.
+    # Extracting first (nupkg is a zip) gives syft direct access to the
+    # bundled DLLs, which the dotnet-portable-executable-cataloger reads.
+    local nuget_failed=0
     while IFS= read -r version; do
         [[ -z "$version" ]] && continue
 
@@ -526,16 +579,32 @@ fetch_nuget() {
         # Format: https://api.nuget.org/v3-flatcontainer/{id-lower}/{version}/{id-lower}.{version}.nupkg
         local package_url="https://api.nuget.org/v3-flatcontainer/${package_id_lower}/${version}/${package_id_lower}.${version}.nupkg"
         local filename="${package_name}.${version}.nupkg"
-        local download_path="$TEMP_DIR/$slug-$version-$filename"
+        local nupkg_path="$TEMP_DIR/$slug-$version-$filename"
+        local extract_dir="$TEMP_DIR/$slug-$version-extract"
 
         echo "    Version: $version - $filename" >&2
 
-        if curl -f -s "$package_url" -o "$download_path"; then
-            echo "$download_path|$version"
-        else
+        if ! curl -f -s "$package_url" -o "$nupkg_path"; then
             echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
+            continue
+        fi
+
+        mkdir -p "$extract_dir"
+        if unzip -q "$nupkg_path" -d "$extract_dir" 2>/dev/null; then
+            rm -f "$nupkg_path"
+            echo "$extract_dir|$version"
+        else
+            echo -e "${RED}      ERROR: Failed to extract $filename${NC}" >&2
+            rm -f "$nupkg_path"
+            rm -rf "$extract_dir"
+            nuget_failed=1
         fi
     done <<< "$versions"
+
+    if [[ "$nuget_failed" -ne 0 ]]; then
+        echo -e "${RED}ERROR: One or more NuGet extractions failed for ${name}${NC}" >&2
+        exit 1
+    fi
 }
 
 fetch_artifactory() {
@@ -579,7 +648,7 @@ fetch_artifactory() {
     if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
         listing=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$storage_url" 2>/dev/null || echo '{}')
     elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
-        listing=$(curl -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$storage_url" 2>/dev/null || echo '{}')
+        listing=$(curl -s -u "$ARTIFACTORY_USER:${ARTIFACTORY_PASSWORD:-}" "$storage_url" 2>/dev/null || echo '{}')
     else
         listing=$(curl -s "$storage_url" 2>/dev/null || echo '{}')
     fi
@@ -630,7 +699,7 @@ fetch_artifactory() {
         if [[ -n "${ARTIFACTORY_TOKEN:-}" ]]; then
             files=$(curl -s -H "X-JFrog-Art-Api: $ARTIFACTORY_TOKEN" "$version_url" 2>/dev/null || echo '{}')
         elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
-            files=$(curl -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$version_url" 2>/dev/null || echo '{}')
+            files=$(curl -s -u "$ARTIFACTORY_USER:${ARTIFACTORY_PASSWORD:-}" "$version_url" 2>/dev/null || echo '{}')
         else
             files=$(curl -s "$version_url" 2>/dev/null || echo '{}')
         fi
@@ -659,7 +728,7 @@ fetch_artifactory() {
                     download_success=true
                 fi
             elif [[ -n "${ARTIFACTORY_USER:-}" ]]; then
-                if curl -f -s -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" "$download_url" -o "$download_path" 2>/dev/null; then
+                if curl -f -s -u "$ARTIFACTORY_USER:${ARTIFACTORY_PASSWORD:-}" "$download_url" -o "$download_path" 2>/dev/null; then
                     download_success=true
                 fi
             else
@@ -670,7 +739,15 @@ fetch_artifactory() {
             fi
 
             if [[ "$download_success" == "true" ]]; then
-                echo "$download_path|$version"
+                # Validate the downloaded file is non-empty — a 0-byte file means
+                # the download silently failed (e.g. auth error body was empty,
+                # or redirect produced no content). Scanning it yields a useless SBOM.
+                if [[ ! -s "$download_path" ]]; then
+                    echo -e "${RED}      ERROR: Downloaded $filename is empty (0 bytes) — skipping${NC}" >&2
+                    rm -f "$download_path"
+                else
+                    echo "$download_path|$version"
+                fi
             else
                 echo -e "${YELLOW}      Failed to download $filename${NC}" >&2
             fi
@@ -808,27 +885,31 @@ main() {
                 artifacts=$(fetch_maven "$product_json" "$slug")
                 ;;
             npm)
-                artifacts=$(fetch_npm "$product_json" "$slug")
+                artifacts=$(fetch_npm "$product_json" "$slug") || exit 1
                 ;;
             pypi)
-                artifacts=$(fetch_pypi "$product_json" "$slug")
+                artifacts=$(fetch_pypi "$product_json" "$slug") || exit 1
                 ;;
             nuget)
-                artifacts=$(fetch_nuget "$product_json" "$slug")
+                artifacts=$(fetch_nuget "$product_json" "$slug") || exit 1
                 ;;
             artifactory)
                 artifacts=$(fetch_artifactory "$product_json" "$slug")
                 ;;
         esac
 
-        # Generate SBOMs for each artifact
+        # Generate SBOMs for each artifact.
+        # Most sources emit:   artifact_path|version
+        # npm emits:           extract_dir|version|scan_path
+        # artifact_path is always what gets cleaned up; scan_path (if present)
+        # is what syft actually scans (a subdirectory of artifact_path).
         if [[ -n "$artifacts" ]]; then
-            while IFS='|' read -r artifact_path version; do
+            while IFS='|' read -r artifact_path version scan_path; do
                 [[ -z "$artifact_path" ]] && continue
+                local target="${scan_path:-$artifact_path}"
                 echo "    Generating SBOM for version: $version"
-                generate_sboms_for_artifact "$artifact_path" "$version" "$slug"
-                # Clean up artifact
-                rm -f "$artifact_path"
+                generate_sboms_for_artifact "$target" "$version" "$slug"
+                rm -rf "$artifact_path"
             done <<< "$artifacts"
         else
             echo -e "${YELLOW}  No artifacts fetched${NC}"

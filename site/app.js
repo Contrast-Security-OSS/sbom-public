@@ -839,7 +839,7 @@ function renderVersionItem(product, version) {
                 ${hasCyclonedx ? `
                     <button
                         class="btn-icon"
-                        onclick="viewDependencyTree('${escapeHtml(cyclonedxUrl)}', '${escapeHtml(product.name)}', '${escapeHtml(version.version)}')"
+                        onclick="viewDependencyTree('${escapeHtml(cyclonedxUrl)}', '${escapeHtml(product.name)}', '${escapeHtml(version.version)}', '${escapeHtml(product.source)}')"
                         title="View interactive dependency tree"
                         aria-label="View dependency tree for ${escapeHtml(product.name)} ${escapeHtml(version.version)}"
                     >
@@ -989,7 +989,7 @@ let treeSearchSuggestions = [];
 let activeTreeSuggestionIndex = -1;
 
 // View dependency tree
-async function viewDependencyTree(sbomUrl, productName, version) {
+async function viewDependencyTree(sbomUrl, productName, version, source) {
     const modal = document.getElementById('tree-modal');
     const modalTitle = document.getElementById('tree-modal-title');
     const treeContent = document.getElementById('tree-content');
@@ -1089,9 +1089,11 @@ function parseCycloneDX(sbom, productName, version) {
     const components = sbom.components || [];
     const dependencies = sbom.dependencies || [];
 
+    // Key by bom-ref first: syft's dependency refs use bom-ref format
+    // (purl + ?package-id=...) which plain purl omits, causing lookups to miss.
     const componentMap = new Map();
     components.forEach(comp => {
-        const ref = comp.purl || comp['bom-ref'] || comp.name;
+        const ref = comp['bom-ref'] || comp.purl || comp.name;
         componentMap.set(ref, {
             name: comp.name,
             version: comp.version || 'unknown',
@@ -1102,9 +1104,19 @@ function parseCycloneDX(sbom, productName, version) {
         });
     });
 
+    // When syft scans a directory, metadata.component is the scan path (no purl,
+    // hash bom-ref) — not the npm package. Validate the ref exists in the
+    // dependencies list; if not, find the true root topologically.
     let rootRef = null;
     if (sbom.metadata && sbom.metadata.component) {
         rootRef = sbom.metadata.component.purl || sbom.metadata.component['bom-ref'] || sbom.metadata.component.name;
+    }
+
+    if (!rootRef || !dependencies.some(d => d.ref === rootRef)) {
+        const allDependsOn = new Set();
+        dependencies.forEach(dep => (dep.dependsOn || []).forEach(r => allDependsOn.add(r)));
+        const topLevel = dependencies.find(d => !allDependsOn.has(d.ref));
+        if (topLevel) rootRef = topLevel.ref;
     }
 
     if (!rootRef && dependencies.length > 0) {
@@ -1112,7 +1124,7 @@ function parseCycloneDX(sbom, productName, version) {
     }
 
     if (!rootRef && components.length > 0) {
-        rootRef = components[0].purl || components[0]['bom-ref'] || components[0].name;
+        rootRef = components[0]['bom-ref'] || components[0].purl || components[0].name;
     }
 
     const root = {
@@ -1161,19 +1173,31 @@ function parseCycloneDX(sbom, productName, version) {
     }
 
     if (dependencies.length > 0) {
-        const rootDep = dependencies.find(d => d.ref === rootRef);
-        if (rootDep && rootDep.dependsOn) {
-            rootDep.dependsOn.forEach(depRef => {
-                const childNode = buildTree(depRef, 1);
-                if (childNode) {
-                    root.children.push(childNode);
-                }
-            });
-        }
+        // Expand ALL topological roots, not just the first one. Artifacts like
+        // DotNet packages produce multiple disconnected subgraphs (one per
+        // assembly/deps.json); picking only the first root silently drops the rest.
+        const allDependsOnRefs = new Set();
+        dependencies.forEach(dep => (dep.dependsOn || []).forEach(r => allDependsOnRefs.add(r)));
+        const rootDeps = dependencies.filter(d => !allDependsOnRefs.has(d.ref));
+
+        rootDeps.forEach(rootDep => {
+            if (rootDep && rootDep.dependsOn) {
+                rootDep.dependsOn.forEach(depRef => {
+                    const childNode = buildTree(depRef, 1);
+                    if (childNode) {
+                        root.children.push(childNode);
+                    }
+                });
+            }
+        });
     }
 
-    if (root.children.length === 0 && components.length > 0) {
-        components.slice(0, 100).forEach((comp, i) => {
+    // Append any components not reachable through the dependency graph.
+    // These are leaf assemblies syft found via binary/PE scanning but couldn't
+    // connect to a dependency root (common in DotNet nupkg scans).
+    components.forEach((comp, i) => {
+        const ref = comp['bom-ref'] || comp.purl || comp.name;
+        if (!processedRefs.has(ref)) {
             root.children.push({
                 name: comp.name,
                 version: comp.version || 'unknown',
@@ -1185,8 +1209,24 @@ function parseCycloneDX(sbom, productName, version) {
                 children: [],
                 id: `${comp.name}@${comp.version || 'unknown'}-1-${i}`
             });
+        }
+    });
+
+    // Deduplicate nodes with identical name@version at each tree level.
+    // Common in DotNet nupkg scans where syft's PE cataloger emits one entry
+    // per platform-specific DLL that all embed the same product name/version.
+    function deduplicateChildren(node) {
+        if (!node.children || node.children.length === 0) return;
+        const seen = new Map();
+        node.children = node.children.filter(child => {
+            const key = `${child.name}@${child.version}`;
+            if (seen.has(key)) return false;
+            seen.set(key, true);
+            return true;
         });
+        node.children.forEach(deduplicateChildren);
     }
+    deduplicateChildren(root);
 
     return root;
 }
